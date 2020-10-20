@@ -34,15 +34,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 582453374706178025}
-  - {fileID: 1696213772037683599}
+  - {fileID: 8582548310532491229}
   EditorEvents:
   - {fileID: 4101199147152524821}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 1696213772037683599}
+  - {fileID: 8582548310532491229}
   StringsBanks:
   - {fileID: 582453374706178025}
-  stringsBankWriteTime: 637382835301390926
+  stringsBankWriteTime: 637388047528326372
   cacheVersion: 3
 --- !u!114 &582453374706178025
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../DarkSounds/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637382835301390926
+  lastModified: 637388047528326372
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -83,7 +83,25 @@ MonoBehaviour:
   lastModified: 637382835301390926
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
+--- !u!114 &2070307380982122756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../DarkSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637388047337470103
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &2365551687761598776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +120,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &3892675693289898184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../DarkSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637388040633254170
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &4101199147152524821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,14 +153,14 @@ MonoBehaviour:
   Path: event:/TestEvent
   guid: bafd1a857a17b140a1761124874871bc
   Banks:
-  - {fileID: 1696213772037683599}
-  IsStream: 0
+  - {fileID: 8582548310532491229}
+  IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 14811
 --- !u!114 &4329956214820751913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +215,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &8582548310532491229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../DarkSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637388047528296436
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &8950564792542802197
 MonoBehaviour:
   m_ObjectHideFlags: 0
