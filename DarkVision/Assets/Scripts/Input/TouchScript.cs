@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using Mouse = UnityEngine.InputSystem.Mouse;
+using static UnityEngine.InputSystem.InputAction;
 
 public class TouchScript : MonoBehaviour
 {
@@ -23,16 +24,19 @@ public class TouchScript : MonoBehaviour
 
 	void TouchInput()
 	{
-		if (Touch.activeFingers.Count > 0)
+
+		var touches = Touch.activeTouches;
+
+		if (touches.Count > 0)
 		{
-			gameObject.transform.position = Touch.activeFingers[0].currentTouch.screenPosition;
-			MovePlayer(Touch.activeFingers[0].currentTouch.delta);
+			gameObject.transform.localPosition = touches[0].screenPosition;
+			MovePlayer(touches[0].delta);
 			return;
 		}
 
 		if (Mouse.current.leftButton.isPressed)
 		{
-			gameObject.transform.position = Mouse.current.position.ReadValue() * Scale - Offset;
+			gameObject.transform.localPosition = Mouse.current.position.ReadValue() * Scale - Offset;
 
 			if (!Mouse.current.leftButton.wasPressedThisFrame)
 				MovePlayer(Mouse.current.delta.ReadValue());
@@ -54,4 +58,16 @@ public class TouchScript : MonoBehaviour
 		Player.MovePosition(Player.position + new Vector3(delta.x * PlayerSpeed.x, 0, delta.y * PlayerSpeed.y));
 
 	}
+
+
+	public void OnFirstfinger(CallbackContext c)
+	{
+		Debug.Log("first finger: " + c.ToString());
+	}
+
+	public void OnSecondfinger(CallbackContext c)
+	{
+		Debug.Log("second finger: " + c.ToString());
+	}
+
 }
