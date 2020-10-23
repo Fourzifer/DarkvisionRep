@@ -11,12 +11,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 	}
 
 	public void MoveAbsolute(float x, float z) {
-		rb.MovePosition(new Vector3(x, rb.position.y, z));
+		rb.MovePosition(
+			// transform.parent.position +
+			// transform.localRotation * 
+			new Vector3(x, transform.localPosition.y, z)
+			);
 	}
 
 	public void MoveRelative(float x, float z) {
-		var rbPos = rb.position;
-		MoveAbsolute(rbPos.x + x, rbPos.z + z);
+		var rbPos = transform.localPosition;
+		var delta = transform.localRotation * new Vector3(x, 0, z);
+		MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
 	}
 
 	public void Rotate(float degrees) {

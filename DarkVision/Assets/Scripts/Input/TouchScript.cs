@@ -36,15 +36,17 @@ public class TouchScript : MonoBehaviour {
 
 		Touch touch = Input.GetTouch(0);
 
-		if (touch.phase == TouchPhase.Began) {
-			mainTouchPosBuffer = touch.position;
-		}
+		switch (touch.phase) {
+			case TouchPhase.Began:
+				mainTouchPosBuffer = touch.position;
+				break;
+			case TouchPhase.Moved: {
+					Vector2 delta = touch.position - mainTouchPosBuffer;
+					MovePlayer(delta);
+					mainTouchPosBuffer = touch.position;
+				}
+				break;
 
-		// Move the cube if the screen has the finger moving.
-		if (touch.phase == TouchPhase.Moved) {
-			Vector2 delta = touch.position - mainTouchPosBuffer;
-			MovePlayer(delta);
-			mainTouchPosBuffer = touch.position;
 		}
 
 		transform.localPosition = new Vector3(
@@ -52,6 +54,7 @@ public class TouchScript : MonoBehaviour {
 			mainTouchPosBuffer.y * Scale.y + Offset.y,
 			transform.localPosition.z
 		);
+
 
 		if (Input.touchCount == 2) {
 			touch = Input.GetTouch(1);
@@ -95,6 +98,7 @@ public class TouchScript : MonoBehaviour {
 		}
 
 		Player.MoveRelative(delta.x * PlayerSpeed.x, delta.y * PlayerSpeed.y);
+		
 
 	}
 
