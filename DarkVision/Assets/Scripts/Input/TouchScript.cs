@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TouchScript : MonoBehaviour {
 
+	public bool AllowRotation = false;
+
+	[Space]
 	public Vector2 Scale = Vector2.one;
 	public Vector2 Offset = Vector2.one;
 	public GameObject SecondTrail;
@@ -17,7 +20,7 @@ public class TouchScript : MonoBehaviour {
 	private Vector2 secondTouchPosBuffer;
 	private float angleBuffer = 0;
 
-	void Update() {
+	void FixedUpdate() {
 		TouchInput();
 	}
 
@@ -72,7 +75,8 @@ public class TouchScript : MonoBehaviour {
 						float angleDelta = angleBuffer - angle;
 						angleBuffer = angle;
 
-						Player.Rotate(angleDelta * PlayerRotMod);
+						if (AllowRotation)
+							Player.Rotate(angleDelta * PlayerRotMod);
 						// Debug.Log("rotated player " + angleDelta + " degrees");
 					}
 					break;
@@ -98,7 +102,7 @@ public class TouchScript : MonoBehaviour {
 		}
 
 		Player.MoveRelative(delta.x * PlayerSpeed.x, delta.y * PlayerSpeed.y);
-		
+
 
 	}
 
