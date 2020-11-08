@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0ed523385b22a4b978206f9c0dc68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KbdInput: 0
+  KbdSpeed: 10
 --- !u!114 &5483914667681035779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,9 +713,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de78c7988fb6734fb685d67f84dad32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowRotation: 0
   Scale: {x: 0.005, y: 0.005}
   Offset: {x: 2.5, y: 4}
   SecondTrail: {fileID: 0}
+  Sphere: {fileID: 0}
+  SecondSphere: {fileID: 0}
   Player: {fileID: 0}
   PlayerSpeed: {x: 0.01, y: 0.01}
   PlayerRotMod: 1
@@ -878,9 +883,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de78c7988fb6734fb685d67f84dad32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowRotation: 0
   Scale: {x: 0.005, y: 0.005}
   Offset: {x: -3, y: -3.5}
   SecondTrail: {fileID: 1210085257240959801}
+  Sphere: {fileID: 1210085257681425412}
+  SecondSphere: {fileID: 1210085257424365797}
   Player: {fileID: 1210085256135519695}
   PlayerSpeed: {x: 0.01, y: 0.01}
   PlayerRotMod: -10

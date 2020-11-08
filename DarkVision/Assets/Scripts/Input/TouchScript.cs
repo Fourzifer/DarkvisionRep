@@ -10,6 +10,8 @@ public class TouchScript : MonoBehaviour {
 	public Vector2 Scale = Vector2.one;
 	public Vector2 Offset = Vector2.one;
 	public GameObject SecondTrail;
+	public GameObject Sphere;
+	public GameObject SecondSphere;
 
 	[Space]
 	public PlayerCharacterScript Player;
@@ -34,8 +36,12 @@ public class TouchScript : MonoBehaviour {
 
 		int touchCount = Input.touchCount;
 
-		if (touchCount < 1)
+		if (touchCount < 1) {
+			Sphere?.SetActive(false);
 			return;
+		}
+
+		Sphere?.SetActive(true);
 
 		Touch touch = Input.GetTouch(0);
 
@@ -59,8 +65,10 @@ public class TouchScript : MonoBehaviour {
 		);
 
 
-		if (Input.touchCount == 2) {
+		if (Input.touchCount > 1) {
 			touch = Input.GetTouch(1);
+
+			SecondSphere?.SetActive(true);
 
 			switch (touch.phase) {
 				case TouchPhase.Began: {
@@ -90,6 +98,8 @@ public class TouchScript : MonoBehaviour {
 				);
 			}
 
+		} else {
+			SecondSphere?.SetActive(false);
 		}
 
 
