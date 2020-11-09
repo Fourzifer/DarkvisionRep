@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerCharacterScript : MonoBehaviour {
 
+	[SerializeField]
+	[FMODUnity.EventRef] string walking = "event:/Walking";
+	FMOD.Studio.EventInstance soundEvent;
+
 	private enum InteractState {
 		AboveWall,
 		AboveDoor,
@@ -24,28 +28,11 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
+		soundEvent.start();
 	}
 
 	private void FixedUpdate() {
-
-		Ray ray = new Ray(RaycastPosition.position, RaycastPosition.forward);
-		RaycastHit[] results = new RaycastHit[RaycastBufferSize];
-		int resultCount = Physics.RaycastNonAlloc(ray, results, RaycastDistance, RaycastLayerMask);
-
-		InteractState state = InteractState.None;
-		for (int i = 0; i < resultCount; i++) {
-			var result = results[i];
-			switch (state) {
-				case InteractState.AboveDoor:
-					break;
-				default:
-					state = TagToState(result.transform.tag);
-					break;
-			}
-		}
-
-		// TODO: send ground state to fmod walking sound
-
 		if (KbdInput) {
 			float x = 0;
 			float z = 0;
@@ -80,7 +67,21 @@ public class PlayerCharacterScript : MonoBehaviour {
 					}
 				}
 			}
+
+			if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
+
+				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+
+			} else {
+
+				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+
+			}
+
 		}
+
+
+
 	}
 
 	public void MoveAbsolute(float x, float z) {
@@ -114,17 +115,6 @@ public class PlayerCharacterScript : MonoBehaviour {
 		if (other.CompareTag("Interact")) {
 			PopupHandlerScript.HidePopup("interact");
 			interactableInRange = false;
-		}
-	}
-
-	private InteractState TagToState(string tag) {
-		switch (tag) {
-			case "Wall":
-				return InteractState.AboveWall;
-			case "Door":
-				return InteractState.AboveDoor;
-			default:
-				return InteractState.None;
 		}
 	}
 
