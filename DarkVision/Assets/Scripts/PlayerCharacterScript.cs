@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerCharacterScript : MonoBehaviour {
 
+	[SerializeField]
+	[FMODUnity.EventRef] string walking = "event:/Walking";
+	FMOD.Studio.EventInstance soundEvent;
+
 	private enum InteractState {
 		AboveWall,
 		AboveDoor,
@@ -24,6 +28,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
+		soundEvent.start();
 	}
 
 	private void FixedUpdate() {
@@ -43,6 +49,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 					break;
 			}
 		}
+
+
 
 		// TODO: send ground state to fmod walking sound
 
@@ -80,7 +88,21 @@ public class PlayerCharacterScript : MonoBehaviour {
 					}
 				}
 			}
+
+			if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
+
+				soundEvent.setParameterByName("WalkingParameter", TagToFmodValue(state));
+
+			} else {
+
+				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+
+			}
+
 		}
+
+
+
 	}
 
 	public void MoveAbsolute(float x, float z) {
@@ -126,6 +148,18 @@ public class PlayerCharacterScript : MonoBehaviour {
 			default:
 				return InteractState.None;
 		}
+	}
+
+	private int TagToFmodValue(InteractState state) {
+		switch (state) {
+			case InteractState.AboveWall:
+				return 1;
+			case InteractState.AboveDoor:
+				return 2;
+			case InteractState.None:
+				return 3;
+		}
+		return 0;
 	}
 
 }
