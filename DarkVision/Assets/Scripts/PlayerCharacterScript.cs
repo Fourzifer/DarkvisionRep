@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerCharacterScript : MonoBehaviour {
 
+	private enum InteractState {
+		AboveWall,
+		AboveDoor,
+		None
+	}
+
 	private Rigidbody rb;
 
 	public bool KbdInput;
@@ -11,11 +17,35 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private bool interactableInRange = false;
 
+	public Transform RaycastPosition;
+	public LayerMask RaycastLayerMask;
+	public float RaycastDistance = 10f;
+	public int RaycastBufferSize = 4;
+
 	void Start() {
 		rb = GetComponent<Rigidbody>();
 	}
 
 	private void FixedUpdate() {
+
+		Ray ray = new Ray(RaycastPosition.position, RaycastPosition.forward);
+		RaycastHit[] results = new RaycastHit[RaycastBufferSize];
+		int resultCount = Physics.RaycastNonAlloc(ray, results, RaycastDistance, RaycastLayerMask);
+
+		InteractState state = InteractState.None;
+		for (int i = 0; i < resultCount; i++) {
+			var result = results[i];
+			switch (state) {
+				case InteractState.AboveDoor:
+					break;
+				default:
+					state = TagToState(result.transform.tag);
+					break;
+			}
+		}
+
+		// TODO: send ground state to fmod walking sound
+
 		if (KbdInput) {
 			float x = 0;
 			float z = 0;
@@ -37,6 +67,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 			if (Input.GetKey(KeyCode.E)) {
 				if (interactableInRange == true) {
 					PopupHandlerScript.ShowPopup("look");
+				} else {
+					switch (state) {
+						case InteractState.AboveWall:
+							PopupHandlerScript.ShowPopup("wall");
+							break;
+						case InteractState.AboveDoor:
+							PopupHandlerScript.ShowPopup("door");
+							break;
+						default:
+							break;
+					}
 				}
 			}
 		}
@@ -73,6 +114,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 		if (other.CompareTag("Interact")) {
 			PopupHandlerScript.HidePopup("interact");
 			interactableInRange = false;
+		}
+	}
+
+	private InteractState TagToState(string tag) {
+		switch (tag) {
+			case "Wall":
+				return InteractState.AboveWall;
+			case "Door":
+				return InteractState.AboveDoor;
+			default:
+				return InteractState.None;
 		}
 	}
 

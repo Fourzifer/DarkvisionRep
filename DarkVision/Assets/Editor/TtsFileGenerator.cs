@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#pragma warning disable 4014
+
+using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEditor;
