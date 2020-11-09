@@ -91,7 +91,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 			if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
 
-				soundEvent.setParameterByName("WalkingParameter", TagToFmodValue(state));
+				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
 
 			} else {
 
@@ -150,7 +150,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		}
 	}
 
-	private int TagToFmodValue(InteractState state) {
+	private int StateToFmodValue(InteractState state) {
 		switch (state) {
 			case InteractState.AboveWall:
 				return 1;
