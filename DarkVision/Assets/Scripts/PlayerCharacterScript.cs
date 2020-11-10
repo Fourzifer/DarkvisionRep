@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCharacterScript : MonoBehaviour {
 
+	public static List<Utility.IObserver<Vector3>> KnockEvent = new List<Utility.IObserver<Vector3>>();
+
 	[SerializeField]
 	[FMODUnity.EventRef] string walking = "event:/Walking";
 	FMOD.Studio.EventInstance soundEvent;
@@ -26,6 +28,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public float RaycastDistance = 10f;
 	public int RaycastBufferSize = 4;
 
+	private InteractState lastState = InteractState.None;
+
 	void Start() {
 		rb = GetComponent<Rigidbody>();
 		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
@@ -39,7 +43,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		int resultCount = Physics.RaycastNonAlloc(ray, results, RaycastDistance, RaycastLayerMask);
 
 		InteractState state = InteractState.None;
-		for (int i = 0; i < resultCount; i++) {
+		for (int i = resultCount - 1; i >= 0; i--) {
 			var result = results[i];
 			switch (state) {
 				case InteractState.AboveDoor:
@@ -50,9 +54,13 @@ public class PlayerCharacterScript : MonoBehaviour {
 			}
 		}
 
+		if (state != lastState) {
 
+			// TODO: change ground event
 
-		// TODO: send ground state to fmod walking sound
+			lastState = state;
+		}
+
 
 		if (KbdInput) {
 			float x = 0;
@@ -82,6 +90,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 							break;
 						case InteractState.AboveDoor:
 							PopupHandlerScript.ShowPopup("door");
+							Utility.NotifyObservers(KnockEvent, transform.position);
 							break;
 						default:
 							break;
