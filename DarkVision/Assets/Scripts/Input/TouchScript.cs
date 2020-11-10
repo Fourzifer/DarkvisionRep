@@ -38,6 +38,7 @@ public class TouchScript : MonoBehaviour {
 
 		if (touchCount < 1) {
 			Sphere?.SetActive(false);
+			SecondSphere?.SetActive(false);
 			return;
 		}
 

@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class PlayerCharacterScript : MonoBehaviour {
 
+	public static List<Utility.IObserver<Vector3>> KnockEvent = new List<Utility.IObserver<Vector3>>();
+
+	[SerializeField]
+	[FMODUnity.EventRef] string walking = "event:/Walking";
+	FMOD.Studio.EventInstance soundEvent;
+
+	private enum InteractState {
+		AboveWall,
+		AboveDoor,
+		None
+	}
+
 	private Rigidbody rb;
 
 	public bool KbdInput;
@@ -11,11 +23,45 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private bool interactableInRange = false;
 
+	public Transform RaycastPosition;
+	public LayerMask RaycastLayerMask;
+	public float RaycastDistance = 10f;
+	public int RaycastBufferSize = 4;
+
+	private InteractState lastState = InteractState.None;
+
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
+		soundEvent.start();
 	}
 
 	private void FixedUpdate() {
+
+		Ray ray = new Ray(RaycastPosition.position, RaycastPosition.forward);
+		RaycastHit[] results = new RaycastHit[RaycastBufferSize];
+		int resultCount = Physics.RaycastNonAlloc(ray, results, RaycastDistance, RaycastLayerMask);
+
+		InteractState state = InteractState.None;
+		for (int i = resultCount - 1; i >= 0; i--) {
+			var result = results[i];
+			switch (state) {
+				case InteractState.AboveDoor:
+					break;
+				default:
+					state = TagToState(result.transform.tag);
+					break;
+			}
+		}
+
+		if (state != lastState) {
+
+			// TODO: change ground event
+
+			lastState = state;
+		}
+
+
 		if (KbdInput) {
 			float x = 0;
 			float z = 0;
@@ -37,9 +83,35 @@ public class PlayerCharacterScript : MonoBehaviour {
 			if (Input.GetKey(KeyCode.E)) {
 				if (interactableInRange == true) {
 					PopupHandlerScript.ShowPopup("look");
+				} else {
+					switch (state) {
+						case InteractState.AboveWall:
+							PopupHandlerScript.ShowPopup("wall");
+							break;
+						case InteractState.AboveDoor:
+							PopupHandlerScript.ShowPopup("door");
+							Utility.NotifyObservers(KnockEvent, transform.position);
+							break;
+						default:
+							break;
+					}
 				}
 			}
+
+			if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
+
+				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+
+			} else {
+
+				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+
+			}
+
 		}
+
+
+
 	}
 
 	public void MoveAbsolute(float x, float z) {
@@ -74,6 +146,29 @@ public class PlayerCharacterScript : MonoBehaviour {
 			PopupHandlerScript.HidePopup("interact");
 			interactableInRange = false;
 		}
+	}
+
+	private InteractState TagToState(string tag) {
+		switch (tag) {
+			case "Wall":
+				return InteractState.AboveWall;
+			case "Door":
+				return InteractState.AboveDoor;
+			default:
+				return InteractState.None;
+		}
+	}
+
+	private int StateToFmodValue(InteractState state) {
+		switch (state) {
+			case InteractState.AboveWall:
+				return 1;
+			case InteractState.AboveDoor:
+				return 2;
+			case InteractState.None:
+				return 3;
+		}
+		return 0;
 	}
 
 }
