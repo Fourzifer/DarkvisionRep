@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{4e9f8dc0-009a-44f5-974e-d60340ef91a6}">
+		<property name="name">
+			<value>CafeParameter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{017416b8-3299-492c-b36d-25e5d09fc0c5}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a6cad758-df21-4423-b069-84b39ae64c2d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a6cad758-df21-4423-b069-84b39ae64c2d}">
+		<property name="minimum">
+			<value>18</value>
+		</property>
+		<property name="maximum">
+			<value>23</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>23</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

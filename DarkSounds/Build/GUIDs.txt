@@ -1,0 +1,14 @@
+{89278f61-075a-4463-812c-a6fd0651079d} bank:/Master
+{113aafb5-7621-0821-0765-2c03f7a20105} bank:/Master.strings
+{b66e346c-ccf6-4719-8440-9421bafc79b5} bus:/
+{2f3bdc02-e4cd-4acd-b9f6-eb737c34bfb3} bus:/Reverb
+{fb4c885d-e187-4f0c-b579-53592b175d48} event:/Music
+{c26535ac-d272-4a88-91b2-1e90e467a25e} event:/Rooms/Bedroom/Sleeping
+{7e0f7b1d-8547-46df-9e80-cb68f484af41} event:/Rooms/Cafe/Cafe
+{f28a69ab-d16d-4c30-a27c-952a23b062cb} event:/Rooms/Kitchen/Book
+{8dd5e792-f127-4419-a148-6092648b8b2e} event:/Rooms/Kitchen/Placing obj on table
+{945e62bb-9c0b-4410-b9b2-02d574b8c748} event:/Rooms/Kitchen/Stove
+{851afdba-177a-40b1-a176-1124874871bc} event:/TestEvent
+{76f25301-8d67-4c93-ac01-a2b45769a5bb} event:/Walking
+{a6cad758-df21-4423-b069-84b39ae64c2d} parameter:/CafeParameter
+{e7d6b48c-e248-4197-bb96-25b617e9cd7f} parameter:/WalkingParameter
