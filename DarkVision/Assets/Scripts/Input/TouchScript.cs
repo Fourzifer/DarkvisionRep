@@ -17,19 +17,47 @@ public class TouchScript : MonoBehaviour {
 	public PlayerCharacterScript Player;
 	public Vector2 PlayerSpeed = Vector2.one;
 	public float PlayerRotMod = 1;
+	[Space]
+	[Tooltip("How far the finger can move when tapping to still register as an interact tap")]
+	public float TouchTapToInteractMaxDistance = 1f;
+	[Tooltip("How much time the finger can take when holding to still register as an interact tap on release")]
+	public float TouchTapToInteractMaxTime = .1f;
+
+	[Space]
+	public bool AllowMouse = true;
+	public Vector2 MouseSpeedMod = Vector2.one;
+	[Tooltip("How far the mouse can move between clicking and releasing and still register an interact action on release")]
+	public float MouseClickToInteractMaxDistance = 1f;
+	[Tooltip("How much time the mouse can take between clicking and releasing and still register an interact action on release")]
+	public float MouseClickToInteractMaxTime = .1f;
 
 	private Vector2 mainTouchPosBuffer;
 	private Vector2 secondTouchPosBuffer;
+	private Vector2 lastMainTouchLocation;
 	private float angleBuffer = 0;
 
+	private Vector2 mouseBuffer;
+	private Vector2 lastClickLocation;
+	private float mouseClickTimer;
+
+	private float clickTimer = 0;
+
+
 	void FixedUpdate() {
-		TouchInput();
+		if (clickTimer > 0) {
+			clickTimer -= Time.deltaTime;
+		}
+
+		if (TouchInput())
+			return;
+		if (AllowMouse)
+			MouseInput();
 	}
 
-	void TouchInput() {
+	bool TouchInput() {
 
 		if (!Player)
-			return;
+			return true;
 
 		// TODO: same rotation behaviour for rotating with main finger as left finger
 		// IDEA: choose finger to use for translate depending on if angle is clockwise or ccw, and on which finger is left or right
@@ -39,7 +67,7 @@ public class TouchScript : MonoBehaviour {
 		if (touchCount < 1) {
 			Sphere?.SetActive(false);
 			SecondSphere?.SetActive(false);
-			return;
+			return false;
 		}
 
 		Sphere?.SetActive(true);
@@ -48,7 +76,9 @@ public class TouchScript : MonoBehaviour {
 
 		switch (touch.phase) {
 			case TouchPhase.Began:
+				clickTimer = TouchTapToInteractMaxTime;
 				mainTouchPosBuffer = touch.position;
+				lastMainTouchLocation = mainTouchPosBuffer;
 				break;
 			case TouchPhase.Moved: {
 					Vector2 delta = touch.position - mainTouchPosBuffer;
@@ -56,7 +86,12 @@ public class TouchScript : MonoBehaviour {
 					mainTouchPosBuffer = touch.position;
 				}
 				break;
-
+			case TouchPhase.Ended:
+				if ((touch.position - lastMainTouchLocation).sqrMagnitude < TouchTapToInteractMaxDistance * TouchTapToInteractMaxDistance
+				&& clickTimer > 0) {
+					Player.Interact();
+				}
+				break;
 		}
 
 		transform.localPosition = new Vector3(
@@ -103,7 +138,41 @@ public class TouchScript : MonoBehaviour {
 			SecondSphere?.SetActive(false);
 		}
 
+		return true;
 
+	}
+
+	void MouseInput() {
+
+		// if (!Input.GetMouseButton(0))
+			// return;
+
+		bool mouseDownThisFrame = Input.GetMouseButtonDown(0);
+		bool mouseUpThisFrame = Input.GetMouseButtonUp(0);
+		Vector2 currentMousePosition = Input.mousePosition;
+
+		// FIXME: mousebuffer from before last release is still used
+
+		if (mouseDownThisFrame) {
+			// Debug.Log("click");
+			clickTimer = MouseClickToInteractMaxTime;
+			lastClickLocation = currentMousePosition;
+			mouseBuffer = currentMousePosition;
+		}
+
+		if (mouseUpThisFrame
+		&& (lastClickLocation - currentMousePosition).sqrMagnitude < MouseClickToInteractMaxDistance * MouseClickToInteractMaxDistance
+		&& clickTimer > 0) {
+			// FIXME: not working, never reached
+			Player.Interact();
+		} else if (Input.GetMouseButton(0)) {
+
+
+			Vector2 delta = currentMousePosition - mouseBuffer;
+			MovePlayer(delta * MouseSpeedMod);
+		}
+
+		mouseBuffer = currentMousePosition;
 
 	}
 
@@ -112,9 +181,9 @@ public class TouchScript : MonoBehaviour {
 			return;
 		}
 
+		// TODO: walking sounds for touch and mouse input
+
 		Player.MoveRelative(delta.x * PlayerSpeed.x, delta.y * PlayerSpeed.y);
-
-
 	}
 
 }
