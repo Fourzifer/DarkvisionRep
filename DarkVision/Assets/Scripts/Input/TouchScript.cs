@@ -183,7 +183,7 @@ public class TouchScript : MonoBehaviour {
 
 		// TODO: walking sounds for touch and mouse input
 
-		Player.MoveRelative(delta.x * PlayerSpeed.x, delta.y * PlayerSpeed.y);
+		Player.MoveRelative(delta.x * PlayerSpeed.x, delta.y * PlayerSpeed.y, true);
 	}
 
 }

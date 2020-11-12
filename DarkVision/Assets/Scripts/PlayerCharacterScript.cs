@@ -32,6 +32,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private InteractState lastState = InteractState.None;
 
+	private bool touchMovedThisFrame = false;
+
 	void Start() {
 
 		rb = GetComponent<Rigidbody>();
@@ -134,14 +136,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 		if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
 			MoveRelative(x, z);
 
-			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+			if (!touchMovedThisFrame)
+				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
 
 		} else {
 
-			soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+			if (!touchMovedThisFrame)
+				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
 
 		}
 
+		touchMovedThisFrame = false;
 	}
 
 	public void Interact() {
@@ -174,7 +179,13 @@ public class PlayerCharacterScript : MonoBehaviour {
 			);
 	}
 
-	public void MoveRelative(float x, float z) {
+
+	public void MoveRelative(float x, float z, bool touchMove = false) {
+		touchMovedThisFrame = touchMove;
+
+		if (touchMove)
+			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+
 		var rbPos = transform.localPosition;
 		var delta = transform.localRotation * new Vector3(x, 0, z);
 		MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
