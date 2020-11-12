@@ -18,10 +18,12 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private Rigidbody rb;
 
+	public bool GamepadInput;
 	public bool KbdInput;
-	public float KbdSpeed = 10f;
+	public float MoveSpeed = 10f;
 
 	private bool interactableInRange = false;
+	private bool interactPressedLastFrame = false;
 
 	public Transform RaycastPosition;
 	public LayerMask RaycastLayerMask;
@@ -31,9 +33,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private InteractState lastState = InteractState.None;
 
 	void Start() {
+
 		rb = GetComponent<Rigidbody>();
 		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
 		soundEvent.start();
+
+		Debug.Log("Listing all joysticks: ");
+		foreach (var item in Input.GetJoystickNames()) {
+			Debug.Log(item);
+		}
+		Debug.Log("All joysticks listed");
+
 	}
 
 	private void FixedUpdate() {
@@ -58,61 +68,103 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 			// TODO: change ground event
 
+			Debug.Log("stepped from ground type |" + lastState.ToString() + "| onto ground type |" + state.ToString() + "|");
+
 			lastState = state;
 		}
 
+		float x = 0;
+		float z = 0;
+		bool pressedInteract = false;
 
 		if (KbdInput) {
-			float x = 0;
-			float z = 0;
-
 			if (Input.GetKey(KeyCode.W)) {
-				z = KbdSpeed * Time.deltaTime;
+				z = MoveSpeed * Time.deltaTime;
 			} else if (Input.GetKey(KeyCode.S)) {
-				z = -KbdSpeed * Time.deltaTime;
+				z = -MoveSpeed * Time.deltaTime;
 			}
 			if (Input.GetKey(KeyCode.D)) {
-				x = KbdSpeed * Time.deltaTime;
+				x = MoveSpeed * Time.deltaTime;
 			} else if (Input.GetKey(KeyCode.A)) {
-				x = -KbdSpeed * Time.deltaTime;
+				x = -MoveSpeed * Time.deltaTime;
 			}
 
-			// if (x > 0 && z > 0) 
-			MoveRelative(x, z);
-
 			if (Input.GetKey(KeyCode.E)) {
-				if (interactableInRange == true) {
-					PopupHandlerScript.ShowPopup("look");
-				} else {
-					switch (state) {
-						case InteractState.AboveWall:
-							PopupHandlerScript.ShowPopup("wall");
-							break;
-						case InteractState.AboveDoor:
-							PopupHandlerScript.ShowPopup("door");
-							Utility.NotifyObservers(KnockEvent, transform.position);
-							break;
-						default:
-							break;
-					}
+				pressedInteract = true;
+			}
+		}
+
+		if (GamepadInput) {
+			float xAxis = Input.GetAxis("Horizontal") * MoveSpeed * Time.deltaTime;
+			// float xAxis = Input.GetAxis("gamepadX") * MoveSpeed * Time.deltaTime;
+			float yAxis = Input.GetAxis("Vertical") * MoveSpeed * Time.deltaTime;
+			// float yAxis = Input.GetAxis("gamepadY") * MoveSpeed * Time.deltaTime;
+
+			if (Mathf.Abs(xAxis) > Mathf.Abs(x)) {
+				x = xAxis;
+			}
+			if (Mathf.Abs(yAxis) > Mathf.Abs(z)) {
+				z = yAxis;
+			}
+
+			if (Input.GetButton("gamepadInteract")) {
+				pressedInteract = true;
+			}
+		}
+
+		{
+			bool interactWasPressed = pressedInteract;
+			if (pressedInteract) {
+				if (interactPressedLastFrame) {
+					pressedInteract = false;
 				}
 			}
 
-			if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
-
-				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
-
-			} else {
-
-				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
-
-			}
-
+			interactPressedLastFrame = interactWasPressed;
 		}
 
 
+		// if (KbdInput || GamepadInput) {
+		// }
+
+		if (pressedInteract) {
+			Interact();
+		}
+
+		if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
+			MoveRelative(x, z);
+
+			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+
+		} else {
+
+			soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+
+		}
 
 	}
+
+	public void Interact() {
+		if (interactableInRange) {
+			PopupHandlerScript.ShowPopup("look");
+		} else {
+			switch (lastState) {
+				case InteractState.AboveWall:
+					PopupHandlerScript.ShowPopup("wall");
+					break;
+				case InteractState.AboveDoor:
+					PopupHandlerScript.ShowPopup("door");
+					Utility.NotifyObservers(KnockEvent, transform.position);
+					break;
+				case InteractState.None:
+					PopupHandlerScript.ShowPopup("room");
+					break;
+				default:
+					break;
+			}
+		}
+	}
+
 
 	public void MoveAbsolute(float x, float z) {
 		rb.MovePosition(

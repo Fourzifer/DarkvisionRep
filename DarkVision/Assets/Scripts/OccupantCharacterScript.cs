@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class OccupantCharacterScript : MonoBehaviour, Utility.IObserver<Vector3> {
 
 	public float DistractionTime = 10f;
@@ -15,12 +16,15 @@ public class OccupantCharacterScript : MonoBehaviour, Utility.IObserver<Vector3>
 	private float timer = -1;
 
 	void Start() {
-		PlayerCharacterScript.KnockEvent.Add(this);
+		// PlayerCharacterScript.KnockEvent.Add(this);
+		this.Register(PlayerCharacterScript.KnockEvent);		
+
 		returnPos = transform.position;
 	}
 
 	private void OnDestroy() {
-		PlayerCharacterScript.KnockEvent.Remove(this);
+		// PlayerCharacterScript.KnockEvent.Remove(this);
+		this.Deregister(PlayerCharacterScript.KnockEvent);
 	}
 
 	void Update() {
@@ -30,7 +34,6 @@ public class OccupantCharacterScript : MonoBehaviour, Utility.IObserver<Vector3>
 		} else {
 			transform.position = Vector3.MoveTowards(transform.position, returnPos, Speed * Time.deltaTime);
 		}
-
 	}
 
 	public void Notify(Vector3 knockPosition) {
@@ -40,6 +43,7 @@ public class OccupantCharacterScript : MonoBehaviour, Utility.IObserver<Vector3>
 			return;
 		}
 		// TODO: raycast if there are things in the way, check distance between knock and raycast hit?
+		
 		distractionPos = projectedKnockPosition;
 		timer = DistractionTime;
 	}
