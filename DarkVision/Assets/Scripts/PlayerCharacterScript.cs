@@ -80,18 +80,18 @@ public class PlayerCharacterScript : MonoBehaviour {
 		bool pressedInteract = false;
 
 		if (KbdInput) {
-			if (Input.GetKey(KeyCode.W)) {
+			if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) {
 				z = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.S)) {
+			} else if (Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.DownArrow)) {
 				z = -MoveSpeed * Time.deltaTime;
 			}
-			if (Input.GetKey(KeyCode.D)) {
+			if (Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.RightArrow)) {
 				x = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.A)) {
+			} else if (Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.LeftArrow)) {
 				x = -MoveSpeed * Time.deltaTime;
 			}
 
-			if (Input.GetKey(KeyCode.E)) {
+			if (Input.GetKey(KeyCode.E) ||Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
 				pressedInteract = true;
 			}
 		}
