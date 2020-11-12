@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{746545f9-accf-427e-8605-d7f0becc855d}">
+		<property name="assetPath">
+			<value>cafe-clinking-chatter_looping.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>12</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e3e2bd1-33aa-4b04-b82f-8b7635aa309a}</destination>
+		</relationship>
+	</object>
+</objects>
