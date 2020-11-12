@@ -3892,6 +3892,11 @@ PrefabInstance:
       propertyPath: MouseSpeedMod.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085257018557065, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: MouseInteractMaxTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085257897583344, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_Name
