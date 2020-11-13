@@ -85,7 +85,7 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-7246618095885585954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,13 +123,13 @@ MonoBehaviour:
   Path: event:/Rooms/3/Playing games
   guid: 03981be0665c724ba595eafa7cdbc8a4
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 2000
 --- !u!114 &-6486048373834371146
 MonoBehaviour:
@@ -163,13 +163,13 @@ MonoBehaviour:
   Path: event:/Rooms/4/Reading
   guid: 59787e3e52377842aca644552b9908d8
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 20000
 --- !u!114 &-5323994974694272366
 MonoBehaviour:
@@ -203,12 +203,12 @@ MonoBehaviour:
   Path: event:/Walking
   guid: 0153f276678d934cac01a2b45769a5bb
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -7269746388428397520}
+  - {fileID: -180862270014897013}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -245,14 +245,31 @@ MonoBehaviour:
   Path: event:/Rooms/1/Keyboard
   guid: 2b5dfeb7b74eaf4aa3032486e1162bd0
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 29054
+--- !u!114 &-4975634090573023265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: CafeParameter
+  m_EditorClassIdentifier: 
+  Name: CafeParameter
+  Min: 18
+  Max: 23
+  Default: 23
+  Exists: 1
 --- !u!114 &-4477484885069885077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +374,7 @@ MonoBehaviour:
   Min: 18
   Max: 23
   Default: 23
-  Exists: 1
+  Exists: 0
 --- !u!114 &-2289784116560176378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,13 +408,13 @@ MonoBehaviour:
   Path: event:/Rooms/4/FirePlace
   guid: e1906fdebb8cb84f82f9fa031ee8d491
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 14811
 --- !u!114 &-2193455523419710484
 MonoBehaviour:
@@ -448,14 +465,31 @@ MonoBehaviour:
   Path: event:/Rooms/2/Sleep
   guid: 12ca4f44cd86214cb973fe8a1a819967
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 49770
+--- !u!114 &-180862270014897013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Walking/WalkingParameter
+  m_EditorClassIdentifier: 
+  Name: WalkingParameter
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 3802213557808120100}
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   EditorEvents:
   - {fileID: -5185788736749476229}
   - {fileID: -931165497343619272}
@@ -482,12 +516,12 @@ MonoBehaviour:
   - {fileID: -6625429975896416078}
   - {fileID: 4985833657312327046}
   EditorParameters:
-  - {fileID: -2393049216309508889}
+  - {fileID: -4975634090573023265}
   MasterBanks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   StringsBanks:
   - {fileID: 3802213557808120100}
-  stringsBankWriteTime: 637408820551635920
+  stringsBankWriteTime: 637408850024469815
   cacheVersion: 3
 --- !u!114 &351887123673186410
 MonoBehaviour:
@@ -608,13 +642,13 @@ MonoBehaviour:
   Path: event:/Rooms/3/Stove
   guid: ddaba97368c46a44a14236ad0dfbd297
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 9994
 --- !u!114 &3802213557808120100
 MonoBehaviour:
@@ -630,7 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../DarkSounds/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637408820551635920
+  lastModified: 637408850024469815
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -670,13 +704,13 @@ MonoBehaviour:
   Path: event:/Rooms/3/Coffee
   guid: 57a7a732dea5f54f98452ff971342981
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 101538
 --- !u!114 &4991146777153026166
 MonoBehaviour:
@@ -768,14 +802,32 @@ MonoBehaviour:
   Path: event:/Rooms/3/Kitched sounds
   guid: 7af369851b8b9241b759695b6ed6232b
   Banks:
-  - {fileID: 8748895172567150087}
+  - {fileID: 6552138353155619635}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 12000
+--- !u!114 &6552138353155619635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../DarkSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637409024880133980
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &6693990649333155379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,4 +966,4 @@ MonoBehaviour:
   lastModified: 637408820551526116
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0

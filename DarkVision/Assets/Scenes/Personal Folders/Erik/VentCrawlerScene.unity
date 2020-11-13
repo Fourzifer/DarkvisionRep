@@ -491,7 +491,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26102
+  m_Name: pb_Mesh15830
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2061,14 +2061,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'There is probably a door below me.
-
-    If I knock here then the occupants
-    below might think someone is knocking on the other side of the door.
-
-
-    This
-    text disappears after 5 seconds.'
+  m_text: "There is probably a door below me.\nIf I knock here then the people in
+    the rooms below might think someone is knocking on the other side of the door.
+    \nGame mechanics such as knocking are not available in this prototype.\n\nThis
+    text disappears after 5 seconds."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3821,7 +3817,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8709,12 +8705,12 @@ MonoBehaviour:
     Timer: 0
   - Key: wall
     Popup: {fileID: 2138480745}
-    Sound: {fileID: 8300000, guid: 1b1e36867c3a92c4488c5c03765a73e2, type: 3}
+    Sound: {fileID: 8300000, guid: f84e9c954e6c9c04e8f2c66e352336ad, type: 3}
     Time: 5
     Timer: 0
   - Key: door
     Popup: {fileID: 432125600}
-    Sound: {fileID: 8300000, guid: a6bf6b3f2f078f24c962a0a8db3fcbc1, type: 3}
+    Sound: {fileID: 8300000, guid: c1598fff89038eb4d8daad7fdb8ecb78, type: 3}
     Time: 5
     Timer: 0
   - Key: room
@@ -9774,7 +9770,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26286
+  m_Name: pb_Mesh16008
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13203,13 +13199,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The ceiling sounds different here.
-
-    There is probably a wall below
-    me.
+  m_text: 'It sounds like there is a wall below me.
 
 
-    This text disappears after 5 seconds.'
+    This text disappears after
+    5 seconds.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13351,6 +13345,26 @@ PrefabInstance:
     - target: {fileID: 1247843212450036963, guid: 8c91abbd1b14a8f488b2478fdb106d0e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324806046175108591, guid: 8c91abbd1b14a8f488b2478fdb106d0e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324806046175108591, guid: 8c91abbd1b14a8f488b2478fdb106d0e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 80.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324806046956885228, guid: 8c91abbd1b14a8f488b2478fdb106d0e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 41.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324806048006417185, guid: 8c91abbd1b14a8f488b2478fdb106d0e,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
