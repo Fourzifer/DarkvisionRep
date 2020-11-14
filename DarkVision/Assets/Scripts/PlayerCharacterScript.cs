@@ -34,6 +34,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private bool touchMovedThisFrame = false;
 
+	private bool touchedVentWall = false;
+
 	void Start() {
 
 		rb = GetComponent<Rigidbody>();
@@ -80,18 +82,18 @@ public class PlayerCharacterScript : MonoBehaviour {
 		bool pressedInteract = false;
 
 		if (KbdInput) {
-			if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) {
+			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
 				z = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.DownArrow)) {
+			} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
 				z = -MoveSpeed * Time.deltaTime;
 			}
-			if (Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.RightArrow)) {
+			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
 				x = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.LeftArrow)) {
+			} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
 				x = -MoveSpeed * Time.deltaTime;
 			}
 
-			if (Input.GetKey(KeyCode.E) ||Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
+			if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
 				pressedInteract = true;
 			}
 		}
@@ -136,8 +138,14 @@ public class PlayerCharacterScript : MonoBehaviour {
 		if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
 			MoveRelative(x, z);
 
-			if (!touchMovedThisFrame)
-				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+			if (!touchMovedThisFrame) {
+				if (touchedVentWall) {
+					soundEvent.setParameterByName("WalkingParameter", 0);
+				} else {
+					soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+				}
+				// soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+			}
 
 		} else {
 
@@ -147,6 +155,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		}
 
 		touchMovedThisFrame = false;
+		touchedVentWall = false;
 	}
 
 	public void Interact() {
@@ -183,8 +192,14 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public void MoveRelative(float x, float z, bool touchMove = false) {
 		touchMovedThisFrame = touchMove;
 
-		if (touchMove)
-			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+		if (touchMove) {
+			if (touchedVentWall) {
+				soundEvent.setParameterByName("WalkingParameter", 0);
+			} else {
+				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+
+			}
+		}
 
 		var rbPos = transform.localPosition;
 		var delta = transform.localRotation * new Vector3(x, 0, z);
@@ -200,6 +215,14 @@ public class PlayerCharacterScript : MonoBehaviour {
 			PopupHandlerScript.ShowPopup("interact");
 			interactableInRange = true;
 		}
+	}
+
+	private void OnTriggerStay(Collider other) {
+
+		if (other.CompareTag("ventWall")) {
+			touchedVentWall = true;
+		}
+
 	}
 
 	// TODO: dont disable other popups/interactables still in range
