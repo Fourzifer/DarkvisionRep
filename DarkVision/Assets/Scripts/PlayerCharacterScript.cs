@@ -32,6 +32,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private InteractState lastState = InteractState.None;
 
+	private bool touchMovedThisFrame = false;
+
 	void Start() {
 
 		rb = GetComponent<Rigidbody>();
@@ -78,18 +80,18 @@ public class PlayerCharacterScript : MonoBehaviour {
 		bool pressedInteract = false;
 
 		if (KbdInput) {
-			if (Input.GetKey(KeyCode.W)) {
+			if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) {
 				z = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.S)) {
+			} else if (Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.DownArrow)) {
 				z = -MoveSpeed * Time.deltaTime;
 			}
-			if (Input.GetKey(KeyCode.D)) {
+			if (Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.RightArrow)) {
 				x = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.A)) {
+			} else if (Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.LeftArrow)) {
 				x = -MoveSpeed * Time.deltaTime;
 			}
 
-			if (Input.GetKey(KeyCode.E)) {
+			if (Input.GetKey(KeyCode.E) ||Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
 				pressedInteract = true;
 			}
 		}
@@ -134,14 +136,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 		if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
 			MoveRelative(x, z);
 
-			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+			if (!touchMovedThisFrame)
+				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
 
 		} else {
 
-			soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+			if (!touchMovedThisFrame)
+				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
 
 		}
 
+		touchMovedThisFrame = false;
 	}
 
 	public void Interact() {
@@ -174,7 +179,13 @@ public class PlayerCharacterScript : MonoBehaviour {
 			);
 	}
 
-	public void MoveRelative(float x, float z) {
+
+	public void MoveRelative(float x, float z, bool touchMove = false) {
+		touchMovedThisFrame = touchMove;
+
+		if (touchMove)
+			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+
 		var rbPos = transform.localPosition;
 		var delta = transform.localRotation * new Vector3(x, 0, z);
 		MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
