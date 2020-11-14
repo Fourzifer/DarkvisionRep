@@ -491,7 +491,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37622
+  m_Name: pb_Mesh59826
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3771,12 +3771,12 @@ PrefabInstance:
     - target: {fileID: 1210085256135519680, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.338
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 1210085256135519680, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.879
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1210085256135519680, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
@@ -3957,8 +3957,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 63ae4d3f3a4987b4fa5d3d47243be649, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -9918,7 +9918,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37898
+  m_Name: pb_Mesh60004
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

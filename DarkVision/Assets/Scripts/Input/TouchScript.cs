@@ -41,7 +41,7 @@ public class TouchScript : MonoBehaviour {
 	private Vector2 lastClickLocation;
 	private float mouseClickTimer;
 
-	private float clickTimer = 0;
+	private float clickTimer = -1;
 
 
 	void FixedUpdate() {

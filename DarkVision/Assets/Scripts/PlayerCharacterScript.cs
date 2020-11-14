@@ -218,11 +218,15 @@ public class PlayerCharacterScript : MonoBehaviour {
 	}
 
 	private void OnTriggerStay(Collider other) {
-
 		if (other.CompareTag("ventWall")) {
 			touchedVentWall = true;
 		}
+	}
 
+	private void OnCollisionStay(Collision other) {
+		if (other.gameObject.CompareTag("ventWall")) {
+			touchedVentWall = true;
+		}
 	}
 
 	// TODO: dont disable other popups/interactables still in range
