@@ -18,7 +18,7 @@ public class MenuScript : MonoBehaviour {
 
 
 	void Start() {
-		// FMODUnity.RuntimeManager.WaitForAllLoads();
+		FMODUnity.RuntimeManager.WaitForAllLoads();
 		audioPlayer.PlayOneShot(pressToPlayClip);
 	}
 
@@ -32,6 +32,7 @@ public class MenuScript : MonoBehaviour {
 			} else if (!FMODUnity.RuntimeManager.AnyBankLoading()) {
 				Debug.LogWarning("No banks are being loaded!");
 				FMODUnity.RuntimeManager.LoadBank("Master");
+
 			}
 
 		} else {
