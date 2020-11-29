@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#pragma warning disable 0649 // Disables "variable is never assigned" warning
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
