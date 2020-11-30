@@ -7,7 +7,7 @@ public class MicListenerScript : MonoBehaviour {
 
 	public static List<Utility.IObserver<(Vector3, string)>> SpeakEvent = new List<Utility.IObserver<(Vector3, string)>>();
 
-	public string[] keywords = new string[] { "pinapple", "pizza", "john", "carpet" };
+	public string[] keywords = new string[] { "pineapple", "pizza", "john", "carpet" };
 	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
 	// public float speed = 1;
 

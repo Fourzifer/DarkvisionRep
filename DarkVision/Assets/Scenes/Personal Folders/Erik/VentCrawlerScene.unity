@@ -4064,7 +4064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keywords:
-  - pinapple
+  - pineapple
   - pizza
   - john
   - carpet
@@ -9104,8 +9104,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 15
   Phrases:
-  - pizza
-  - pineapple
+  - Phrase: pizza
+    Clip: {fileID: 0}
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - Phrase: pineapple
+    Clip: {fileID: 0}
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1357316325
 GameObject:
   m_ObjectHideFlags: 0

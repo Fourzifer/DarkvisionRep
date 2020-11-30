@@ -36,18 +36,26 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private bool touchedVentWall = false;
 
+	private static AudioSource Narrator;
+
 	void Start() {
 
 		rb = GetComponent<Rigidbody>();
 		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
 		soundEvent.start();
 
-		Debug.Log("Listing all joysticks: ");
-		foreach (var item in Input.GetJoystickNames()) {
-			Debug.Log(item);
-		}
-		Debug.Log("All joysticks listed");
+		// Debug.Log("Listing all joysticks: ");
+		// foreach (var item in Input.GetJoystickNames()) {
+		// 	Debug.Log(item);
+		// }
+		// Debug.Log("All joysticks listed");
 
+		Narrator = GetComponent<AudioSource>();
+
+	}
+
+	private void OnDestroy() {
+		Narrator = null;
 	}
 
 	private void FixedUpdate() {
@@ -259,6 +267,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 				return 3;
 		}
 		return 0;
+	}
+
+	public static void PlayClip(AudioClip clip){
+		Narrator?.PlayOneShot(clip);
 	}
 
 }
