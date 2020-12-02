@@ -11,6 +11,7 @@ public class PopupHandlerScript : MonoBehaviour {
 	public class PopupEntry {
 		public string Key;
 		public GameObject Popup;
+		public AudioClip Sound;
 	}
 
 	[Serializable]
@@ -20,6 +21,7 @@ public class PopupHandlerScript : MonoBehaviour {
 		public float Timer;
 	}
 
+	public AudioSource Narrator;
 	public TMP_Text Timer;
 
 	public List<PopupEntry> Popups;
@@ -28,8 +30,11 @@ public class PopupHandlerScript : MonoBehaviour {
 	// IDEA: draw timer for timed popups
 	// TODO: play narrator voice for timed popups
 
+
 	void Start() {
 		mainInstance = this;
+
+		// audioData = GetComponent<AudioSource>();
 
 		foreach (var popup in mainInstance.Popups) {
 			popup.Popup.SetActive(false);
@@ -78,15 +83,27 @@ public class PopupHandlerScript : MonoBehaviour {
 
 		//IDEA: reposition popups to fit all on screen without overlapping
 
-		foreach (var popup in mainInstance.Popups) {
-			popup.Popup.SetActive(popup.Key == Key);
-		}
+		bool clipPlayed = false;
 
 		foreach (var timedPopup in mainInstance.TimedPopups) {
 			if (timedPopup.Key == Key) {
 				HideTimedPopups();
 				timedPopup.Popup.SetActive(true);
 				timedPopup.Timer = timedPopup.Time;
+				if (!clipPlayed && timedPopup.Sound) {
+					mainInstance.Narrator?.Stop();
+					mainInstance.Narrator?.PlayOneShot(timedPopup.Sound);
+					clipPlayed = true;
+				}
+			}
+		}
+
+		foreach (var popup in mainInstance.Popups) {
+			popup.Popup.SetActive(popup.Key == Key);
+			if (!clipPlayed && popup.Sound) {
+				mainInstance.Narrator?.Stop();
+				mainInstance.Narrator?.PlayOneShot(popup.Sound);
+				clipPlayed = true;
 			}
 		}
 

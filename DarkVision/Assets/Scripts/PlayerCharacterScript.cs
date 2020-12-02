@@ -18,10 +18,18 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private Rigidbody rb;
 
+	public bool GamepadInput;
 	public bool KbdInput;
-	public float KbdSpeed = 10f;
+	public float MoveSpeed = 10f;
 
+	public bool InteractionEnabled = false;
 	private bool interactableInRange = false;
+	private bool interactPressedLastFrame = false;
+
+	private bool rotateLeftPressedLastFrame = false;
+	private bool rotateRightPressedLastFrame = false;
+	private float targetDirection = 0;
+	public float RotationAnimationSpeed = 1;
 
 	public Transform RaycastPosition;
 	public LayerMask RaycastLayerMask;
@@ -30,10 +38,30 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private InteractState lastState = InteractState.None;
 
+	private bool touchMovedThisFrame = false;
+
+	private bool touchedVentWall = false;
+
+	private static AudioSource Narrator;
+
 	void Start() {
+
 		rb = GetComponent<Rigidbody>();
 		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
 		soundEvent.start();
+
+		// Debug.Log("Listing all joysticks: ");
+		// foreach (var item in Input.GetJoystickNames()) {
+		// 	Debug.Log(item);
+		// }
+		// Debug.Log("All joysticks listed");
+
+		Narrator = GetComponent<AudioSource>();
+
+	}
+
+	private void OnDestroy() {
+		Narrator = null;
 	}
 
 	private void FixedUpdate() {
@@ -58,61 +86,137 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 			// TODO: change ground event
 
+			Debug.Log("stepped from ground type |" + lastState.ToString() + "| onto ground type |" + state.ToString() + "|");
+
 			lastState = state;
 		}
 
+		float x = 0;
+		float z = 0;
+		bool pressedInteract = false;
 
 		if (KbdInput) {
-			float x = 0;
-			float z = 0;
-
-			if (Input.GetKey(KeyCode.W)) {
-				z = KbdSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.S)) {
-				z = -KbdSpeed * Time.deltaTime;
+			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+				z = MoveSpeed * Time.deltaTime;
+			} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+				z = -MoveSpeed * Time.deltaTime;
 			}
-			if (Input.GetKey(KeyCode.D)) {
-				x = KbdSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.A)) {
-				x = -KbdSpeed * Time.deltaTime;
+			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+				x = MoveSpeed * Time.deltaTime;
+			} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+				x = -MoveSpeed * Time.deltaTime;
 			}
 
-			// if (x > 0 && z > 0) 
-			MoveRelative(x, z);
+			// TODO: gradual turning animation
+			// FIXME: GetKeyDown unreliable
+			bool rotateRightPressed = Input.GetKey(KeyCode.E);
+			if (rotateRightPressed && !rotateRightPressedLastFrame)
+				// rb.rotation *= Quaternion.AngleAxis(30, Vector3.up);
+				targetDirection += 30;
+			rotateRightPressedLastFrame = rotateRightPressed;
 
-			if (Input.GetKey(KeyCode.E)) {
-				if (interactableInRange == true) {
-					PopupHandlerScript.ShowPopup("look");
-				} else {
-					switch (state) {
-						case InteractState.AboveWall:
-							PopupHandlerScript.ShowPopup("wall");
-							break;
-						case InteractState.AboveDoor:
-							PopupHandlerScript.ShowPopup("door");
-							Utility.NotifyObservers(KnockEvent, transform.position);
-							break;
-						default:
-							break;
-					}
+			bool rotateLeftPressed = Input.GetKey(KeyCode.Q);
+			if (rotateLeftPressed && !rotateLeftPressedLastFrame)
+				// rb.rotation *= Quaternion.AngleAxis(-30, Vector3.up);
+				targetDirection -= 30;
+			rotateLeftPressedLastFrame = rotateLeftPressed;
+
+			targetDirection %= 360;
+
+			if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
+				pressedInteract = true;
+			}
+		}
+
+		if (GamepadInput) {
+			float xAxis = Input.GetAxis("Horizontal") * MoveSpeed * Time.deltaTime;
+			// float xAxis = Input.GetAxis("gamepadX") * MoveSpeed * Time.deltaTime;
+			float yAxis = Input.GetAxis("Vertical") * MoveSpeed * Time.deltaTime;
+			// float yAxis = Input.GetAxis("gamepadY") * MoveSpeed * Time.deltaTime;
+
+			if (Mathf.Abs(xAxis) > Mathf.Abs(x)) {
+				x = xAxis;
+			}
+			if (Mathf.Abs(yAxis) > Mathf.Abs(z)) {
+				z = yAxis;
+			}
+
+			if (Input.GetButton("gamepadInteract")) {
+				pressedInteract = true;
+			}
+		}
+
+		{
+			bool interactWasPressed = pressedInteract;
+			if (pressedInteract) {
+				if (interactPressedLastFrame) {
+					pressedInteract = false;
 				}
 			}
 
-			if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
-
-				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
-
-			} else {
-
-				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
-
-			}
-
+			interactPressedLastFrame = interactWasPressed;
 		}
 
 
+		// if (KbdInput || GamepadInput) {
+		// }
 
+		if (InteractionEnabled && pressedInteract) {
+			Interact();
+		}
+
+		if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
+			MoveRelative(x, z);
+
+			if (!touchMovedThisFrame) {
+				if (touchedVentWall) {
+					soundEvent.setParameterByName("WalkingParameter", 0);
+				} else {
+					soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+				}
+				// soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+			}
+
+		} else {
+
+			if (!touchMovedThisFrame)
+				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+
+		}
+
+		touchMovedThisFrame = false;
+		touchedVentWall = false;
 	}
+
+	private void LateUpdate() {
+		rb.MoveRotation(Quaternion.RotateTowards(
+			rb.rotation,
+			Quaternion.AngleAxis(targetDirection, Vector3.up),
+			RotationAnimationSpeed * Time.deltaTime)
+		);
+	}
+
+	public void Interact() {
+		if (interactableInRange) {
+			PopupHandlerScript.ShowPopup("look");
+		} else {
+			switch (lastState) {
+				case InteractState.AboveWall:
+					PopupHandlerScript.ShowPopup("wall");
+					break;
+				case InteractState.AboveDoor:
+					PopupHandlerScript.ShowPopup("door");
+					Utility.NotifyObservers(KnockEvent, transform.position);
+					break;
+				case InteractState.None:
+					PopupHandlerScript.ShowPopup("room");
+					break;
+				default:
+					break;
+			}
+		}
+	}
+
 
 	public void MoveAbsolute(float x, float z) {
 		rb.MovePosition(
@@ -122,7 +226,19 @@ public class PlayerCharacterScript : MonoBehaviour {
 			);
 	}
 
-	public void MoveRelative(float x, float z) {
+
+	public void MoveRelative(float x, float z, bool touchMove = false) {
+		touchMovedThisFrame = touchMove;
+
+		if (touchMove) {
+			if (touchedVentWall) {
+				soundEvent.setParameterByName("WalkingParameter", 0);
+			} else {
+				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+
+			}
+		}
+
 		var rbPos = transform.localPosition;
 		var delta = transform.localRotation * new Vector3(x, 0, z);
 		MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
@@ -136,6 +252,18 @@ public class PlayerCharacterScript : MonoBehaviour {
 		if (other.CompareTag("Interact")) {
 			PopupHandlerScript.ShowPopup("interact");
 			interactableInRange = true;
+		}
+	}
+
+	private void OnTriggerStay(Collider other) {
+		if (other.CompareTag("ventWall")) {
+			touchedVentWall = true;
+		}
+	}
+
+	private void OnCollisionStay(Collision other) {
+		if (other.gameObject.CompareTag("ventWall")) {
+			touchedVentWall = true;
 		}
 	}
 
@@ -169,6 +297,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 				return 3;
 		}
 		return 0;
+	}
+
+	public static void PlayClip(AudioClip clip) {
+		Narrator?.PlayOneShot(clip);
 	}
 
 }

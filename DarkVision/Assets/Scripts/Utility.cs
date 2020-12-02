@@ -14,4 +14,13 @@ public static class Utility {
 		}
 	}
 
+	public static void Register<NotificationType>(this IObserver<NotificationType> observer, List<IObserver<NotificationType>> observerList) {
+		observerList.Add(observer);
+	}
+
+	public static void Deregister<NotificationType>(this IObserver<NotificationType> observer, List<IObserver<NotificationType>> observerList) {
+		observerList.Remove(observer);
+	}
+
+
 }
