@@ -5,6 +5,7 @@ using UnityEngine;
 public class TouchScript : MonoBehaviour {
 
 	public bool AllowRotation = false;
+	public bool InteractionEnabled = false;
 
 	[Space]
 	public Vector2 Scale = Vector2.one;
@@ -90,8 +91,9 @@ public class TouchScript : MonoBehaviour {
 				}
 				break;
 			case TouchPhase.Ended:
-				if ((touch.position - lastMainTouchLocation).sqrMagnitude < TouchTapMaxDistance * TouchTapMaxDistance
-				&& clickTimer > 0) {
+				if (InteractionEnabled
+					&& (touch.position - lastMainTouchLocation).sqrMagnitude < TouchTapMaxDistance * TouchTapMaxDistance
+					&& clickTimer > 0) {
 					Player.Interact();
 				}
 				break;
@@ -173,8 +175,9 @@ public class TouchScript : MonoBehaviour {
 
 			// Debug.Log("delta on release: " + releaseDelta + " (max: " + maxDistanceSquared + "), click timer: " + clickTimer);
 
-			if (releaseDelta < maxDistanceSquared
-			&& clickTimer > 0) {
+			if (InteractionEnabled
+				&& releaseDelta < maxDistanceSquared
+				&& clickTimer > 0) {
 				Player.Interact();
 			}
 		} else if (Input.GetMouseButton(0)) {

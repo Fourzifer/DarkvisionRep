@@ -22,8 +22,14 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public bool KbdInput;
 	public float MoveSpeed = 10f;
 
+	public bool InteractionEnabled = false;
 	private bool interactableInRange = false;
 	private bool interactPressedLastFrame = false;
+
+	private bool rotateLeftPressedLastFrame = false;
+	private bool rotateRightPressedLastFrame = false;
+	private float targetDirection = 0;
+	public float RotationAnimationSpeed = 1;
 
 	public Transform RaycastPosition;
 	public LayerMask RaycastLayerMask;
@@ -101,7 +107,23 @@ public class PlayerCharacterScript : MonoBehaviour {
 				x = -MoveSpeed * Time.deltaTime;
 			}
 
-			if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
+			// TODO: gradual turning animation
+			// FIXME: GetKeyDown unreliable
+			bool rotateRightPressed = Input.GetKey(KeyCode.E);
+			if (rotateRightPressed && !rotateRightPressedLastFrame)
+				// rb.rotation *= Quaternion.AngleAxis(30, Vector3.up);
+				targetDirection += 30;
+			rotateRightPressedLastFrame = rotateRightPressed;
+
+			bool rotateLeftPressed = Input.GetKey(KeyCode.Q);
+			if (rotateLeftPressed && !rotateLeftPressedLastFrame)
+				// rb.rotation *= Quaternion.AngleAxis(-30, Vector3.up);
+				targetDirection -= 30;
+			rotateLeftPressedLastFrame = rotateLeftPressed;
+
+			targetDirection %= 360;
+
+			if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
 				pressedInteract = true;
 			}
 		}
@@ -139,7 +161,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		// if (KbdInput || GamepadInput) {
 		// }
 
-		if (pressedInteract) {
+		if (InteractionEnabled && pressedInteract) {
 			Interact();
 		}
 
@@ -164,6 +186,14 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		touchMovedThisFrame = false;
 		touchedVentWall = false;
+	}
+
+	private void LateUpdate() {
+		rb.MoveRotation(Quaternion.RotateTowards(
+			rb.rotation,
+			Quaternion.AngleAxis(targetDirection, Vector3.up),
+			RotationAnimationSpeed * Time.deltaTime)
+		);
 	}
 
 	public void Interact() {
@@ -269,7 +299,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		return 0;
 	}
 
-	public static void PlayClip(AudioClip clip){
+	public static void PlayClip(AudioClip clip) {
 		Narrator?.PlayOneShot(clip);
 	}
 
