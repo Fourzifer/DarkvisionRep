@@ -4028,6 +4028,7 @@ MonoBehaviour:
   - pizza
   - john
   - carpet
+  - bathroom
   confidence: 1
 --- !u!20 &751799082 stripped
 Camera:
@@ -9443,6 +9444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6391936257389358189}
   - component: {fileID: 6391936257389358188}
+  - component: {fileID: 6391936257389358191}
   m_Layer: 0
   m_Name: Fireplace
   m_TagString: Untagged
@@ -9450,6 +9452,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6391936257389358191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391936257389358190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1a8c0990ccbd94bb0c1c2ad37a06ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HearingDistance: 15
+  Phrases:
+  - Phrase: pizza
+    Enabled: 1
+    Response: I'm not interested in pizza. The snoring guy like pizza, though.
+    Clip: {fileID: 0}
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - Phrase: carpet
+    Enabled: 1
+    Response: I love talking about carpets! Ask me what I think about bathrooms.
+    Clip: {fileID: 0}
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6391936257389358191}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bathroom
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase: bathroom
+    Enabled: 0
+    Response: The best bathrooms are the ones with carpeted floors.
+    Clip: {fileID: 0}
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  DefaultResponse: I don't understand
+  DefaultResponseClip: {fileID: 0}
 --- !u!114 &6391936257413294515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9702,6 +9753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6391936259117553077}
   - component: {fileID: 6391936259117553076}
+  - component: {fileID: 6391936259117553079}
   m_Layer: 0
   m_Name: Snoring
   m_TagString: Untagged
@@ -9709,3 +9761,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6391936259117553079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391936259117553078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1a8c0990ccbd94bb0c1c2ad37a06ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HearingDistance: 15
+  Phrases:
+  - Phrase: pizza
+    Enabled: 1
+    Response: I like pizza!
+    Clip: {fileID: 0}
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - Phrase: pineapple
+    Enabled: 1
+    Response: I don't like pineapple on pizza. I no longer want to talk about pizzas
+      with you.
+    Clip: {fileID: 0}
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6391936259117553079}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: DisablePhrase
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pizza
+            m_BoolArgument: 0
+          m_CallState: 2
+  DefaultResponse: I don't understand
+  DefaultResponseClip: {fileID: 0}

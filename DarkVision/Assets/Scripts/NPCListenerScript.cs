@@ -26,6 +26,10 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	public string DefaultResponse;
 	public AudioClip DefaultResponseClip;
 
+	[Space]
+	[Tooltip("Always print how far away the player is whenever a word is spoken, regardless of if they are in range or not")]
+	public bool PrintHearingDistance = false;
+
 	private AudioSource narrator;
 
 	void Start() {
@@ -42,8 +46,9 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		Vector3 pos = notification.Item1;
 
 		float distance = Vector3.Distance(transform.position, pos);
-		Debug.Log("NPC distance: " + distance);
 
+		if (PrintHearingDistance)
+			Debug.Log("NPC distance: " + distance);
 
 		if (distance > HearingDistance) {
 			// Too far away to hear
@@ -55,14 +60,14 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 		// if (Phrases.Select(entry => entry.Phrase).Contains(word)) {
 		if (entry != null) {
-			Debug.Log("I heard you say \"" + word + "\"! I am very interested in that. Response: " + entry.Response);
+			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
 			if (entry.Clip)
 				narrator?.PlayOneShot(entry.Clip);
 
 			entry.Event.Invoke();
 		} else {
-			Debug.Log("I don't know what \"" + word + "\" means. Response: " + DefaultResponse);
+			Debug.Log("[Default response, \"" + word + "\" is either not recognised or enabled]: " + DefaultResponse);
 			if (DefaultResponseClip)
 				narrator?.PlayOneShot(DefaultResponseClip);
 		}
