@@ -30,10 +30,15 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private bool rotateRightPressedLastFrame = false;
 	private float targetDirection = 0;
 	public float RotationAnimationSpeed = 1;
+	public float RotationIncrementAmount = 30;
 
+	[Tooltip("The object whose center position represents the  origin position of the ray")]
 	public Transform RaycastPosition;
+	[Tooltip("Which layers the raycast will react to/count collisions with")]
 	public LayerMask RaycastLayerMask;
+	[Tooltip("How far the ray will reach")]
 	public float RaycastDistance = 10f;
+	[Tooltip("How many results the raycast will keep, from closest to furthest hit from ray origin, the closest hit is always kept if the size is at least 1")]
 	public int RaycastBufferSize = 4;
 
 	private InteractState lastState = InteractState.None;
@@ -112,13 +117,13 @@ public class PlayerCharacterScript : MonoBehaviour {
 			bool rotateRightPressed = Input.GetKey(KeyCode.E);
 			if (rotateRightPressed && !rotateRightPressedLastFrame)
 				// rb.rotation *= Quaternion.AngleAxis(30, Vector3.up);
-				targetDirection += 30;
+				targetDirection += RotationIncrementAmount;
 			rotateRightPressedLastFrame = rotateRightPressed;
 
 			bool rotateLeftPressed = Input.GetKey(KeyCode.Q);
 			if (rotateLeftPressed && !rotateLeftPressedLastFrame)
 				// rb.rotation *= Quaternion.AngleAxis(-30, Vector3.up);
-				targetDirection -= 30;
+				targetDirection -= RotationIncrementAmount;
 			rotateLeftPressedLastFrame = rotateLeftPressed;
 
 			targetDirection %= 360;
