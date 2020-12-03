@@ -95,6 +95,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	}
 }
 
+/*
 [CustomEditor(typeof(NPCListenerScript))]
 public class NPCListenerScriptEditor : Editor {
 
@@ -110,22 +111,24 @@ public class NPCListenerScriptEditor : Editor {
 	public override void OnInspectorGUI() {
 		// base.OnInspectorGUI();
 		serializedObject.Update();
+		phrases = serializedObject.FindProperty("Phrases");
 
 		listenerScript = (NPCListenerScript)target;
 
 		EditorGUILayout.LabelField("Phrases");
 		for (int id = 0; id < listenerScript.Phrases.Count; id++) {
-			EditorGUI.indentLevel += 1;
 			var item = listenerScript.Phrases[id];
 
 			EditorGUILayout.BeginHorizontal();
-			item.Enabled = EditorGUILayout.Toggle(item.Enabled, GUILayout.Width(40));
+			item.Enabled = EditorGUILayout.Toggle(item.Enabled, GUILayout.Width(30));
 			EditorGUILayout.LabelField("id: " + id, GUILayout.Width(40));
 			item.Phrase = EditorGUILayout.TextField(item.Phrase);
 			if (GUILayout.Button("Remove")) {
 				listenerScript.Phrases.Remove(item);
 			}
 			EditorGUILayout.EndHorizontal();
+
+			EditorGUI.indentLevel += 1;
 			item.Response = EditorGUILayout.TextArea(item.Response);
 			item.Clip = (AudioClip)EditorGUILayout.ObjectField("Clip", item.Clip, typeof(AudioClip), false);
 			if (phrases != null) {
@@ -135,6 +138,7 @@ public class NPCListenerScriptEditor : Editor {
 			}
 			EditorGUI.indentLevel -= 1;
 		}
+
 		if (GUILayout.Button("Add phrase")) {
 			listenerScript.Phrases.Add(new NPCListenerScript.ListenPhraseEntry());
 		}
@@ -144,3 +148,4 @@ public class NPCListenerScriptEditor : Editor {
 
 	}
 }
+// */
