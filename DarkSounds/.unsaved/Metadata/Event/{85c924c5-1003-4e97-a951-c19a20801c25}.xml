@@ -216,7 +216,7 @@
 			<value>0.99589490968801309</value>
 		</property>
 		<property name="value">
-			<value>-10</value>
+			<value>-30</value>
 		</property>
 	</object>
 	<object class="Automator" id="{e9e47c13-89db-48c1-95a7-74196ec533ec}">
@@ -249,7 +249,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>1000</value>
+			<value>10</value>
 		</property>
 	</object>
 </objects>
