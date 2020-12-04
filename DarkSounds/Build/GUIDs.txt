@@ -1,0 +1,17 @@
+{89278f61-075a-4463-812c-a6fd0651079d} bank:/Master
+{113aafb5-7621-0821-0765-2c03f7a20105} bank:/Master.strings
+{b66e346c-ccf6-4719-8440-9421bafc79b5} bus:/
+{78d938f6-394f-49d8-bce3-305d5cd2ddac} bus:/Object Sounds
+{2f3bdc02-e4cd-4acd-b9f6-eb737c34bfb3} bus:/Reverb
+{77070714-0f24-4742-a0e7-9ffaf01e8d3d} event:/Music
+{b7fe5d2b-4eb7-4aaf-a303-2486e1162bd0} event:/Rooms/1/Keyboard
+{444fca12-86cd-4c21-b973-fe8a1a819967} event:/Rooms/2/Sleep
+{32a7a757-a5de-4ff5-9845-2ff971342981} event:/Rooms/3/Coffee
+{8569f37a-8b1b-4192-b759-695b6ed6232b} event:/Rooms/3/Kitched sounds
+{e01b9803-5c66-4b72-a595-eafa7cdbc8a4} event:/Rooms/3/Playing games
+{73a9abdd-c468-446a-a142-36ad0dfbd297} event:/Rooms/3/Stove
+{de6f90e1-8cbb-4fb8-82f9-fa031ee8d491} event:/Rooms/4/FirePlace
+{3e7e7859-3752-4278-aca6-44552b9908d8} event:/Rooms/4/Reading
+{76f25301-8d67-4c93-ac01-a2b45769a5bb} event:/Walking
+{a6cad758-df21-4423-b069-84b39ae64c2d} parameter:/CafeParameter
+{e7d6b48c-e248-4197-bb96-25b617e9cd7f} parameter:/WalkingParameter

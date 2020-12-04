@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{aa9c1d59-da67-4fde-a145-f248f09a7bbd}">
+		<property name="name">
+			<value>LPF</value>
+		</property>
+		<relationship name="folder">
+			<destination>{017416b8-3299-492c-b36d-25e5d09fc0c5}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7a7f3d7f-f14d-4395-bee2-f3123211001b}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7a7f3d7f-f14d-4395-bee2-f3123211001b}">
+		<property name="minimum">
+			<value>10</value>
+		</property>
+		<property name="maximum">
+			<value>22000</value>
+		</property>
+		<property name="initialValue">
+			<value>11000</value>
+		</property>
+		<property name="seekSpeed">
+			<value>43980</value>
+		</property>
+	</object>
+</objects>

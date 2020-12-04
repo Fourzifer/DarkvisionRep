@@ -4,5 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f5448bc6aff156f4c803bf769e26613e
+  - enabled: 1
+    path: Assets/Scenes/Personal Folders/Erik/Archive/VentCrawlerScene.unity
+    guid: 035a112ac3d000549813a71ced1b83aa
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: bc73ed7e5561342478a5777872ed1794,
+      type: 2}
