@@ -24,7 +24,9 @@ public class MicTestMenuScript : MonoBehaviour {
 	public TMP_Text microphones;
 	public AudioSource audioPlayer;
 
-	public AudioClip loadingClip;
+	public AudioClip LoadingClip;
+	public AudioClip PressKeyToBeginClip;
+	public string PressKeyToBeginText;
 
 	public string nextSceneName = "VentCrawlerScene";
 
@@ -33,6 +35,7 @@ public class MicTestMenuScript : MonoBehaviour {
 	protected PhraseRecognizer recognizer;
 	protected string word = "asdf";
 
+	private bool waitForKey = true;
 	private bool loading = false;
 
 	private int micsFound = 0;
@@ -56,14 +59,10 @@ public class MicTestMenuScript : MonoBehaviour {
 		}
 		microphones.text = mics;
 
-		audioPlayer.Stop();
-		if (micsFound < 1) {
-			StartEntry(0);
-		} else if (micsFound > 1) {
-			StartEntry(1);
-		} else {
-			StartEntry(2);
-		}
+		text.text = PressKeyToBeginText;
+		audioPlayer.PlayOneShot(PressKeyToBeginClip);
+
+
 	}
 
 	// private void OnApplicationQuit() {
@@ -77,22 +76,25 @@ public class MicTestMenuScript : MonoBehaviour {
 
 	void Update() {
 
-		if (loading) {
+		if (waitForKey && Input.GetKey(KeyCode.Space)) {
+			waitForKey = false;
 
+			audioPlayer.Stop();
+			if (micsFound < 1) {
+				StartEntry(0);
+			} else if (micsFound > 1) {
+				StartEntry(1);
+			} else {
+				StartEntry(2);
+			}
+		} else if (loading) {
 			if (FMODUnity.RuntimeManager.HasBankLoaded("Master")) {
 				Debug.Log("Master Bank Loaded");
 				SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
 			} else if (!FMODUnity.RuntimeManager.AnyBankLoading()) {
 				Debug.LogWarning("No banks are being loaded!");
 				FMODUnity.RuntimeManager.LoadBank("Master");
-
 			}
-
-		} else {
-
-
-
-
 		}
 
 	}
@@ -101,7 +103,7 @@ public class MicTestMenuScript : MonoBehaviour {
 		loading = true;
 		text.text = "Loading...";
 		audioPlayer.Stop();
-		audioPlayer.PlayOneShot(loadingClip);
+		audioPlayer.PlayOneShot(LoadingClip);
 	}
 
 	public void StartEntry(int index) {

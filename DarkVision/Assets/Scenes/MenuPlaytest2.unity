@@ -1001,7 +1001,10 @@ MonoBehaviour:
   text: {fileID: 2107271248}
   microphones: {fileID: 1568879509}
   audioPlayer: {fileID: 601446711}
-  loadingClip: {fileID: 8300000, guid: bd5b97f3d8d3b4b4da4fcf40e9abf531, type: 3}
+  LoadingClip: {fileID: 8300000, guid: bd5b97f3d8d3b4b4da4fcf40e9abf531, type: 3}
+  PressKeyToBeginClip: {fileID: 8300000, guid: 6e329914368b2d74ca3afa59162a8600, type: 3}
+  PressKeyToBeginText: Hello! Press the spacebar when you are ready to start the
+    microphone test.
   nextSceneName: WallVentSceneTemplate
   keywords:
   - pizza
