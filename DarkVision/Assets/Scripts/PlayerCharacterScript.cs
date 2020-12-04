@@ -325,9 +325,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 	}
 
 	public void PlayNotebook() {
-		// TODO: show notebook hint as text on screen
-		//PopupHandlerScript.ShowPopup("wall");
-		
+		PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
 		if (Narrator && notebookHintClip) {
 			Narrator.PlayOneShot(notebookHintClip);
 		}
