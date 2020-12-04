@@ -18,6 +18,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private Rigidbody rb;
 
+	private static AudioSource Narrator;
+	public string WelcomeText;
+	public AudioClip WelcomeClip;
+
 	[Header("Input")]
 
 	public bool GamepadInput;
@@ -35,7 +39,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public float RotationIncrementAmount = 30;
 
 	[Header("Raycast footsteps")]
-	[Tooltip("The object whose center position represents the  origin position of the ray")]
+	[Tooltip("The object whose center position represents the origin position of the ray")]
 	public Transform RaycastPosition;
 	[Tooltip("Which layers the raycast will react to/count collisions with")]
 	public LayerMask RaycastLayerMask;
@@ -55,8 +59,6 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private AudioClip notebookHintClip;
 	private bool notebookKeyPressedLastFrame = false;
 
-	private static AudioSource Narrator;
-
 	void Start() {
 
 		rb = GetComponent<Rigidbody>();
@@ -70,6 +72,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 		// Debug.Log("All joysticks listed");
 
 		Narrator = GetComponent<AudioSource>();
+		if (Narrator && WelcomeClip) {
+			PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
+			Narrator.PlayOneShot(WelcomeClip);
+		}
 
 	}
 
@@ -140,7 +146,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 			if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
 				pressedInteract = true;
 			}
-			
+
 			// Notebook
 			bool notebookKeyPressed = Input.GetKey(KeyCode.F);
 			if (notebookKeyPressed && !notebookKeyPressedLastFrame)
@@ -319,14 +325,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 		return 0;
 	}
 
-	public void SetNotebook(string newNotebookHint, AudioClip newNotebookHintClip) {
+	public void SetNotebookText(string newNotebookHint) {
 		currentNotebookHint = newNotebookHint;
+	}
+	public void SetNotebookClip(AudioClip newNotebookHintClip) {
 		notebookHintClip = newNotebookHintClip;
 	}
 
 	public void PlayNotebook() {
 		PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
 		if (Narrator && notebookHintClip) {
+			Narrator.Stop();
 			Narrator.PlayOneShot(notebookHintClip);
 		}
 	}
