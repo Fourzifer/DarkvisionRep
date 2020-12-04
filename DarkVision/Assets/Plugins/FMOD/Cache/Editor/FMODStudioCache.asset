@@ -70,6 +70,23 @@ MonoBehaviour:
   Max: 4
   Default: 0
   Exists: 0
+--- !u!114 &-8560370488142127097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music 2/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-8400200447750039415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +245,7 @@ MonoBehaviour:
   Path: event:/Rooms/3/Playing games
   guid: 03981be0665c724ba595eafa7cdbc8a4
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -285,7 +302,7 @@ MonoBehaviour:
   Path: event:/Rooms/4/Reading
   guid: 59787e3e52377842aca644552b9908d8
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -410,12 +427,12 @@ MonoBehaviour:
   Path: event:/Walking
   guid: 0153f276678d934cac01a2b45769a5bb
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8194100160179710140}
+  - {fileID: 1233869469029017463}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -470,12 +487,12 @@ MonoBehaviour:
   Path: event:/Music
   guid: 14070777240f4247a0e79ffaf01e8d3d
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 4372273303886487485}
+  - {fileID: 1374694809764238745}
   MinDistance: 1
   MaxDistance: 30
   Length: 68571
@@ -512,7 +529,7 @@ MonoBehaviour:
   Path: event:/Rooms/1/Keyboard
   guid: 2b5dfeb7b74eaf4aa3032486e1162bd0
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -537,6 +554,23 @@ MonoBehaviour:
   Max: 23
   Default: 23
   Exists: 0
+--- !u!114 &-4974194416492727845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: CafeParameter
+  m_EditorClassIdentifier: 
+  Name: CafeParameter
+  Min: 18
+  Max: 23
+  Default: 18
+  Exists: 1
 --- !u!114 &-4844020400158681835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +692,7 @@ MonoBehaviour:
   lastModified: 637425989462093025
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-3638373035061978930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,6 +832,24 @@ MonoBehaviour:
   Max: 4
   Default: 0
   Exists: 0
+--- !u!114 &-2425349474434161717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../DarkSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637426838121716364
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-2393049216309508889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +900,7 @@ MonoBehaviour:
   Path: event:/Rooms/4/FirePlace
   guid: e1906fdebb8cb84f82f9fa031ee8d491
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -973,7 +1025,7 @@ MonoBehaviour:
   Path: event:/Rooms/2/Sleep
   guid: 12ca4f44cd86214cb973fe8a1a819967
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -1046,7 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 3802213557808120100}
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   EditorEvents:
   - {fileID: -5185788736749476229}
   - {fileID: -931165497343619272}
@@ -1060,12 +1112,12 @@ MonoBehaviour:
   - {fileID: -5119176886762414454}
   - {fileID: 1488450828165516879}
   EditorParameters:
-  - {fileID: 1200650387299129976}
+  - {fileID: -4974194416492727845}
   MasterBanks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   StringsBanks:
   - {fileID: 3802213557808120100}
-  stringsBankWriteTime: 637425989462232679
+  stringsBankWriteTime: 637426838120436757
   cacheVersion: 3
 --- !u!114 &45991968774401986
 MonoBehaviour:
@@ -1221,6 +1273,23 @@ MonoBehaviour:
   Min: 18
   Max: 23
   Default: 18
+  Exists: 0
+--- !u!114 &1233869469029017463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Walking/WalkingParameter
+  m_EditorClassIdentifier: 
+  Name: WalkingParameter
+  Min: 0
+  Max: 4
+  Default: 0
   Exists: 1
 --- !u!114 &1344278283535147184
 MonoBehaviour:
@@ -1239,6 +1308,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &1374694809764238745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &1396983375308491992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,12 +1374,12 @@ MonoBehaviour:
   Path: event:/Music 2
   guid: c524c9850310974ea951c19a20801c25
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 3299274037671942444}
+  - {fileID: -8560370488142127097}
   MinDistance: 1
   MaxDistance: 30
   Length: 68571
@@ -1485,7 +1571,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &3373303393873037895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,7 +1604,7 @@ MonoBehaviour:
   Path: event:/Rooms/3/Stove
   guid: ddaba97368c46a44a14236ad0dfbd297
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -1540,7 +1626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../DarkSounds/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637425989462232679
+  lastModified: 637426838120436757
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1599,7 +1685,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &4427056775486926785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,7 +1753,7 @@ MonoBehaviour:
   Path: event:/Rooms/3/Coffee
   guid: 57a7a732dea5f54f98452ff971342981
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -1783,7 +1869,7 @@ MonoBehaviour:
   Path: event:/Rooms/3/Kitched sounds
   guid: 7af369851b8b9241b759695b6ed6232b
   Banks:
-  - {fileID: -3732627983484282124}
+  - {fileID: -2425349474434161717}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -2103,7 +2189,7 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &8259562707228544688
 MonoBehaviour:
   m_ObjectHideFlags: 0

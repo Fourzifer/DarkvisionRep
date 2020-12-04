@@ -8,7 +8,7 @@ public class MicListenerScript : MonoBehaviour {
 	public static List<Utility.IObserver<(Vector3, string)>> SpeakEvent = new List<Utility.IObserver<(Vector3, string)>>();
 
 	// IDEA: Additional phrase registry system with bool layer for keywords which will stop recognised words from being broadcasted if not enabled yet
-	public string[] keywords = new string[] { "pineapple", "pizza", "john", "carpet" };
+	public string[] keywords = new string[] { "pineapple", "pizza", "john", "carpet", "adam", "kevin" };
 
 	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
 	// public float speed = 1;
