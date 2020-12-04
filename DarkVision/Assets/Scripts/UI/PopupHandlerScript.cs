@@ -27,6 +27,9 @@ public class PopupHandlerScript : MonoBehaviour {
 	public List<PopupEntry> Popups;
 	public List<TimedPopupEntry> TimedPopups;
 
+	public TMP_Text CustomPopup;
+	private float customPopupTimer = -1;
+
 	// IDEA: draw timer for timed popups
 	// TODO: play narrator voice for timed popups
 
@@ -41,6 +44,7 @@ public class PopupHandlerScript : MonoBehaviour {
 		}
 
 		Timer.gameObject.SetActive(false);
+		CustomPopup?.gameObject.SetActive(false);
 	}
 
 	private void OnDestroy() {
@@ -51,6 +55,13 @@ public class PopupHandlerScript : MonoBehaviour {
 
 		bool timerIsVisible = Timer.gameObject.activeSelf;
 		bool timerShouldBeVisible = false;
+
+		if (customPopupTimer >= 0) {
+			customPopupTimer -= Time.deltaTime;
+			if (customPopupTimer < 0) {
+				CustomPopup.gameObject.SetActive(false);
+			}
+		}
 
 		foreach (var timedPopup in mainInstance.TimedPopups) {
 			if (timedPopup.Popup.activeSelf) {
@@ -132,6 +143,19 @@ public class PopupHandlerScript : MonoBehaviour {
 			popup.Popup.SetActive(false);
 		}
 
+	}
+
+	public void EnableCustomPopup(string message, float time = 5) {
+		if (!CustomPopup)
+			return;
+
+		CustomPopup.text = message;
+		CustomPopup.gameObject.SetActive(true);
+		customPopupTimer = time;
+	}
+
+	public static void ShowCustomPopup(string message, float time = 5) {
+		mainInstance.EnableCustomPopup(message, time);
 	}
 
 }
