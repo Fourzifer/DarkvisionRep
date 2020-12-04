@@ -92,6 +92,7 @@ public class TtsFileGenerator : EditorWindow {
 		OutputFile = EditorGUILayout.TextField("Output file", OutputFile);
 
 		if (GUILayout.Button("Generate File")) {
+			// TODO: disable button while sound generation is in progress
 			// Task.Run(() => SynthesizeAudioAsync(ApiKey, Location, GenerateXML(), OutputFile));
 			SynthesizeAudioAsync(ApiKey, Location, GenerateXML(), OutputFile);
 			// var sound = AudioClip.Create("asdf", samplerate * 2, 1, samplerate, true, OnAudioRead, OnAudioSetPosition);

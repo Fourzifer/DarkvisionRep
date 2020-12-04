@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 1
+  HasSourceProject: 0
   HasPlatforms: 1
   sourceProjectPath: ../DarkSounds/DarkSounds.fspro
   sourceBankPath: ..\DarkSounds\Build

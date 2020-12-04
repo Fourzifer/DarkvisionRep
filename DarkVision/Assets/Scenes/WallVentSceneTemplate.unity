@@ -6401,6 +6401,7 @@ MonoBehaviour:
   Phrases:
   - Phrase: pizza
     Enabled: 1
+    Hidden: 0
     Response: 
     Clip: {fileID: 0}
     Event:
@@ -6408,6 +6409,7 @@ MonoBehaviour:
         m_Calls: []
   - Phrase: pineapple
     Enabled: 1
+    Hidden: 0
     Response: 
     Clip: {fileID: 0}
     Event:
@@ -6415,6 +6417,7 @@ MonoBehaviour:
         m_Calls: []
   DefaultResponse: 
   DefaultResponseClip: {fileID: 0}
+  PrintHearingDistance: 0
 --- !u!1 &1347386434
 GameObject:
   m_ObjectHideFlags: 0
@@ -9468,6 +9471,7 @@ MonoBehaviour:
   Phrases:
   - Phrase: pizza
     Enabled: 1
+    Hidden: 0
     Response: I'm not interested in pizza. The snoring guy like pizza, though.
     Clip: {fileID: 0}
     Event:
@@ -9475,6 +9479,7 @@ MonoBehaviour:
         m_Calls: []
   - Phrase: carpet
     Enabled: 1
+    Hidden: 0
     Response: I love talking about carpets! Ask me what I think about bathrooms.
     Clip: {fileID: 0}
     Event:
@@ -9494,6 +9499,7 @@ MonoBehaviour:
           m_CallState: 2
   - Phrase: bathroom
     Enabled: 0
+    Hidden: 0
     Response: The best bathrooms are the ones with carpeted floors.
     Clip: {fileID: 0}
     Event:
@@ -9501,6 +9507,7 @@ MonoBehaviour:
         m_Calls: []
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
+  PrintHearingDistance: 0
 --- !u!114 &6391936257413294515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9777,6 +9784,7 @@ MonoBehaviour:
   Phrases:
   - Phrase: pizza
     Enabled: 1
+    Hidden: 1
     Response: I like pizza!
     Clip: {fileID: 0}
     Event:
@@ -9784,6 +9792,7 @@ MonoBehaviour:
         m_Calls: []
   - Phrase: pineapple
     Enabled: 1
+    Hidden: 1
     Response: I don't like pineapple on pizza. I no longer want to talk about pizzas
       with you.
     Clip: {fileID: 0}
@@ -9793,7 +9802,7 @@ MonoBehaviour:
         - m_Target: {fileID: 6391936259117553079}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
           m_MethodName: DisablePhrase
-          m_Mode: 5
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9804,3 +9813,4 @@ MonoBehaviour:
           m_CallState: 2
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
+  PrintHearingDistance: 0

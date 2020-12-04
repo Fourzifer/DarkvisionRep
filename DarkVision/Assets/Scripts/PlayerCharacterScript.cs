@@ -18,6 +18,12 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private Rigidbody rb;
 
+	private static AudioSource Narrator;
+	public string WelcomeText;
+	public AudioClip WelcomeClip;
+
+	[Header("Input")]
+
 	public bool GamepadInput;
 	public bool KbdInput;
 	public float MoveSpeed = 10f;
@@ -30,19 +36,28 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private bool rotateRightPressedLastFrame = false;
 	private float targetDirection = 0;
 	public float RotationAnimationSpeed = 1;
+	public float RotationIncrementAmount = 30;
 
+	[Header("Raycast footsteps")]
+	[Tooltip("The object whose center position represents the origin position of the ray")]
 	public Transform RaycastPosition;
+	[Tooltip("Which layers the raycast will react to/count collisions with")]
 	public LayerMask RaycastLayerMask;
+	[Tooltip("How far the ray will reach")]
 	public float RaycastDistance = 10f;
+	[Tooltip("How many results the raycast will keep, from closest to furthest hit from ray origin, the closest hit is always kept if the size is at least 1")]
 	public int RaycastBufferSize = 4;
 
 	private InteractState lastState = InteractState.None;
-
 	private bool touchMovedThisFrame = false;
-
 	private bool touchedVentWall = false;
 
-	private static AudioSource Narrator;
+	[Header("Notebook")]
+	[SerializeField]
+	private string currentNotebookHint = "I should go ask around";
+	[SerializeField]
+	private AudioClip notebookHintClip;
+	private bool notebookKeyPressedLastFrame = false;
 
 	void Start() {
 
@@ -57,6 +72,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 		// Debug.Log("All joysticks listed");
 
 		Narrator = GetComponent<AudioSource>();
+		if (Narrator && WelcomeClip) {
+			PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
+			Narrator.PlayOneShot(WelcomeClip);
+		}
 
 	}
 
@@ -96,6 +115,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		bool pressedInteract = false;
 
 		if (KbdInput) {
+			// Movement
 			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
 				z = MoveSpeed * Time.deltaTime;
 			} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
@@ -107,25 +127,31 @@ public class PlayerCharacterScript : MonoBehaviour {
 				x = -MoveSpeed * Time.deltaTime;
 			}
 
-			// TODO: gradual turning animation
-			// FIXME: GetKeyDown unreliable
+			// Rotation
 			bool rotateRightPressed = Input.GetKey(KeyCode.E);
 			if (rotateRightPressed && !rotateRightPressedLastFrame)
 				// rb.rotation *= Quaternion.AngleAxis(30, Vector3.up);
-				targetDirection += 30;
+				targetDirection += RotationIncrementAmount;
 			rotateRightPressedLastFrame = rotateRightPressed;
 
 			bool rotateLeftPressed = Input.GetKey(KeyCode.Q);
 			if (rotateLeftPressed && !rotateLeftPressedLastFrame)
 				// rb.rotation *= Quaternion.AngleAxis(-30, Vector3.up);
-				targetDirection -= 30;
+				targetDirection -= RotationIncrementAmount;
 			rotateLeftPressedLastFrame = rotateLeftPressed;
 
 			targetDirection %= 360;
 
+			// Interact
 			if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
 				pressedInteract = true;
 			}
+
+			// Notebook
+			bool notebookKeyPressed = Input.GetKey(KeyCode.F);
+			if (notebookKeyPressed && !notebookKeyPressedLastFrame)
+				PlayNotebook();
+			notebookKeyPressedLastFrame = notebookKeyPressed;
 		}
 
 		if (GamepadInput) {
@@ -299,8 +325,24 @@ public class PlayerCharacterScript : MonoBehaviour {
 		return 0;
 	}
 
+	public void SetNotebookText(string newNotebookHint) {
+		currentNotebookHint = newNotebookHint;
+	}
+	public void SetNotebookClip(AudioClip newNotebookHintClip) {
+		notebookHintClip = newNotebookHintClip;
+	}
+
+	public void PlayNotebook() {
+		PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
+		if (Narrator && notebookHintClip) {
+			Narrator.Stop();
+			Narrator.PlayOneShot(notebookHintClip);
+		}
+	}
+
 	public static void PlayClip(AudioClip clip) {
 		Narrator?.PlayOneShot(clip);
 	}
+
 
 }
