@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 173933513}
   - component: {fileID: 173933512}
   m_Layer: 0
-  m_Name: C3
+  m_Name: C4 (Kevin)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,7 +600,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6391936257928992292}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &173933512
 MonoBehaviour:
@@ -617,7 +617,7 @@ MonoBehaviour:
   HearingDistance: 15
   Phrases:
   - Phrase: microwave
-    Enabled: 1
+    Enabled: 0
     Hidden: 0
     Response: "Microwave? I haven\u2019t heard someone say that in a while now. That
       means you\u2019ve gotten quite far in your initiation, haven\u2019t you. Woops,
@@ -626,7 +626,19 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 6e7358e8e612f5349b500bbb9a6f63b1, type: 3}
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 6391936259117553079}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
@@ -2643,6 +2655,11 @@ PrefabInstance:
         any time. Try walking up to the coffee machine and say the name Adam. Try
         pressing F after talking to Adam and see what happens.
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: Mode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085256282731914, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_Layer
@@ -3178,7 +3195,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15812
+  m_Name: pb_Mesh15686
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3441,7 +3458,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15582
+  m_Name: pb_Mesh15456
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4118,7 +4135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f18c5f314d37924caddb268cc3e21f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Narrator: {fileID: 751799079}
   Timer: {fileID: 631726790}
   Popups:
   - Key: interact
@@ -4299,7 +4315,7 @@ GameObject:
   - component: {fileID: 1458004565}
   - component: {fileID: 1458004564}
   m_Layer: 0
-  m_Name: C4
+  m_Name: C3 (Unknown)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4320,7 +4336,7 @@ MonoBehaviour:
   HearingDistance: 15
   Phrases:
   - Phrase: microwave
-    Enabled: 1
+    Enabled: 0
     Hidden: 0
     Response: "What did you just say?! Honestly, David seems to tell anyone our secret
       codeword. I won\u2019t be part of whatever you\u2019re planning, so find someone
@@ -4379,7 +4395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6391936257928992292}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476381496
 GameObject:
@@ -4455,7 +4471,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -4700,7 +4716,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15922
+  m_Name: pb_Mesh15796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5333,7 +5349,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15658
+  m_Name: pb_Mesh15532
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5891,7 +5907,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15884
+  m_Name: pb_Mesh15758
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6877,7 +6893,7 @@ GameObject:
   - component: {fileID: 6391936257389358188}
   - component: {fileID: 6391936257389358191}
   m_Layer: 0
-  m_Name: C2
+  m_Name: C2 (David)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6912,13 +6928,51 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
+        - m_Target: {fileID: 173933512}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1458004564}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookText
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 'The word microwave seems to be a keyword around here,
+              maybe I should ask around? '
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 88ae66bef5c89184c84507f9570dd362,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -6932,7 +6986,33 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 0a7e5a4796f7c0e4aa1dee1c53d78f34, type: 3}
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookText
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: "David will only talk to me if I tell him my favourite
+              food. I remember him liking pineapple on pizza\u2026"
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 972d989defdf76947b9ebe4f3b43614f,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Phrase: pineapple
     Enabled: 1
     Hidden: 0
@@ -6947,7 +7027,57 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 6938699420a9c4a418d90653e9a4a86f, type: 3}
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 173933512}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1458004564}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookText
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 'The word microwave seems to be a keyword around here,
+              maybe I should ask around? '
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 88ae66bef5c89184c84507f9570dd362,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
@@ -6964,8 +7094,8 @@ Transform:
   m_Children:
   - {fileID: 6391936259117553077}
   - {fileID: 6391936257389358189}
-  - {fileID: 173933511}
   - {fileID: 1458004566}
+  - {fileID: 173933511}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7034,7 +7164,7 @@ GameObject:
   - component: {fileID: 6391936259117553076}
   - component: {fileID: 6391936259117553079}
   m_Layer: 0
-  m_Name: C1
+  m_Name: C1 (Adam)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
