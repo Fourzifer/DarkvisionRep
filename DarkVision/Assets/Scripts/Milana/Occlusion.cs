@@ -79,18 +79,18 @@ public class Occlusion : MonoBehaviour
 
         CastLine(SoundLeft, ListenerLeft);
         CastLine(SoundLeft, listener);
-        CastLine(SoundLeft, ListenerRight);
+        // CastLine(SoundLeft, ListenerRight);
 
         CastLine(sound, ListenerLeft);
         CastLine(sound, listener);
         CastLine(sound, ListenerRight);
 
-        CastLine(SoundRight, ListenerLeft);
+        // CastLine(SoundRight, ListenerLeft);
         CastLine(SoundRight, listener);
         CastLine(SoundRight, ListenerRight);
         
-        CastLine(SoundAbove, ListenerAbove);
-        CastLine(SoundBelow, ListenerBelow);
+        // CastLine(SoundAbove, ListenerAbove);
+        // CastLine(SoundBelow, ListenerBelow);
 
         if (PlayerOcclusionWidening == 0f || SoundOcclusionWidening == 0f)
         {
@@ -139,6 +139,6 @@ public class Occlusion : MonoBehaviour
 
     private void SetParameter()
     {
-        Audio.setParameterByName("Occlusion", lineCastHitCount / (11*Volume) );
+        Audio.setParameterByName("Occlusion", lineCastHitCount / (7*Volume) );
     }
 }
