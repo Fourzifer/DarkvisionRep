@@ -16,6 +16,24 @@ public class PlayerCharacterScript : MonoBehaviour {
 		None
 	}
 
+	public enum MoveMode {
+		Normal,
+		Pacman,
+		OnlyForwards
+	}
+
+	private enum Direction {
+		None,
+		North,
+		NorthEast,
+		East,
+		SouthEast,
+		South,
+		SouthWest,
+		West,
+		NorthWest
+	}
+
 	private Rigidbody rb;
 
 	private static AudioSource Narrator;
@@ -23,7 +41,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public AudioClip WelcomeClip;
 
 	[Header("Input")]
-	public bool PacmanMode = true;
+	// public bool PacmanMode = true;
+	public MoveMode Mode;
 	public bool GamepadInput;
 	public bool KbdInput;
 	public float MoveSpeed = 10f;
@@ -39,6 +58,18 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public float RotationIncrementAmount = 90;
 
 	private KeyCode lastMovementKeyPressed = KeyCode.None;
+	private KeyCode[] allowedMovementKeys = {
+		KeyCode.W,
+		KeyCode.A,
+		KeyCode.S,
+		KeyCode.D,
+		KeyCode.UpArrow,
+		KeyCode.LeftArrow,
+		KeyCode.DownArrow,
+		KeyCode.RightArrow,
+	};
+	private Direction moveDir = Direction.None;
+
 
 	[Header("Raycast footsteps")]
 	[Tooltip("The object whose center position represents the origin position of the ray")]
@@ -85,6 +116,90 @@ public class PlayerCharacterScript : MonoBehaviour {
 		Narrator = null;
 	}
 
+	private void Update() {
+		if (KbdInput) {
+			// Movement
+			moveDir = Direction.None;
+
+			switch (Mode) {
+				case MoveMode.Pacman:
+
+					foreach (KeyCode key in allowedMovementKeys) {
+						if (Input.GetKeyDown(key))
+							lastMovementKeyPressed = key;
+					}
+
+					// if (Input.GetKeyDown(KeyCode.W))
+					// 	lastMovementKeyPressed = KeyCode.W;
+					// if (Input.GetKeyDown(KeyCode.A))
+					// 	lastMovementKeyPressed = KeyCode.A;
+					// if (Input.GetKeyDown(KeyCode.S))
+					// 	lastMovementKeyPressed = KeyCode.S;
+					// if (Input.GetKeyDown(KeyCode.D))
+					// 	lastMovementKeyPressed = KeyCode.D;
+
+					if (!Input.GetKey(lastMovementKeyPressed))
+						lastMovementKeyPressed = KeyCode.None;
+
+
+					switch (lastMovementKeyPressed) {
+						case KeyCode.W:
+						case KeyCode.UpArrow:
+							moveDir = Direction.North;
+							break;
+						case KeyCode.A:
+						case KeyCode.LeftArrow:
+							moveDir = Direction.West;
+							break;
+						case KeyCode.S:
+						case KeyCode.DownArrow:
+							moveDir = Direction.South;
+							break;
+						case KeyCode.D:
+						case KeyCode.RightArrow:
+							moveDir = Direction.East;
+							break;
+						default:
+							break;
+					}
+					break;
+				case MoveMode.Normal:
+					if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+						moveDir = Direction.North;
+					} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+						moveDir = Direction.South;
+					}
+					if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+						if (moveDir == Direction.North) {
+							moveDir = Direction.NorthEast;
+						} else if (moveDir == Direction.South) {
+							moveDir = Direction.SouthEast;
+						} else {
+							moveDir = Direction.East;
+						}
+					} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+						if (moveDir == Direction.North) {
+							moveDir = Direction.NorthWest;
+						} else if (moveDir == Direction.South) {
+							moveDir = Direction.SouthWest;
+						} else {
+							moveDir = Direction.West;
+						}
+					}
+					break;
+				case MoveMode.OnlyForwards:
+					if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+						moveDir = Direction.North;
+					} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+						moveDir = Direction.South;
+					}
+					break;
+			}
+
+
+		}
+	}
+
 	private void FixedUpdate() {
 
 		Ray ray = new Ray(RaycastPosition.position, RaycastPosition.forward);
@@ -118,48 +233,38 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		if (KbdInput) {
 			// Movement
-			if (PacmanMode) {
-				if (Input.GetKeyDown(KeyCode.W))
-					lastMovementKeyPressed = KeyCode.W;
-				if (Input.GetKeyDown(KeyCode.A))
-					lastMovementKeyPressed = KeyCode.A;
-				if (Input.GetKeyDown(KeyCode.S))
-					lastMovementKeyPressed = KeyCode.S;
-				if (Input.GetKeyDown(KeyCode.D))
-					lastMovementKeyPressed = KeyCode.D;
 
-				if (!Input.GetKey(lastMovementKeyPressed))
-					lastMovementKeyPressed = KeyCode.None;
-
-
-				switch (lastMovementKeyPressed) {
-					case KeyCode.W:
-						z = MoveSpeed * Time.deltaTime;
-						break;
-					case KeyCode.A:
-						x = -MoveSpeed * Time.deltaTime;
-						break;
-					case KeyCode.S:
-						z = -MoveSpeed * Time.deltaTime;
-						break;
-					case KeyCode.D:
-						x = MoveSpeed * Time.deltaTime;
-						break;
-					default:
-						break;
-				}
-
-			} else {
-				if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+			switch (moveDir) {
+				case Direction.North:
 					z = MoveSpeed * Time.deltaTime;
-				} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-					z = -MoveSpeed * Time.deltaTime;
-				}
-				if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+					break;
+				case Direction.NorthEast:
+					z = MoveSpeed * Time.deltaTime;
 					x = MoveSpeed * Time.deltaTime;
-				} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+					break;
+				case Direction.NorthWest:
+					z = MoveSpeed * Time.deltaTime;
 					x = -MoveSpeed * Time.deltaTime;
-				}
+					break;
+				case Direction.South:
+					z = -MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.SouthEast:
+					z = -MoveSpeed * Time.deltaTime;
+					x = MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.SouthWest:
+					z = -MoveSpeed * Time.deltaTime;
+					x = -MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.East:
+					x = MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.West:
+					x = -MoveSpeed * Time.deltaTime;
+					break;
+				default:
+					break;
 			}
 
 			// Rotation
