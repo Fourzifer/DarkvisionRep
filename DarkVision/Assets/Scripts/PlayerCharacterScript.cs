@@ -47,6 +47,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public bool GamepadInput;
 	public bool KbdInput;
 	public float MoveSpeed = 10f;
+	public bool UseVelocityMovement = true;
+	public float VelocityLimit = 10f;
 
 	public bool InteractionEnabled = false;
 	private bool interactableInRange = false;
@@ -429,9 +431,16 @@ public class PlayerCharacterScript : MonoBehaviour {
 			}
 		}
 
-		var rbPos = transform.localPosition;
-		var delta = transform.localRotation * new Vector3(x, 0, z);
-		MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
+		if (UseVelocityMovement) {
+			rb.velocity = new Vector3(x*30f, rb.velocity.y, z*30f);
+			if (rb.velocity.sqrMagnitude > VelocityLimit * VelocityLimit) {
+				rb.velocity = rb.velocity.normalized * VelocityLimit;
+			}
+		} else {
+			var rbPos = transform.localPosition;
+			var delta = transform.localRotation * new Vector3(x, 0, z);
+			MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
+		}
 	}
 
 	public void Rotate(float degrees) {
