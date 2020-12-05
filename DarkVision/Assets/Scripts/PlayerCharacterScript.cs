@@ -19,7 +19,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public enum MoveMode {
 		Normal,
 		Pacman,
-		OnlyForwards
+		OnlyForwards,
+		CorridorRelativeForwardsOnly
 	}
 
 	private enum Direction {
@@ -46,6 +47,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public bool GamepadInput;
 	public bool KbdInput;
 	public float MoveSpeed = 10f;
+	public bool UseVelocityMovement = true;
+	public float VelocityLimit = 10f;
 
 	public bool InteractionEnabled = false;
 	private bool interactableInRange = false;
@@ -69,6 +72,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		KeyCode.RightArrow,
 	};
 	private Direction moveDir = Direction.None;
+	private Direction facing = Direction.North;
 
 
 	[Header("Raycast footsteps")]
@@ -129,15 +133,6 @@ public class PlayerCharacterScript : MonoBehaviour {
 							lastMovementKeyPressed = key;
 					}
 
-					// if (Input.GetKeyDown(KeyCode.W))
-					// 	lastMovementKeyPressed = KeyCode.W;
-					// if (Input.GetKeyDown(KeyCode.A))
-					// 	lastMovementKeyPressed = KeyCode.A;
-					// if (Input.GetKeyDown(KeyCode.S))
-					// 	lastMovementKeyPressed = KeyCode.S;
-					// if (Input.GetKeyDown(KeyCode.D))
-					// 	lastMovementKeyPressed = KeyCode.D;
-
 					if (!Input.GetKey(lastMovementKeyPressed))
 						lastMovementKeyPressed = KeyCode.None;
 
@@ -193,6 +188,28 @@ public class PlayerCharacterScript : MonoBehaviour {
 					} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
 						moveDir = Direction.South;
 					}
+					break;
+				case MoveMode.CorridorRelativeForwardsOnly:
+
+					switch (facing) {
+						case Direction.North:
+						case Direction.South:
+							if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+								moveDir = Direction.North;
+							} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+								moveDir = Direction.South;
+							}
+							break;
+						case Direction.West:
+						case Direction.East:
+							if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+								moveDir = Direction.East;
+							} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+								moveDir = Direction.West;
+							}
+							break;
+					}
+
 					break;
 			}
 
@@ -281,6 +298,15 @@ public class PlayerCharacterScript : MonoBehaviour {
 			rotateLeftPressedLastFrame = rotateLeftPressed;
 
 			targetDirection %= 360;
+			if (targetDirection < 45 || targetDirection > 315) {
+				facing = Direction.North;
+			} else if (targetDirection < 135) {
+				facing = Direction.East;
+			} else if (targetDirection < 225) {
+				facing = Direction.South;
+			} else {
+				facing = Direction.West;
+			}
 
 			// Interact
 			if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
@@ -405,9 +431,16 @@ public class PlayerCharacterScript : MonoBehaviour {
 			}
 		}
 
-		var rbPos = transform.localPosition;
-		var delta = transform.localRotation * new Vector3(x, 0, z);
-		MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
+		if (UseVelocityMovement) {
+			rb.velocity = new Vector3(x*30f, rb.velocity.y, z*30f);
+			if (rb.velocity.sqrMagnitude > VelocityLimit * VelocityLimit) {
+				rb.velocity = rb.velocity.normalized * VelocityLimit;
+			}
+		} else {
+			var rbPos = transform.localPosition;
+			var delta = transform.localRotation * new Vector3(x, 0, z);
+			MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
+		}
 	}
 
 	public void Rotate(float degrees) {
@@ -481,7 +514,12 @@ public class PlayerCharacterScript : MonoBehaviour {
 	}
 
 	public static void PlayClip(AudioClip clip) {
+		Narrator?.Stop();
 		Narrator?.PlayOneShot(clip);
+	}
+
+	public static void StopNarratorNow() {
+		Narrator?.Stop();
 	}
 
 

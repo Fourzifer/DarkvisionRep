@@ -61,13 +61,15 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		string word = notification.Item2;
 		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.Enabled && firstEntry.Phrase == word);
 
-		// if (Phrases.Select(entry => entry.Phrase).Contains(word)) {
 		if (entry != null) {
 			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
 			PopupHandlerScript.ShowCustomPopup(entry.Response);
-			if (entry.Clip)
+			if (entry.Clip){
+				PlayerCharacterScript.StopNarratorNow();
+				narrator?.Stop();
 				narrator?.PlayOneShot(entry.Clip);
+			}
 
 			entry.Event.Invoke();
 		} else {
