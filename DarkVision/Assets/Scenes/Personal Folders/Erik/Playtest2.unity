@@ -421,6 +421,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4635282854164299358, guid: c7b54f0e6adfb7143a456c0e2f33e4b9,
+        type: 3}
+      propertyPath: Narrator
+      value: 
+      objectReference: {fileID: 751799079}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b54f0e6adfb7143a456c0e2f33e4b9, type: 3}
 --- !u!1 &124392474
@@ -4953,7 +4958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1714191329
 Transform:
   m_ObjectHideFlags: 0
