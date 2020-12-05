@@ -23,7 +23,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public AudioClip WelcomeClip;
 
 	[Header("Input")]
-
+	public bool PacmanMode = true;
 	public bool GamepadInput;
 	public bool KbdInput;
 	public float MoveSpeed = 10f;
@@ -35,8 +35,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private bool rotateLeftPressedLastFrame = false;
 	private bool rotateRightPressedLastFrame = false;
 	private float targetDirection = 0;
-	public float RotationAnimationSpeed = 1;
-	public float RotationIncrementAmount = 30;
+	public float RotationAnimationSpeed = 250;
+	public float RotationIncrementAmount = 90;
+
+	private KeyCode lastMovementKeyPressed = KeyCode.None;
 
 	[Header("Raycast footsteps")]
 	[Tooltip("The object whose center position represents the origin position of the ray")]
@@ -116,15 +118,48 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		if (KbdInput) {
 			// Movement
-			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-				z = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-				z = -MoveSpeed * Time.deltaTime;
-			}
-			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-				x = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-				x = -MoveSpeed * Time.deltaTime;
+			if (PacmanMode) {
+				if (Input.GetKeyDown(KeyCode.W))
+					lastMovementKeyPressed = KeyCode.W;
+				if (Input.GetKeyDown(KeyCode.A))
+					lastMovementKeyPressed = KeyCode.A;
+				if (Input.GetKeyDown(KeyCode.S))
+					lastMovementKeyPressed = KeyCode.S;
+				if (Input.GetKeyDown(KeyCode.D))
+					lastMovementKeyPressed = KeyCode.D;
+
+				if (!Input.GetKey(lastMovementKeyPressed))
+					lastMovementKeyPressed = KeyCode.None;
+
+
+				switch (lastMovementKeyPressed) {
+					case KeyCode.W:
+						z = MoveSpeed * Time.deltaTime;
+						break;
+					case KeyCode.A:
+						x = -MoveSpeed * Time.deltaTime;
+						break;
+					case KeyCode.S:
+						z = -MoveSpeed * Time.deltaTime;
+						break;
+					case KeyCode.D:
+						x = MoveSpeed * Time.deltaTime;
+						break;
+					default:
+						break;
+				}
+
+			} else {
+				if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+					z = MoveSpeed * Time.deltaTime;
+				} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+					z = -MoveSpeed * Time.deltaTime;
+				}
+				if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+					x = MoveSpeed * Time.deltaTime;
+				} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+					x = -MoveSpeed * Time.deltaTime;
+				}
 			}
 
 			// Rotation
