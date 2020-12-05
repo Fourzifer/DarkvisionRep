@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 236361162}
   m_Layer: 0
   m_Name: East
-  m_TagString: Untagged
+  m_TagString: ventWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3978,7 +3978,7 @@ GameObject:
   - component: {fileID: 617582432}
   m_Layer: 0
   m_Name: North
-  m_TagString: Untagged
+  m_TagString: ventWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3991,8 +3991,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617582430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.946, y: -2.174, z: 45.07}
-  m_LocalScale: {x: 1.6480743, y: 1.6480743, z: 1.6480743}
+  m_LocalPosition: {x: 18.85, y: -2.174, z: 45.07}
+  m_LocalScale: {x: 3.8, y: 1.6480743, z: 1.6480743}
   m_Children: []
   m_Father: {fileID: 1219487310}
   m_RootOrder: 3
@@ -4631,6 +4631,11 @@ PrefabInstance:
       propertyPath: RotationAnimationSpeed
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085256282731914, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_Layer
@@ -5148,7 +5153,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16824
+  m_Name: pb_Mesh15690
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5411,7 +5416,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16596
+  m_Name: pb_Mesh15618
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7075,7 +7080,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16672
+  m_Name: pb_Mesh15694
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7329,7 +7334,7 @@ GameObject:
   - component: {fileID: 1939188649}
   m_Layer: 0
   m_Name: South
-  m_TagString: Untagged
+  m_TagString: ventWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7342,8 +7347,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939188647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.946, y: -2.175, z: -2.97}
-  m_LocalScale: {x: 1.6480743, y: 1.6480743, z: 1.6480743}
+  m_LocalPosition: {x: 18.83, y: -2.175, z: -2.97}
+  m_LocalScale: {x: 3.8, y: 1.6480743, z: 1.6480743}
   m_Children: []
   m_Father: {fileID: 1219487310}
   m_RootOrder: 2
@@ -7633,7 +7638,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16934
+  m_Name: pb_Mesh15938
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7797,7 +7802,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16896
+  m_Name: pb_Mesh15908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8203,7 +8208,7 @@ GameObject:
   - component: {fileID: 2132372524}
   m_Layer: 0
   m_Name: West
-  m_TagString: Untagged
+  m_TagString: ventWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
