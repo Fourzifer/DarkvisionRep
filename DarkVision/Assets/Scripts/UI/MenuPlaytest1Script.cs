@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class MenuScript : MonoBehaviour {
+public class MenuPlaytest1Script : MonoBehaviour {
 
 
 	public TMP_Text text;

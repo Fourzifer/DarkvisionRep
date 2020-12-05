@@ -63,7 +63,8 @@ public class MicListenerScript : MonoBehaviour {
         */
 	}
 
-	private void OnApplicationQuit() {
+	// private void OnApplicationQuit() {
+	private void OnDestroy() {
 		if (recognizer != null && recognizer.IsRunning) {
 			recognizer.OnPhraseRecognized -= Recognizer_OnPhraseRecognized;
 			recognizer.Stop();

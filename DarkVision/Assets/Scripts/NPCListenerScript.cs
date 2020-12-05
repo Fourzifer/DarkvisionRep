@@ -65,6 +65,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		if (entry != null) {
 			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
+			PopupHandlerScript.ShowCustomPopup(entry.Response);
 			if (entry.Clip)
 				narrator?.PlayOneShot(entry.Clip);
 
