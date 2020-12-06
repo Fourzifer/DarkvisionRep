@@ -13,6 +13,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	[Serializable]
 	public class ListenPhraseEntry {
 		public string Phrase;
+		public float PopupTime = 10;
 		public bool Enabled = true;
 		public bool Hidden = false;
 		public string Response;
@@ -25,6 +26,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	// [SerializeField]
 	public List<ListenPhraseEntry> Phrases = new List<ListenPhraseEntry>();
 
+
 	[Tooltip("What the NPC says in response to a phrase it does not recognize")]
 	public string DefaultResponse;
 	public AudioClip DefaultResponseClip;
@@ -34,15 +36,31 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	public bool PrintHearingDistance = false;
 
 	private AudioSource narrator;
+	private List<Action> EndOfClipEvents = new List<Action>();
 
 	void Start() {
 		Utility.Register(this, MicListenerScript.SpeakEvent);
 
 		narrator = GetComponent<AudioSource>();
+		if (!narrator) {
+			narrator = gameObject.AddComponent<AudioSource>();
+			narrator.playOnAwake = false;
+			narrator.spatialBlend = 1.0f;
+		}
 	}
 
 	private void OnDestroy() {
 		Utility.Deregister(this, MicListenerScript.SpeakEvent);
+	}
+
+	private void Update() {
+		if (EndOfClipEvents.Any() && narrator && !narrator.isPlaying) {
+			foreach (var item in EndOfClipEvents) {
+				item.Invoke();
+				Debug.Log("An end-of-clip event was invoked");
+			}
+			EndOfClipEvents.Clear();
+		}
 	}
 
 	public void Notify((Vector3, string) notification) {
@@ -61,13 +79,15 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		string word = notification.Item2;
 		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.Enabled && firstEntry.Phrase == word);
 
-		// if (Phrases.Select(entry => entry.Phrase).Contains(word)) {
 		if (entry != null) {
 			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
-			PopupHandlerScript.ShowCustomPopup(entry.Response);
-			if (entry.Clip)
+			PopupHandlerScript.ShowCustomPopup(entry.Response, entry.PopupTime);
+			if (entry.Clip) {
+				PlayerCharacterScript.StopNarratorNow();
+				narrator?.Stop();
 				narrator?.PlayOneShot(entry.Clip);
+			}
 
 			entry.Event.Invoke();
 		} else {
@@ -95,8 +115,12 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 			Phrases[id].Enabled = false;
 	}
 
-	public void StopTalkingRightNow(){
+	public void StopTalkingRightNow() {
 		narrator?.Stop();
+	}
+
+	public void QueueFModEventRestart(Occlusion clip) {
+		EndOfClipEvents.Add(delegate { clip.StartPlayBack(); });
 	}
 }
 
@@ -123,7 +147,7 @@ public class NPCListenerScriptEditor : Editor {
 
 		listenerScript = (NPCListenerScript)target;
 
-		listenerScript.HearingDistance = EditorGUILayout.FloatField("Hearing distance",listenerScript.HearingDistance);
+		listenerScript.HearingDistance = EditorGUILayout.FloatField("Hearing distance", listenerScript.HearingDistance);
 		EditorGUILayout.Space();
 
 		EditorGUILayout.LabelField("Phrases");
@@ -144,6 +168,7 @@ public class NPCListenerScriptEditor : Editor {
 				EditorGUI.indentLevel += 1;
 				EditorGUILayout.PrefixLabel("Response:");
 				item.Response = EditorGUILayout.TextArea(item.Response, GUILayout.Height(40));
+				item.PopupTime = EditorGUILayout.FloatField("Popup time", item.PopupTime);
 				item.Clip = (AudioClip)EditorGUILayout.ObjectField("Clip", item.Clip, typeof(AudioClip), false);
 				if (phrases != null) {
 					EditorGUILayout.PropertyField(phrases.GetArrayElementAtIndex(id).FindPropertyRelative("Event"));
