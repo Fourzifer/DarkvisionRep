@@ -432,7 +432,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		}
 
 		if (UseVelocityMovement) {
-			rb.velocity = new Vector3(x*30f, rb.velocity.y, z*30f);
+			rb.velocity = Quaternion.AngleAxis(targetDirection, Vector3.up) * new Vector3(x * 30f, rb.velocity.y, z * 30f);
 			if (rb.velocity.sqrMagnitude > VelocityLimit * VelocityLimit) {
 				rb.velocity = rb.velocity.normalized * VelocityLimit;
 			}

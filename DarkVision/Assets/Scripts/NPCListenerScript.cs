@@ -39,6 +39,11 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		Utility.Register(this, MicListenerScript.SpeakEvent);
 
 		narrator = GetComponent<AudioSource>();
+		if (!narrator) {
+			narrator = gameObject.AddComponent<AudioSource>();
+			narrator.playOnAwake = false;
+			narrator.spatialBlend = 1.0f;
+		}
 	}
 
 	private void OnDestroy() {
@@ -65,7 +70,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
 			PopupHandlerScript.ShowCustomPopup(entry.Response);
-			if (entry.Clip){
+			if (entry.Clip) {
 				PlayerCharacterScript.StopNarratorNow();
 				narrator?.Stop();
 				narrator?.PlayOneShot(entry.Clip);
@@ -97,7 +102,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 			Phrases[id].Enabled = false;
 	}
 
-	public void StopTalkingRightNow(){
+	public void StopTalkingRightNow() {
 		narrator?.Stop();
 	}
 }
@@ -125,7 +130,7 @@ public class NPCListenerScriptEditor : Editor {
 
 		listenerScript = (NPCListenerScript)target;
 
-		listenerScript.HearingDistance = EditorGUILayout.FloatField("Hearing distance",listenerScript.HearingDistance);
+		listenerScript.HearingDistance = EditorGUILayout.FloatField("Hearing distance", listenerScript.HearingDistance);
 		EditorGUILayout.Space();
 
 		EditorGUILayout.LabelField("Phrases");
