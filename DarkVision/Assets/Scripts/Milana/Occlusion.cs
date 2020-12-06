@@ -141,4 +141,14 @@ public class Occlusion : MonoBehaviour
     {
         Audio.setParameterByName("Occlusion", lineCastHitCount / (7*Volume) );
     }
+
+    public void StopPlayBack()
+    {
+        Audio.getPlaybackState(out pb);
+        if(pb == PLAYBACK_STATE.PLAYING)
+        {
+            Audio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+        
+    }
 }
