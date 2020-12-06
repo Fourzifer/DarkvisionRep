@@ -21,7 +21,7 @@ public class PopupHandlerScript : MonoBehaviour {
 		public float Timer;
 	}
 
-	public AudioSource Narrator;
+	// public AudioSource Narrator;
 	public TMP_Text Timer;
 
 	public List<PopupEntry> Popups;
@@ -102,8 +102,9 @@ public class PopupHandlerScript : MonoBehaviour {
 				timedPopup.Popup.SetActive(true);
 				timedPopup.Timer = timedPopup.Time;
 				if (!clipPlayed && timedPopup.Sound) {
-					mainInstance.Narrator?.Stop();
-					mainInstance.Narrator?.PlayOneShot(timedPopup.Sound);
+					// mainInstance.Narrator?.Stop();
+					// mainInstance.Narrator?.PlayOneShot(timedPopup.Sound);
+					PlayerCharacterScript.PlayClip(timedPopup.Sound);
 					clipPlayed = true;
 				}
 			}
@@ -112,8 +113,9 @@ public class PopupHandlerScript : MonoBehaviour {
 		foreach (var popup in mainInstance.Popups) {
 			popup.Popup.SetActive(popup.Key == Key);
 			if (!clipPlayed && popup.Sound) {
-				mainInstance.Narrator?.Stop();
-				mainInstance.Narrator?.PlayOneShot(popup.Sound);
+				// mainInstance.Narrator?.Stop();
+				// mainInstance.Narrator?.PlayOneShot(popup.Sound);
+				PlayerCharacterScript.PlayClip(popup.Sound);
 				clipPlayed = true;
 			}
 		}

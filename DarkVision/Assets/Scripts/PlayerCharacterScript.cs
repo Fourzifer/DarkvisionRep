@@ -16,13 +16,39 @@ public class PlayerCharacterScript : MonoBehaviour {
 		None
 	}
 
+	public enum MoveMode {
+		Normal,
+		Pacman,
+		OnlyForwards,
+		CorridorRelativeForwardsOnly
+	}
+
+	private enum Direction {
+		None,
+		North,
+		NorthEast,
+		East,
+		SouthEast,
+		South,
+		SouthWest,
+		West,
+		NorthWest
+	}
+
 	private Rigidbody rb;
 
-	[Header("Input")]
+	private static AudioSource Narrator;
+	public string WelcomeText;
+	public AudioClip WelcomeClip;
 
+	[Header("Input")]
+	// public bool PacmanMode = true;
+	public MoveMode Mode;
 	public bool GamepadInput;
 	public bool KbdInput;
 	public float MoveSpeed = 10f;
+	public bool UseVelocityMovement = true;
+	public float VelocityLimit = 10f;
 
 	public bool InteractionEnabled = false;
 	private bool interactableInRange = false;
@@ -31,11 +57,26 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private bool rotateLeftPressedLastFrame = false;
 	private bool rotateRightPressedLastFrame = false;
 	private float targetDirection = 0;
-	public float RotationAnimationSpeed = 1;
-	public float RotationIncrementAmount = 30;
+	public float RotationAnimationSpeed = 250;
+	public float RotationIncrementAmount = 90;
+
+	private KeyCode lastMovementKeyPressed = KeyCode.None;
+	private KeyCode[] allowedMovementKeys = {
+		KeyCode.W,
+		KeyCode.A,
+		KeyCode.S,
+		KeyCode.D,
+		KeyCode.UpArrow,
+		KeyCode.LeftArrow,
+		KeyCode.DownArrow,
+		KeyCode.RightArrow,
+	};
+	private Direction moveDir = Direction.None;
+	private Direction facing = Direction.North;
+
 
 	[Header("Raycast footsteps")]
-	[Tooltip("The object whose center position represents the  origin position of the ray")]
+	[Tooltip("The object whose center position represents the origin position of the ray")]
 	public Transform RaycastPosition;
 	[Tooltip("Which layers the raycast will react to/count collisions with")]
 	public LayerMask RaycastLayerMask;
@@ -55,8 +96,6 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private AudioClip notebookHintClip;
 	private bool notebookKeyPressedLastFrame = false;
 
-	private static AudioSource Narrator;
-
 	void Start() {
 
 		rb = GetComponent<Rigidbody>();
@@ -70,11 +109,112 @@ public class PlayerCharacterScript : MonoBehaviour {
 		// Debug.Log("All joysticks listed");
 
 		Narrator = GetComponent<AudioSource>();
+		if (Narrator && WelcomeClip) {
+			PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
+			Narrator.PlayOneShot(WelcomeClip);
+		}
 
 	}
 
 	private void OnDestroy() {
 		Narrator = null;
+	}
+
+	private void Update() {
+		if (KbdInput) {
+			// Movement
+			moveDir = Direction.None;
+
+			switch (Mode) {
+				case MoveMode.Pacman:
+
+					foreach (KeyCode key in allowedMovementKeys) {
+						if (Input.GetKeyDown(key))
+							lastMovementKeyPressed = key;
+					}
+
+					if (!Input.GetKey(lastMovementKeyPressed))
+						lastMovementKeyPressed = KeyCode.None;
+
+
+					switch (lastMovementKeyPressed) {
+						case KeyCode.W:
+						case KeyCode.UpArrow:
+							moveDir = Direction.North;
+							break;
+						case KeyCode.A:
+						case KeyCode.LeftArrow:
+							moveDir = Direction.West;
+							break;
+						case KeyCode.S:
+						case KeyCode.DownArrow:
+							moveDir = Direction.South;
+							break;
+						case KeyCode.D:
+						case KeyCode.RightArrow:
+							moveDir = Direction.East;
+							break;
+						default:
+							break;
+					}
+					break;
+				case MoveMode.Normal:
+					if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+						moveDir = Direction.North;
+					} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+						moveDir = Direction.South;
+					}
+					if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+						if (moveDir == Direction.North) {
+							moveDir = Direction.NorthEast;
+						} else if (moveDir == Direction.South) {
+							moveDir = Direction.SouthEast;
+						} else {
+							moveDir = Direction.East;
+						}
+					} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+						if (moveDir == Direction.North) {
+							moveDir = Direction.NorthWest;
+						} else if (moveDir == Direction.South) {
+							moveDir = Direction.SouthWest;
+						} else {
+							moveDir = Direction.West;
+						}
+					}
+					break;
+				case MoveMode.OnlyForwards:
+					if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+						moveDir = Direction.North;
+					} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+						moveDir = Direction.South;
+					}
+					break;
+				case MoveMode.CorridorRelativeForwardsOnly:
+
+					switch (facing) {
+						case Direction.North:
+						case Direction.South:
+							if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+								moveDir = Direction.North;
+							} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+								moveDir = Direction.South;
+							}
+							break;
+						case Direction.West:
+						case Direction.East:
+							if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+								moveDir = Direction.East;
+							} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+								moveDir = Direction.West;
+							}
+							break;
+					}
+
+					break;
+			}
+
+
+		}
 	}
 
 	private void FixedUpdate() {
@@ -110,15 +250,38 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		if (KbdInput) {
 			// Movement
-			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-				z = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-				z = -MoveSpeed * Time.deltaTime;
-			}
-			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-				x = MoveSpeed * Time.deltaTime;
-			} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-				x = -MoveSpeed * Time.deltaTime;
+
+			switch (moveDir) {
+				case Direction.North:
+					z = MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.NorthEast:
+					z = MoveSpeed * Time.deltaTime;
+					x = MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.NorthWest:
+					z = MoveSpeed * Time.deltaTime;
+					x = -MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.South:
+					z = -MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.SouthEast:
+					z = -MoveSpeed * Time.deltaTime;
+					x = MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.SouthWest:
+					z = -MoveSpeed * Time.deltaTime;
+					x = -MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.East:
+					x = MoveSpeed * Time.deltaTime;
+					break;
+				case Direction.West:
+					x = -MoveSpeed * Time.deltaTime;
+					break;
+				default:
+					break;
 			}
 
 			// Rotation
@@ -135,12 +298,21 @@ public class PlayerCharacterScript : MonoBehaviour {
 			rotateLeftPressedLastFrame = rotateLeftPressed;
 
 			targetDirection %= 360;
+			if (targetDirection < 45 || targetDirection > 315) {
+				facing = Direction.North;
+			} else if (targetDirection < 135) {
+				facing = Direction.East;
+			} else if (targetDirection < 225) {
+				facing = Direction.South;
+			} else {
+				facing = Direction.West;
+			}
 
 			// Interact
 			if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) {
 				pressedInteract = true;
 			}
-			
+
 			// Notebook
 			bool notebookKeyPressed = Input.GetKey(KeyCode.F);
 			if (notebookKeyPressed && !notebookKeyPressedLastFrame)
@@ -259,9 +431,16 @@ public class PlayerCharacterScript : MonoBehaviour {
 			}
 		}
 
-		var rbPos = transform.localPosition;
-		var delta = transform.localRotation * new Vector3(x, 0, z);
-		MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
+		if (UseVelocityMovement) {
+			rb.velocity = new Vector3(x*30f, rb.velocity.y, z*30f);
+			if (rb.velocity.sqrMagnitude > VelocityLimit * VelocityLimit) {
+				rb.velocity = rb.velocity.normalized * VelocityLimit;
+			}
+		} else {
+			var rbPos = transform.localPosition;
+			var delta = transform.localRotation * new Vector3(x, 0, z);
+			MoveAbsolute(rbPos.x + delta.x, rbPos.z + delta.z);
+		}
 	}
 
 	public void Rotate(float degrees) {
@@ -319,20 +498,28 @@ public class PlayerCharacterScript : MonoBehaviour {
 		return 0;
 	}
 
-	public void SetNotebook(string newNotebookHint, AudioClip newNotebookHintClip) {
+	public void SetNotebookText(string newNotebookHint) {
 		currentNotebookHint = newNotebookHint;
+	}
+	public void SetNotebookClip(AudioClip newNotebookHintClip) {
 		notebookHintClip = newNotebookHintClip;
 	}
 
 	public void PlayNotebook() {
 		PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
 		if (Narrator && notebookHintClip) {
+			Narrator.Stop();
 			Narrator.PlayOneShot(notebookHintClip);
 		}
 	}
 
 	public static void PlayClip(AudioClip clip) {
+		Narrator?.Stop();
 		Narrator?.PlayOneShot(clip);
+	}
+
+	public static void StopNarratorNow() {
+		Narrator?.Stop();
 	}
 
 
