@@ -43,13 +43,17 @@ public class Occlusion : MonoBehaviour
         Audio = RuntimeManager.CreateInstance(SelectAudio);
         RuntimeManager.AttachInstanceToGameObject(Audio, GetComponent<Transform>(), GetComponent<Rigidbody>());
         Audio.start();
-        Audio.release();
+        // Audio.release();
 
         AudioDes = RuntimeManager.GetEventDescription(SelectAudio);
         AudioDes.getMaximumDistance(out MaxDistance);
 
         Listener = FindObjectOfType<StudioListener>();
     }
+
+	private void OnDestroy() {
+		Audio.release();
+	}
     
     private void FixedUpdate()
     {
@@ -148,6 +152,17 @@ public class Occlusion : MonoBehaviour
         if(pb == PLAYBACK_STATE.PLAYING)
         {
             Audio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+        
+    }
+
+	public void StartPlayBack()
+    {
+        Audio.getPlaybackState(out pb);
+        if(pb == PLAYBACK_STATE.STOPPED)
+        {
+            Audio.start();
+			// Debug.Log("Audio started");
         }
         
     }
