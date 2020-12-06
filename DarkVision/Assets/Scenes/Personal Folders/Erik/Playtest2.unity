@@ -6907,7 +6907,32 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 6658cce557c12bd4ca5699d12614fdbc, type: 3}
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookText
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 'I''m done for now, the playtest is over. '
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 260e157f59dbba7499a07861ce1b8fb1,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
