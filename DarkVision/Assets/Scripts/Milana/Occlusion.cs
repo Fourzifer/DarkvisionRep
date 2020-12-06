@@ -151,4 +151,13 @@ public class Occlusion : MonoBehaviour
         }
         
     }
+
+    public void StartPlayBack()
+    {
+        Audio.getPlaybackState(out pb);
+        if(pb == PLAYBACK_STATE.STOPPED)
+        {
+            Audio.start();
+        }
+    }
 }
