@@ -4009,7 +4009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16570
+  m_Name: pb_Mesh15488
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4945,15 +4945,15 @@ PrefabInstance:
         type: 3}
       propertyPath: WelcomeClip
       value: 
-      objectReference: {fileID: 8300000, guid: 5e08a8d04bd42af49a785ecba7832aee, type: 3}
+      objectReference: {fileID: 8300000, guid: 4baac912681dedf419b46127d6b5393d, type: 3}
     - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: WelcomeText
-      value: Here are some initial instructions; when you can hear a sound clearly
+      value: Here are some initial instructions. When you can hear a sound clearly
         to your left or to your right, that means there is someone there you can
-        talk to. If you want this information repeated, you can press the F key at
-        any time. Try walking up to the coffee machine and say the name Adam. Try
-        pressing F after talking to Adam and see what happens.
+        talk to. If you unsure of what to do, you can press the F key at any time.
+        Try walking up to the coffee machine and say the name Adam. Try pressing
+        F after talking to Adam and see what happens.
       objectReference: {fileID: 0}
     - target: {fileID: 1210085256282731914, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
@@ -5798,7 +5798,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16782
+  m_Name: pb_Mesh15702
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6061,7 +6061,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16762
+  m_Name: pb_Mesh15682
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9147,7 +9147,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16680
+  m_Name: pb_Mesh15598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9861,7 +9861,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16496
+  m_Name: pb_Mesh15414
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10780,7 +10780,10 @@ MonoBehaviour:
       the plan. As you may have figured out, I wasn\u2019t actually looking for anyone.
       In fact, our escape plan is already finished. All we needed was to wait for
       someone to find a way up through the ventilation, and you were able to! The
-      challenge begins now, are you ready?"
+      challenge begins now, are you ready? That was the end of the playtest. Thank
+      you very much for participating. Please proceed by answering the survey that
+      was linked in the post you found this game through, otherwise use the survey
+      on our "
     Clip: {fileID: 8300000, guid: 6658cce557c12bd4ca5699d12614fdbc, type: 3}
     Event:
       m_PersistentCalls:
