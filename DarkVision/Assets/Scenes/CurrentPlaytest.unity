@@ -5013,6 +5013,16 @@ PrefabInstance:
       propertyPath: MouseInteractMaxTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085257018557068, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210085257240959801, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085257897583344, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_Name
@@ -10854,11 +10864,11 @@ MonoBehaviour:
       the plan. As you may have figured out, I wasn\u2019t actually looking for anyone.
       In fact, our escape plan is already finished. All we needed was to wait for
       someone to find a way up through the ventilation, and you were able to! The
-      challenge begins now, are you ready? That was the end of the prototype! Thank
-      you very much for trying it, we hope you enjoyed it! We would love it if you
-      were to answer the survey that was linked in the post you found this game through,
-      or the survey on our itch.io page of you found the prototype through the Itch.io
-      website."
+      challenge begins now, are you ready? \\n\\nThat was the end of the prototype!
+      Thank you very much for trying it, we hope you enjoyed it! We would love it
+      if you were to answer the survey that was linked in the post you found this
+      game through, or the survey on our itch.io page of you found the prototype
+      through the Itch.io website."
     Clip: {fileID: 8300000, guid: b4f62a4b4d1e4f044a0852cf183b9b23, type: 3}
     Event:
       m_PersistentCalls:

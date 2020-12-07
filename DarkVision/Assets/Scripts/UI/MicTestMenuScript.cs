@@ -67,9 +67,10 @@ public class MicTestMenuScript : MonoBehaviour {
 
 	// private void OnApplicationQuit() {
 	private void OnDestroy() {
-		if (recognizer != null && recognizer.IsRunning) {
+		if (recognizer != null) {// && recognizer.IsRunning) {
 			recognizer.OnPhraseRecognized -= Recognizer_OnPhraseRecognized;
 			recognizer.Stop();
+			recognizer.Dispose();
 		}
 	}
 
