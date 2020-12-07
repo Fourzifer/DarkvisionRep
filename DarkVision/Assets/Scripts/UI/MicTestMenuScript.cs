@@ -30,7 +30,7 @@ public class MicTestMenuScript : MonoBehaviour {
 
 	public string nextSceneName = "VentCrawlerScene";
 
-	public string[] keywords = new string[] { "yes", "no", "pizza" };
+	public string[] keywords = new string[] { "pizza", "begin" };
 	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
 	protected PhraseRecognizer recognizer;
 	protected string word = "asdf";
@@ -67,9 +67,10 @@ public class MicTestMenuScript : MonoBehaviour {
 
 	// private void OnApplicationQuit() {
 	private void OnDestroy() {
-		if (recognizer != null && recognizer.IsRunning) {
+		if (recognizer != null) {// && recognizer.IsRunning) {
 			recognizer.OnPhraseRecognized -= Recognizer_OnPhraseRecognized;
 			recognizer.Stop();
+			recognizer.Dispose();
 		}
 	}
 

@@ -33,6 +33,9 @@ public class PopupHandlerScript : MonoBehaviour {
 	// IDEA: draw timer for timed popups
 	// TODO: play narrator voice for timed popups
 
+	private void Awake() {
+		mainInstance = this;
+	}
 
 	void Start() {
 		mainInstance = this;
