@@ -13,6 +13,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	[Serializable]
 	public class ListenPhraseEntry {
 		public string Phrase;
+		public float PopupTime = 10;
 		public bool Enabled = true;
 		public bool Hidden = false;
 		public string Response;
@@ -25,6 +26,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	// [SerializeField]
 	public List<ListenPhraseEntry> Phrases = new List<ListenPhraseEntry>();
 
+
 	[Tooltip("What the NPC says in response to a phrase it does not recognize")]
 	public string DefaultResponse;
 	public AudioClip DefaultResponseClip;
@@ -34,6 +36,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	public bool PrintHearingDistance = false;
 
 	private AudioSource narrator;
+	private List<Action> EndOfClipEvents = new List<Action>();
 
 	void Start() {
 		Utility.Register(this, MicListenerScript.SpeakEvent);
@@ -48,6 +51,16 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 	private void OnDestroy() {
 		Utility.Deregister(this, MicListenerScript.SpeakEvent);
+	}
+
+	private void Update() {
+		if (EndOfClipEvents.Any() && narrator && !narrator.isPlaying) {
+			foreach (var item in EndOfClipEvents) {
+				item.Invoke();
+				Debug.Log("An end-of-clip event was invoked");
+			}
+			EndOfClipEvents.Clear();
+		}
 	}
 
 	public void Notify((Vector3, string) notification) {
@@ -69,7 +82,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		if (entry != null) {
 			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
-			PopupHandlerScript.ShowCustomPopup(entry.Response);
+			PopupHandlerScript.ShowCustomPopup(entry.Response, entry.PopupTime);
 			if (entry.Clip) {
 				PlayerCharacterScript.StopNarratorNow();
 				narrator?.Stop();
@@ -104,6 +117,10 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 	public void StopTalkingRightNow() {
 		narrator?.Stop();
+	}
+
+	public void QueueFModEventRestart(Occlusion clip) {
+		EndOfClipEvents.Add(delegate { clip.StartPlayBack(); });
 	}
 }
 
@@ -151,6 +168,7 @@ public class NPCListenerScriptEditor : Editor {
 				EditorGUI.indentLevel += 1;
 				EditorGUILayout.PrefixLabel("Response:");
 				item.Response = EditorGUILayout.TextArea(item.Response, GUILayout.Height(40));
+				item.PopupTime = EditorGUILayout.FloatField("Popup time", item.PopupTime);
 				item.Clip = (AudioClip)EditorGUILayout.ObjectField("Clip", item.Clip, typeof(AudioClip), false);
 				if (phrases != null) {
 					EditorGUILayout.PropertyField(phrases.GetArrayElementAtIndex(id).FindPropertyRelative("Event"));
