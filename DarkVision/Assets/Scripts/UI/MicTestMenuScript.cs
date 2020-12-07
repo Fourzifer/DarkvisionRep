@@ -30,7 +30,7 @@ public class MicTestMenuScript : MonoBehaviour {
 
 	public string nextSceneName = "VentCrawlerScene";
 
-	public string[] keywords = new string[] { "yes", "no", "pizza" };
+	public string[] keywords = new string[] { "pizza", "begin" };
 	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
 	protected PhraseRecognizer recognizer;
 	protected string word = "asdf";
