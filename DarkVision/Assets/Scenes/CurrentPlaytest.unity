@@ -845,7 +845,7 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase: microwave
-    PopupTime: 10
+    PopupTime: 15
     Enabled: 0
     Hidden: 0
     Response: "Microwave? I haven\u2019t heard someone say that in a while now. That
@@ -10437,7 +10437,7 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase: pizza
-    PopupTime: 10
+    PopupTime: 32
     Enabled: 1
     Hidden: 0
     Response: "I love pizza! Especially with pineapple. You have excellent taste,
@@ -10563,7 +10563,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - Phrase: pineapple
-    PopupTime: 10
+    PopupTime: 32
     Enabled: 1
     Hidden: 0
     Response: "Pineapple pizza! You have excellent taste, stranger. If you\u2019re
@@ -10731,7 +10731,7 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase: adam
-    PopupTime: 20
+    PopupTime: 32
     Enabled: 1
     Hidden: 0
     Response: "Who\u2019s there? Oh, it must be you! I\u2019m glad that you made
@@ -10773,7 +10773,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - Phrase: kevin
-    PopupTime: 10
+    PopupTime: 36
     Enabled: 0
     Hidden: 0
     Response: "Impressive, it seems you have talked to everyone who\u2019s in on
@@ -10784,7 +10784,7 @@ MonoBehaviour:
       you very much for participating. Please proceed by answering the survey that
       was linked in the post you found this game through, otherwise use the survey
       on our "
-    Clip: {fileID: 8300000, guid: 6658cce557c12bd4ca5699d12614fdbc, type: 3}
+    Clip: {fileID: 8300000, guid: b4f62a4b4d1e4f044a0852cf183b9b23, type: 3}
     Event:
       m_PersistentCalls:
         m_Calls:

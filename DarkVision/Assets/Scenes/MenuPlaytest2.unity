@@ -1005,7 +1005,7 @@ MonoBehaviour:
   PressKeyToBeginClip: {fileID: 8300000, guid: 6e329914368b2d74ca3afa59162a8600, type: 3}
   PressKeyToBeginText: Hello! Press the spacebar when you are ready to start the
     microphone test.
-  nextSceneName: WallVentSceneTemplate
+  nextSceneName: CurrentPlaytest
   keywords:
   - pizza
   - begin
