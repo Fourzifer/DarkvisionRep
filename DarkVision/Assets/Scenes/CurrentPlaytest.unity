@@ -823,13 +823,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173933510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 10.5, z: 43.8}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 13.5, y: 10.5, z: 33.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6391936257928992292}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &173933512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +879,19 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 'It seems that I should tell Adam that I talked to
               Kevin. I wonder what he has to say? '
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b1c6989710f7ab246a8b5592d263090b,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
@@ -4009,7 +4022,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15488
+  m_Name: pb_Mesh15662
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5798,7 +5811,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15702
+  m_Name: pb_Mesh15876
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6061,7 +6074,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15682
+  m_Name: pb_Mesh15856
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8792,6 +8805,19 @@ MonoBehaviour:
               microwave, I should say it to someone else. '
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 88c30b38f244f464d85f61451d3331e4,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
@@ -8821,13 +8847,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458004563}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.696396, y: 10.56, z: 33.33181}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 20, y: 10.5, z: 43.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6391936257928992292}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1476381496
 GameObject:
   m_ObjectHideFlags: 0
@@ -9147,7 +9173,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15598
+  m_Name: pb_Mesh15772
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9861,7 +9887,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15414
+  m_Name: pb_Mesh15588
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10440,14 +10466,14 @@ MonoBehaviour:
     PopupTime: 32
     Enabled: 1
     Hidden: 0
-    Response: "I love pizza! Especially with pineapple. You have excellent taste,
-      stranger. If you\u2019re crawling around up there, it must mean that you\u2019re
-      looking for a way to escape as well. We\u2019re a close bunch here, so calling
-      people\u2019s names will only get you so far, you see? I will teach you a codeword
-      that only us prisoners know. The item is created out of two words, and is usually
-      in the kitchen. It starts with micro. I don\u2019t want to say the entire word
-      in case someone is listening, but I\u2019m sure you will figure it out. Use
-      the full word and someone will definitely give you more information."
+    Response: "Pineapple pizza! You have excellent taste, stranger. If you\u2019re
+      crawling around up there, it must mean that you\u2019re looking for a way to
+      escape as well. We\u2019re a close bunch here, so calling people\u2019s names
+      will only get you so far, you see? I will teach you a codeword that only us
+      prisoners know. The item is created out of two words, and is usually in the
+      kitchen. It starts with micro. I don\u2019t want to say the entire word in
+      case someone is listening, but I\u2019m sure you will figure it out. Use the
+      full word and someone will definitely give you more information."
     Clip: {fileID: 8300000, guid: 6938699420a9c4a418d90653e9a4a86f, type: 3}
     Event:
       m_PersistentCalls:
@@ -10780,10 +10806,11 @@ MonoBehaviour:
       the plan. As you may have figured out, I wasn\u2019t actually looking for anyone.
       In fact, our escape plan is already finished. All we needed was to wait for
       someone to find a way up through the ventilation, and you were able to! The
-      challenge begins now, are you ready? That was the end of the playtest. Thank
-      you very much for participating. Please proceed by answering the survey that
-      was linked in the post you found this game through, otherwise use the survey
-      on our "
+      challenge begins now, are you ready? That was the end of the prototype! Thank
+      you very much for trying it, we hope you enjoyed it! We would love it if you
+      were to answer the survey that was linked in the post you found this game through,
+      or the survey on our itch.io page of you found the prototype through the Itch.io
+      website."
     Clip: {fileID: 8300000, guid: b4f62a4b4d1e4f044a0852cf183b9b23, type: 3}
     Event:
       m_PersistentCalls:
