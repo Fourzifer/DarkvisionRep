@@ -10528,6 +10528,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6391936257389358192}
+          m_TargetAssemblyTypeName: Occlusion, Assembly-CSharp
+          m_MethodName: StopPlayBack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6391936257389358191}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: QueueFModEventRestart
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 6391936257389358192}
+            m_ObjectArgumentAssemblyTypeName: Occlusion, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Phrase: david
     PopupTime: 10
     Enabled: 1
@@ -10649,6 +10673,30 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 8300000, guid: 88ae66bef5c89184c84507f9570dd362,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6391936257389358192}
+          m_TargetAssemblyTypeName: Occlusion, Assembly-CSharp
+          m_MethodName: StopPlayBack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6391936257389358191}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: QueueFModEventRestart
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 6391936257389358192}
+            m_ObjectArgumentAssemblyTypeName: Occlusion, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
