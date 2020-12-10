@@ -82,7 +82,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		if (entry != null) {
 			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
-			PopupHandlerScript.ShowCustomPopup(entry.Response, entry.PopupTime);
+			PopupHandlerScript.ShowCustomPopup(entry.Response.Replace("\\n","\n"), entry.PopupTime);
 			if (entry.Clip) {
 				PlayerCharacterScript.StopNarratorNow();
 				narrator?.Stop();

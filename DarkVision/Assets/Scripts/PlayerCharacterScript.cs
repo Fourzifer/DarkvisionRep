@@ -96,6 +96,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private AudioClip notebookHintClip;
 	private bool notebookKeyPressedLastFrame = false;
 
+	private bool updateInit = true;
+
 	void Start() {
 
 		rb = GetComponent<Rigidbody>();
@@ -109,10 +111,12 @@ public class PlayerCharacterScript : MonoBehaviour {
 		// Debug.Log("All joysticks listed");
 
 		Narrator = GetComponent<AudioSource>();
-		if (Narrator && WelcomeClip) {
-			PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
-			Narrator.PlayOneShot(WelcomeClip);
-		}
+		// if (Narrator && WelcomeClip) {
+		// 	PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
+		// 	Narrator.PlayOneShot(WelcomeClip);
+		// } else {
+		// 	Debug.LogError("Narrator wont play welcome clip! Narrator exists: " + (Narrator != null) + ", Welcome clip exists: " + (WelcomeClip != null));
+		// }
 
 	}
 
@@ -121,6 +125,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 	}
 
 	private void Update() {
+
+		if (updateInit) {
+			updateInit = false;
+			if (Narrator && WelcomeClip) {
+				PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
+				Narrator.PlayOneShot(WelcomeClip);
+			} else {
+				Debug.LogError("Narrator wont play welcome clip! Narrator exists: " + (Narrator != null) + ", Welcome clip exists: " + (WelcomeClip != null));
+			}
+		}
+
 		if (KbdInput) {
 			// Movement
 			moveDir = Direction.None;
