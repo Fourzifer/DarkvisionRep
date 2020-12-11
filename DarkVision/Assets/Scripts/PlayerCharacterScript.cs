@@ -389,10 +389,20 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		} else {
 
-			if (!touchMovedThisFrame)
-				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+			// if (!touchMovedThisFrame)
+			// 	soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
 
 		}
+
+		float deltaSquared = (posBuffer - transform.localPosition).sqrMagnitude;
+
+		if (deltaSquared > FootstepThreshold * FootstepThreshold) {
+			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+			// Debug.Log("delta: "+ Mathf.Sqrt(deltaSquared));
+		} else {
+			soundEvent.setParameterByName("WalkingParameter", 0);
+		}
+		posBuffer = transform.localPosition;
 
 		touchMovedThisFrame = false;
 		// touchedVentWall = false;
@@ -405,15 +415,6 @@ public class PlayerCharacterScript : MonoBehaviour {
 			RotationAnimationSpeed * Time.deltaTime)
 		);
 
-		float deltaSquared = (posBuffer - transform.localPosition).sqrMagnitude;
-
-		if (deltaSquared > FootstepThreshold * FootstepThreshold) {
-			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
-			// Debug.Log("delta: "+ Mathf.Sqrt(deltaSquared));
-		} else {
-			soundEvent.setParameterByName("WalkingParameter", 0);
-		}
-		posBuffer = transform.localPosition;
 	}
 
 	public void Interact() {
