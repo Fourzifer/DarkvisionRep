@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000020069D130B8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000024A61F45348 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -17,4 +17,584 @@
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Thread::initThread                       : Init FMOD profiler thread (recv). Priority: 0, Stack Size: 131072, Semaphore: No, Sleep Time: 0, Looping: No.
+[LOG] Thread::initThread                       : Init FMOD profiler thread (send). Priority: 0, Stack Size: 131072, Semaphore: No, Sleep Time: 0, Looping: No.
+[LOG] LiveUpdate::clientConnected              : client = 00000249B7AC8808
+[LOG] LiveUpdate::readPacket                   : Recieved init packet from client 00000249B7AC8808
+[LOG] LiveUpdate::readPacket                   : Accepting init message for client 00000249B7AC8808
+[LOG] LiveUpdate::transitionToConnected        : 
+[LOG] Manager::sendConnectTimeHash             : 
+[LOG] LiveUpdate::sendBankHash                 : 
+[LOG] LiveUpdate::acceptInitPacket             : Client 00000249B7AC8808 connected, entering connected state
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2ADA88 : node = 000002494FACB080
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2ADA88
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002494FACB190
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2ADA88
+[LOG] SoundI::getSubSound                      : sound 00000249FE2ADA88.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2ACB58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2ACB58
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AD218
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AD218
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AA638
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AA638
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_147.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_147.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2B0308 : node = 00000249FB97EB00
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2B0308
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000249FB97EC10
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2B0308
+[LOG] SoundI::getSubSound                      : sound 00000249FE2B0308.  Subsound index 0 / 1
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2ADA88)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B3045878)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2ACB58)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2AB058 : node = 00000249B7F2D360
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AB058
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000249B7F2D470
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='HMNSnor_Man snoring (ID 0170)_BSB', format=2, channels=1, frequency=24000, lengthbytes=653248, lengthpcm=1194496, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.862335.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AB058
+[LOG] SoundI::getSubSound                      : sound 00000249FE2AB058.  Subsound index 0 / 1
+[LOG] SoundI::release                          : HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2AF228)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (0000024A6297F768)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2AA638)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2B0158 : node = 00000249B2B52D20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2B0158
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000249B2B52E30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2B0158
+[LOG] SoundI::getSubSound                      : sound 00000249FE2B0158.  Subsound index 0 / 1
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2B0308)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B3046718)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2B1AA8)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2B1E08 : node = 0000024A5AB92D60
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2B1E08
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB92E70
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2B1E08
+[LOG] SoundI::getSubSound                      : sound 00000249FE2B1E08.  Subsound index 0 / 1
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2B0158)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B30468B8)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2B1238)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2A9A68
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2A9A68
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2ADDE8 : node = 0000024A5AB924A0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2ADDE8
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB925B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2ADDE8
+[LOG] SoundI::getSubSound                      : sound 00000249FE2ADDE8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2B1E08)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B1842BE8)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2B18F8)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2B0D28 : node = 0000024A5AB92860
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2B0D28
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB92970
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='HMNSnor_Man snoring (ID 0170)_BSB', format=2, channels=1, frequency=24000, lengthbytes=653248, lengthpcm=1194496, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.862335.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2B0D28
+[LOG] SoundI::getSubSound                      : sound 00000249FE2B0D28.  Subsound index 0 / 1
+[LOG] SoundI::release                          : HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2AB058)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (00000249B3047DD8)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2A9A68)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2B18F8 : node = 0000024A5AB92720
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2B18F8
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB92830
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Coffee_looping', format=2, channels=2, frequency=24000, lengthbytes=2665600, lengthpcm=2437120, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.945068.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2B18F8
+[LOG] SoundI::getSubSound                      : sound 00000249FE2B18F8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : Coffee_looping (00000249FE2A98B8)
+[LOG] SoundI::release                          :     Coffee_looping (0000024A629807A8)
+[LOG] SoundI::release                          :     Coffee_looping (00000249FE2ABC28)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_148.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_148.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_149.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_149.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_150.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_150.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_151.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_151.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_152.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_152.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_153.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_153.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_154.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_154.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_155.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_155.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_156.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_156.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_157.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_157.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_158.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_158.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_159.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_159.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_160.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_160.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_161.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_161.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_162.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_162.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_163.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_163.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_164.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_164.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_165.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_165.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_166.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_166.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_167.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_167.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_168.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_168.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_169.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_169.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_170.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_170.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_171.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_171.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_172.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_172.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_173.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_173.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2AFC48 : node = 0000024A5AB91FA0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AFC48
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB920B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AFC48
+[LOG] SoundI::getSubSound                      : sound 00000249FE2AFC48.  Subsound index 0 / 1
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_174.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_174.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_175.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_175.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_176.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_176.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_177.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_177.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_178.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_178.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2ADDE8)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B1841868)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2AA128)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_179.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_179.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_180.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_180.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_181.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_181.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_182.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_182.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_183.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_183.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_184.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_184.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_185.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_185.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_186.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_186.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_187.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_187.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_188.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_188.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_189.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_189.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_190.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_190.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_191.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_191.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_192.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_192.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_193.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_193.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_194.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_194.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_195.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_195.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_196.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_196.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_197.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/milan/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-QbzAPJ/hotswap_197.bank'
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[WRN] ObjectLookup::get                        : Lookup failed for ParameterLayoutModel: {72ed58c9-5070-053c-3412-9aaa98293e13}
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2B0818
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2B0818
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2AC138 : node = 0000024A5AB91460
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AC138
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB91570
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AC138
+[LOG] SoundI::getSubSound                      : sound 00000249FE2AC138.  Subsound index 0 / 1
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2AFC48)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B1842BE8)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2B1C58)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2AD3C8 : node = 0000024A5AB91AA0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AD3C8
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB91BB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='VentBackgroundHum_Loop', format=2, channels=2, frequency=24000, lengthbytes=3877184, lengthpcm=3544832, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.057277.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AD3C8
+[LOG] SoundI::getSubSound                      : sound 00000249FE2AD3C8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : VentBackgroundHum_Loop (00000249FE2AD068)
+[LOG] SoundI::release                          :     VentBackgroundHum_Loop (0000024A62982348)
+[LOG] SoundI::release                          :     VentBackgroundHum_Loop (00000249FE2AD218)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2A9048 : node = 0000024A5AB91320
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2A9048
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB91430
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='HMNSnor_Man snoring (ID 0170)_BSB', format=2, channels=1, frequency=24000, lengthbytes=653248, lengthpcm=1194496, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.862335.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2A9048
+[LOG] SoundI::getSubSound                      : sound 00000249FE2A9048.  Subsound index 0 / 1
+[LOG] SoundI::release                          : HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2B0D28)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (00000249B1841D48)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2B0818)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2AD218 : node = 0000024A5AB91D20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AD218
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB91E30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AD218
+[LOG] SoundI::getSubSound                      : sound 00000249FE2AD218.  Subsound index 0 / 1
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2AC138)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B1841EE8)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2AA128)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SystemI::createSound                     : filename = ..\DarkSounds\Build\Mobile/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000249FE2AEB68 : node = 0000024A5AB92860
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A62980C38.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AEB68
+[LOG] SystemI::createSoundInternal             :     Create name='..\DarkSounds\Build\Mobile/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 9353248
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33504
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A5AB92970
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='computer-keyboard-typing_71bpm_G_major', format=2, channels=2, frequency=24000, lengthbytes=605376, lengthpcm=553472, pcmblocksize=256, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.184753.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AEB68
+[LOG] SoundI::getSubSound                      : sound 00000249FE2AEB68.  Subsound index 0 / 1
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2AD218)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B1842228)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2AE808)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000249FE2AD068
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000249FE2AD068
+[LOG] SoundI::release                          :  (00000249B2E2C4E8)
+[LOG] SoundI::release                          :     cooking_without_cover_01 (00000249B3047C38)
+[LOG] SoundI::release                          :  (00000249B2E2BDB8)
+[LOG] SoundI::release                          :     FILLER TONE (00000249B3046238)
+[LOG] SoundI::release                          : computer-keyboard-typing_71bpm_G_major (00000249FE2AEB68)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249B18428A8)
+[LOG] SoundI::release                          :     computer-keyboard-typing_71bpm_G_major (00000249FE2AA998)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SoundI::release                          : HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2A9048)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (00000249B1842088)
+[LOG] SoundI::release                          :     HMNSnor_Man snoring (ID 0170)_BSB (00000249FE2AD068)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SoundI::release                          : VentBackgroundHum_Loop (00000249FE2AD3C8)
+[LOG] SoundI::release                          :     VentBackgroundHum_Loop (00000249B1841868)
+[LOG] SoundI::release                          :     VentBackgroundHum_Loop (00000249FE2ADA88)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SoundI::release                          : Coffee_looping (00000249FE2B18F8)
+[LOG] SoundI::release                          :     Coffee_looping (00000249B1841A08)
+[LOG] SoundI::release                          :     Coffee_looping (00000249FE2B09C8)
+[LOG] Codec::release                           : Free PCM Buffer
+[LOG] SoundI::release                          :  (00000249B2E30148)
+[LOG] SoundI::release                          :     Carpet1 (00000249B30485F8)
+[LOG] SoundI::release                          :  (00000249B2E2F458)
+[LOG] SoundI::release                          :     Carpet2 (0000024A62980948)
+[LOG] SoundI::release                          :  (00000249B2E2C658)
+[LOG] SoundI::release                          :     Carpet3 (00000249B3049638)
+[LOG] SoundI::release                          :  (00000249B2E2CAA8)
+[LOG] SoundI::release                          :     Wood1 (00000249B3045EF8)
+[LOG] SoundI::release                          :  (00000249B2E2BC48)
+[LOG] SoundI::release                          :     Wood2 (0000024A62980468)
+[LOG] SoundI::release                          :  (00000249B2E2BAD8)
+[LOG] SoundI::release                          :     Wood3 (0000024A629802C8)
+[LOG] SoundI::release                          :  (00000249B2E2C7C8)
+[LOG] SoundI::release                          :     Wood4 (00000249B3045D58)
+[LOG] SoundI::release                          :  (00000249B2E2FB88)
+[LOG] SoundI::release                          :     Wood5 (00000249B3046578)
+[LOG] SoundI::release                          :  (00000249B2E2F8A8)
+[LOG] SoundI::release                          :     Concrete2 (00000249B30463D8)
+[LOG] SoundI::release                          :  (00000249B2E2F178)
+[LOG] SoundI::release                          :     Concrete3 (0000024A6297FF88)
+[LOG] SoundI::release                          :  (00000249B2E2FCF8)
+[LOG] SoundI::release                          :     Concrete5 (00000249B3047A98)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] ProfileClient::markForDead               : Closing client connection
+[LOG] FMOD_OS_Net_Read                         : Interrupted.[LOG] Thread::callback                         : FMOD profiler thread (send) finished.
+[LOG] ProfileClient::recvThreadLoopFunction    : Socket disconnected
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD profiler thread (recv) finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
+[LOG] SystemI::close                           : Closed.
