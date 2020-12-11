@@ -2748,10 +2748,10 @@ MonoBehaviour:
     Hidden: 0
     Response: Sounds like you're one of us. Glad to have you on board, but you've
       got the wrong cell. The man with the info you're looking for is in a different
-      hallway. Jenny in the cell next door isn't the kind of gal to tell people stuff
-      like that, so it's a good thing that you found me. Anyway, I'm sure you'll
+      corridor. Jenny in the cell next door isn't the kind of gal to tell people
+      stuff like that, so it's a good thing that you found me. Anyway, I'm sure you'll
       find who you're looking for.
-    Clip: {fileID: 8300000, guid: 408e747606a2eac40be6b9407f0120c0, type: 3}
+    Clip: {fileID: 8300000, guid: 59305611b6f34324ba874ad755719348, type: 3}
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -4303,15 +4303,15 @@ PrefabInstance:
         type: 3}
       propertyPath: WelcomeClip
       value: 
-      objectReference: {fileID: 8300000, guid: 4baac912681dedf419b46127d6b5393d, type: 3}
+      objectReference: {fileID: 8300000, guid: 76551643889dc0c46a5aa7253a03a52d, type: 3}
     - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: WelcomeText
       value: Here are some initial instructions. When you can hear a sound clearly
         to your left or to your right, that means there is someone there you can
-        talk to. If you unsure of what to do, you can press the F key at any time.
-        Try walking up to the coffee machine and say the name Adam. Try pressing
-        F after talking to Adam and see what happens.
+        talk to. If you're unsure of what to do, you can press the F key at any time.
+        Try walking up to the coffee machine and say the name Adam. Press F after
+        talking to Adam and see what happens.
       objectReference: {fileID: 0}
     - target: {fileID: 1210085256282731914, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
