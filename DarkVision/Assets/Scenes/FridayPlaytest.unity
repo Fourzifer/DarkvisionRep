@@ -2722,7 +2722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173933510}
   m_LocalRotation: {x: -0, y: 0.7071089, z: -0, w: -0.70710474}
-  m_LocalPosition: {x: 19.89, y: 10.5, z: 33.335598}
+  m_LocalPosition: {x: 19.89, y: 10.5, z: 35.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6391936257928992292}
@@ -2795,7 +2795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/3/Stove
+  SelectAudio: event:/Knife Sharpening
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -3137,7 +3137,7 @@ GameObject:
   - component: {fileID: 365961244}
   - component: {fileID: 365961243}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Vent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3156,8 +3156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectAudio: event:/Vent
-  SoundOcclusionWidening: 1
-  PlayerOcclusionWidening: 1
+  SoundOcclusionWidening: 0.25
+  PlayerOcclusionWidening: 0.25
   OcclusionLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -9262,7 +9262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458004563}
   m_LocalRotation: {x: -0, y: 0.70710886, z: -0, w: -0.70710474}
-  m_LocalPosition: {x: 13.4, y: 10.5, z: 43.995598}
+  m_LocalPosition: {x: 13.4, y: 10.5, z: 47.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6391936257928992292}
