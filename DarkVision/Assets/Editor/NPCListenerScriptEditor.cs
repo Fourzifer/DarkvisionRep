@@ -15,6 +15,12 @@ public class NPCListenerScriptEditor : Editor {
 		listenerScript = (NPCListenerScript)target;
 	}
 
+	private void OnSceneGUI() {
+		listenerScript = (NPCListenerScript)target;
+		Handles.color = Color.white;
+		listenerScript.HearingDistance = Handles.RadiusHandle(Quaternion.identity, listenerScript.transform.position, listenerScript.HearingDistance);
+	}
+
 	public override void OnInspectorGUI() {
 		// base.OnInspectorGUI();
 		serializedObject.Update();
