@@ -194,11 +194,17 @@
 		<property name="maximumDistance">
 			<value>80</value>
 		</property>
-		<property name="extentMode">
-			<value>2</value>
-		</property>
 		<property name="userPanDirection">
 			<value>82.8749847</value>
+		</property>
+		<property name="stereoToSurroundUserPanMode">
+			<value>0</value>
+		</property>
+		<property name="userStereoSeparation">
+			<value>0</value>
+		</property>
+		<property name="userStereoAxis">
+			<value>23.2860718</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{8e0acf74-0035-4db3-9ea2-ed61107094d8}" />
