@@ -4969,6 +4969,11 @@ PrefabInstance:
         Try walking up to the coffee machine and say the name Adam. Try pressing
         F after talking to Adam and see what happens.
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: FootstepThreshold
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085256282731914, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_Layer
