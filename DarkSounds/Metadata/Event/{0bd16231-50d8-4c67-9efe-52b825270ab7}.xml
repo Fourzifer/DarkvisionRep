@@ -177,6 +177,9 @@
 		<property name="maximumDistance">
 			<value>10</value>
 		</property>
+		<property name="stereoToSurroundUserPanMode">
+			<value>0</value>
+		</property>
 	</object>
 	<object class="AutomationCurve" id="{ffc2a96e-b958-44c1-8a37-9d5d5a071c42}">
 		<relationship name="parameter">
