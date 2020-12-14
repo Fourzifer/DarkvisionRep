@@ -49,6 +49,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public float MoveSpeed = 10f;
 	public bool UseVelocityMovement = true;
 	public float VelocityLimit = 10f;
+	public float FootstepThreshold = .1f;
 
 	public bool InteractionEnabled = false;
 	private bool interactableInRange = false;
@@ -87,7 +88,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private InteractState lastState = InteractState.None;
 	private bool touchMovedThisFrame = false;
-	private bool touchedVentWall = false;
+	// private bool touchedVentWall = false;
 
 	[Header("Notebook")]
 	[SerializeField]
@@ -97,6 +98,8 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private bool notebookKeyPressedLastFrame = false;
 
 	private bool updateInit = true;
+
+	private Vector3 posBuffer;
 
 	void Start() {
 
@@ -375,24 +378,34 @@ public class PlayerCharacterScript : MonoBehaviour {
 		if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
 			MoveRelative(x, z);
 
-			if (!touchMovedThisFrame) {
-				if (touchedVentWall) {
-					soundEvent.setParameterByName("WalkingParameter", 0);
-				} else {
-					soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
-				}
-				// soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
-			}
+			// if (!touchMovedThisFrame) {
+			// 	if (touchedVentWall) {
+			// 		soundEvent.setParameterByName("WalkingParameter", 0);
+			// 	} else {
+			// 		soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+			// 	}
+			// 	// soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(state));
+			// }
 
 		} else {
 
-			if (!touchMovedThisFrame)
-				soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
+			// if (!touchMovedThisFrame)
+			// 	soundEvent.setParameterByName("WalkingParameter", 0);//Idle sound
 
 		}
 
+		float deltaSquared = (posBuffer - transform.localPosition).sqrMagnitude;
+
+		if (deltaSquared > FootstepThreshold * FootstepThreshold) {
+			soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+			// Debug.Log("delta: "+ Mathf.Sqrt(deltaSquared));
+		} else {
+			soundEvent.setParameterByName("WalkingParameter", 0);
+		}
+		posBuffer = transform.localPosition;
+
 		touchMovedThisFrame = false;
-		touchedVentWall = false;
+		// touchedVentWall = false;
 	}
 
 	private void LateUpdate() {
@@ -401,6 +414,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 			Quaternion.AngleAxis(targetDirection, Vector3.up),
 			RotationAnimationSpeed * Time.deltaTime)
 		);
+
 	}
 
 	public void Interact() {
@@ -437,14 +451,14 @@ public class PlayerCharacterScript : MonoBehaviour {
 	public void MoveRelative(float x, float z, bool touchMove = false) {
 		touchMovedThisFrame = touchMove;
 
-		if (touchMove) {
-			if (touchedVentWall) {
-				soundEvent.setParameterByName("WalkingParameter", 0);
-			} else {
-				soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
+		// if (touchMove) {
+		// 	if (touchedVentWall) {
+		// 		soundEvent.setParameterByName("WalkingParameter", 0);
+		// 	} else {
+		// 		soundEvent.setParameterByName("WalkingParameter", StateToFmodValue(lastState));
 
-			}
-		}
+		// 	}
+		// }
 
 		if (UseVelocityMovement) {
 			rb.velocity = Quaternion.AngleAxis(targetDirection, Vector3.up) * new Vector3(x * 30f, rb.velocity.y, z * 30f);
@@ -471,13 +485,13 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private void OnTriggerStay(Collider other) {
 		if (other.CompareTag("ventWall")) {
-			touchedVentWall = true;
+			// touchedVentWall = true;
 		}
 	}
 
 	private void OnCollisionStay(Collision other) {
 		if (other.gameObject.CompareTag("ventWall")) {
-			touchedVentWall = true;
+			// touchedVentWall = true;
 		}
 	}
 

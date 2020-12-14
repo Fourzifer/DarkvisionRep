@@ -15,6 +15,18 @@ public class NPCListenerScriptEditor : Editor {
 		listenerScript = (NPCListenerScript)target;
 	}
 
+	private void OnSceneGUI() {
+		listenerScript = (NPCListenerScript)target;
+		Handles.color = Color.white;
+		
+		EditorGUI.BeginChangeCheck();
+		listenerScript.HearingDistance = Handles.RadiusHandle(Quaternion.identity, listenerScript.transform.position, listenerScript.HearingDistance);
+		if (EditorGUI.EndChangeCheck()) {
+				Undo.RecordObject(listenerScript, "Change NPC hearing distance");
+				EditorUtility.SetDirty(listenerScript);
+		}
+	}
+
 	public override void OnInspectorGUI() {
 		// base.OnInspectorGUI();
 		serializedObject.Update();
@@ -22,10 +34,18 @@ public class NPCListenerScriptEditor : Editor {
 
 		listenerScript = (NPCListenerScript)target;
 
+		EditorGUI.BeginChangeCheck();
 		listenerScript.HearingDistance = EditorGUILayout.FloatField("Hearing distance", listenerScript.HearingDistance);
+		if (EditorGUI.EndChangeCheck()) {
+				Undo.RecordObject(listenerScript, "Change NPC hearing distance");
+				EditorUtility.SetDirty(listenerScript);
+		}
 		EditorGUILayout.Space();
 
 		EditorGUILayout.LabelField("Phrases");
+
+		EditorGUI.BeginChangeCheck();
+
 		for (int id = 0; id < listenerScript.Phrases.Count; id++) {
 			var item = listenerScript.Phrases[id];
 
@@ -67,6 +87,11 @@ public class NPCListenerScriptEditor : Editor {
 		showDebug = EditorGUILayout.Foldout(showDebug, "Debug options");
 		if (showDebug) {
 			listenerScript.PrintHearingDistance = EditorGUILayout.Toggle("Print distance", listenerScript.PrintHearingDistance);
+		}
+
+		if (EditorGUI.EndChangeCheck()) {
+				Undo.RecordObject(listenerScript, "Change NPC phrases");
+				EditorUtility.SetDirty(listenerScript);
 		}
 
 		serializedObject.ApplyModifiedProperties();

@@ -200,6 +200,9 @@
 		<property name="maximumDistance">
 			<value>10</value>
 		</property>
+		<property name="stereoToSurroundUserPanMode">
+			<value>0</value>
+		</property>
 	</object>
 	<object class="MixerBusFader" id="{10013678-af57-4822-8621-0b0c8cd7dade}" />
 	<object class="AutomationPoint" id="{f5d599bb-f4d0-4d80-8b31-50406c65cb02}">
