@@ -1,27 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
-public class MicListenerScript : MonoBehaviour {
-
+public class GrammarMicListenerScript : MonoBehaviour {
 	public static List<Utility.IObserver<(Vector3, string)>> SpeakEvent = new List<Utility.IObserver<(Vector3, string)>>();
 
-	// IDEA: Additional phrase registry system with bool layer for keywords which will stop recognised words from being broadcasted if not enabled yet
-	public string[] keywords = new string[] { "pineapple", "pizza", "carpet", "adam", "kevin" };
+	// public string[] keywords = new string[] { "pineapple", "pizza", "carpet", "adam", "kevin" };
+
+	public string SRGSFilePath = "srgs";
 
 	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
 
-	protected PhraseRecognizer recognizer;
+	protected GrammarRecognizer recognizer;
 	protected string word = "asdf";
 
 	private void Start() {
-		if (keywords != null) {
-			recognizer = new KeywordRecognizer(keywords, confidence);
+		string path = Application.dataPath + "/srgs/" + SRGSFilePath + ".xml";
+
+		if (File.Exists(path)) {
+			recognizer = new GrammarRecognizer(path, confidence);
 			recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
-			
+
 			recognizer.Start();
-			Debug.Log(recognizer.IsRunning);
+			Debug.Log("Grammar recognizer started: " + recognizer.IsRunning);
+		} else {
+			recognizer = null;
+			Debug.LogError("Specified SRGS file does not exist: " + path);
 		}
 
 		foreach (var device in Microphone.devices) {
@@ -35,14 +41,14 @@ public class MicListenerScript : MonoBehaviour {
 			recognizer.OnPhraseRecognized -= Recognizer_OnPhraseRecognized;
 			recognizer.Stop();
 			recognizer.Dispose();
+			Debug.Log("Grammar recognizer disposed.");
 		}
 	}
 
 	private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args) {
 		word = args.text;
-		// results.text = "You said: <b>" + word + "</b>";
-		Utility.NotifyObservers(SpeakEvent, (transform.position, word));
-		Debug.Log("You said: " + word);
+		
+		// Utility.NotifyObservers(SpeakEvent, (transform.position, word));
+		Debug.Log("You said: \"" + word+"\". Confidence: "+ args.confidence);
 	}
-	
 }

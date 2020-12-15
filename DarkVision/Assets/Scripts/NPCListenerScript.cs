@@ -12,13 +12,26 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 	[Serializable]
 	public class ListenPhraseEntry {
-		public string Phrase;
+		public List<string> Phrase;
+		public bool MultiplePhrases = false;
 		public float PopupTime = 10;
 		public bool Enabled = true;
 		public bool Hidden = false;
 		public string Response;
 		public AudioClip Clip;
 		public UnityEvent Event;
+
+		public bool ContainsPhrase(string phrase) {
+			if (!Enabled || Phrase == null || Phrase.Count < 1)
+				return false;
+
+			// TODO: wildcard check?
+
+			if (MultiplePhrases)
+				return Phrase.Contains(phrase);
+
+			return Phrase[0] == phrase;
+		}
 	}
 
 	public float HearingDistance = 15;
@@ -77,12 +90,12 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		}
 
 		string word = notification.Item2;
-		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.Enabled && firstEntry.Phrase == word);
+		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.ContainsPhrase(word));
 
 		if (entry != null) {
 			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
-			PopupHandlerScript.ShowCustomPopup(entry.Response.Replace("\\n","\n"), entry.PopupTime);
+			PopupHandlerScript.ShowCustomPopup(entry.Response.Replace("\\n", "\n"), entry.PopupTime);
 			if (entry.Clip) {
 				PlayerCharacterScript.StopNarratorNow();
 				narrator?.Stop();
