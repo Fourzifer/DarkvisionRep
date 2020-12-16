@@ -1,0 +1,73 @@
+<grammar version="1.0" xml:lang="en-US" root="rootRule"
+ xmlns="http://www.w3.org/2001/06/grammar">
+
+  <rule id="rootRule">
+	  <ruleref special="GARBAGE" />
+    <one-of>
+      <item> adam </item>
+      <item> david </item>
+      <item> kevin </item>
+      <item> pizza </item>
+      <!-- <item> pineapple </item> -->
+      <item> pineapple pizza </item>
+      <item> microwave </item>
+	    <!-- <ruleref uri="#adam" /> -->
+	    <!-- <ruleref uri="#david" /> -->
+	    <!-- <ruleref uri="#kevin" /> -->
+    </one-of>
+	  <ruleref special="GARBAGE" />
+  </rule>
+
+	<rule id="playCommands">
+    <ruleref uri="#playAction" />
+    <item> the </item>
+    <ruleref uri="#fileWords" />
+  </rule>
+
+  <rule id="playAction">
+    <one-of>
+      <item> play </item>
+      <item> start </item>
+      <item> begin </item>
+    </one-of>
+  </rule>
+
+  <rule id="fileWords">
+    <one-of>
+      <item> song </item>
+      <item> tune </item>
+      <item> track </item>
+      <item> item </item>
+    </one-of>
+  </rule>
+
+	<rule id="adam">
+		<!-- <tag> adam </tag> -->
+    <!-- <ruleref uri="#greeting" /> -->
+	  <ruleref special="GARBAGE" />
+    <item> adam </item>
+	  <ruleref special="GARBAGE" />
+  </rule>
+
+	<rule id="david">
+    <ruleref uri="#greeting" />
+    <item> david </item>
+  </rule>
+
+	<rule id="kevin">
+    <ruleref uri="#greeting" />
+    <item> kevin </item>
+  </rule>
+
+	<rule id="greeting">
+    <one-of>
+      <item> Hello </item>
+      <item> Hello, are you </item>
+      <item> Are you </item>
+      <item> Are you there </item>
+      <item> Hey </item>
+      <item> Hi </item>
+    </one-of>
+  </rule>
+
+</grammar>

@@ -2742,7 +2742,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: microwave
+  - Phrase:
+    - microwave
+    MultiplePhrases: 0
     PopupTime: 19
     Enabled: 0
     Hidden: 0
@@ -4313,6 +4315,11 @@ PrefabInstance:
         Try walking up to the coffee machine and say the name Adam. Press F after
         talking to Adam and see what happens.
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: FootstepThreshold
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085256282731914, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_Layer
@@ -4552,15 +4559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c667fe853a0c746a90a6c73ba375b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keywords:
-  - pineapple
-  - pizza
-  - john
-  - carpet
-  - adam
-  - kevin
-  - david
-  - microwave
+  SRGSFilePath: srgs
   confidence: 1
 --- !u!20 &751799082 stripped
 Camera:
@@ -9183,7 +9182,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: microwave
+  - Phrase:
+    - microwave
+    MultiplePhrases: 0
     PopupTime: 10
     Enabled: 0
     Hidden: 0
@@ -10006,7 +10007,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: microwave
+  - Phrase:
+    - microwave
+    MultiplePhrases: 0
     PopupTime: 15
     Enabled: 0
     Hidden: 0
@@ -13578,7 +13581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: pizza
+  - Phrase:
+    - pineapple pizza
+    MultiplePhrases: 0
     PopupTime: 32
     Enabled: 1
     Hidden: 0
@@ -13680,7 +13685,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase: david
+  - Phrase:
+    - david
+    MultiplePhrases: 0
     PopupTime: 10
     Enabled: 1
     Hidden: 0
@@ -13740,7 +13747,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase: pineapple
+  - Phrase:
+    - pizza
+    MultiplePhrases: 0
     PopupTime: 32
     Enabled: 1
     Hidden: 0
@@ -13945,7 +13954,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: adam
+  - Phrase:
+    - adam
+    MultiplePhrases: 0
     PopupTime: 32
     Enabled: 1
     Hidden: 0
@@ -13987,7 +13998,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase: kevin
+  - Phrase:
+    - kevin
+    MultiplePhrases: 0
     PopupTime: 36
     Enabled: 0
     Hidden: 0
