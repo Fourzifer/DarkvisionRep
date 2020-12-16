@@ -8,6 +8,7 @@ public class NotebookScript : MonoBehaviour {
 
 	void Start() {
         mainInstance = this;
+		gameObject.SetActive(false);
 	}
 
 	private void OnDestroy() {
@@ -18,5 +19,13 @@ public class NotebookScript : MonoBehaviour {
 
 	void Update() {
 
+	}
+
+	public static void Show(){
+		mainInstance.gameObject.SetActive(true);
+	}
+
+	public static void Hide(){
+		mainInstance.gameObject.SetActive(false);
 	}
 }

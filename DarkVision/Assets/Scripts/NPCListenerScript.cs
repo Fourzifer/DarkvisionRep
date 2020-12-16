@@ -25,12 +25,13 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 			if (!Enabled || Phrase == null || Phrase.Count < 1)
 				return false;
 
-			// TODO: wildcard check?
+			char[] charsToTrim = { ' ', '.' };
+			string trimmedPhrase = phrase.Trim(charsToTrim);
 
 			if (MultiplePhrases)
-				return Phrase.Contains(phrase);
+				return Phrase.Contains(trimmedPhrase);
 
-			return Phrase[0] == phrase;
+			return Phrase[0] == trimmedPhrase;
 		}
 	}
 

@@ -47,8 +47,16 @@ public class GrammarMicListenerScript : MonoBehaviour {
 
 	private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args) {
 		word = args.text;
-		
+
+
 		// Utility.NotifyObservers(SpeakEvent, (transform.position, word));
-		Debug.Log("You said: \"" + word+"\". Confidence: "+ args.confidence);
+		Debug.Log("You said: \"" + word + "\". Confidence: " + args.confidence);
+		foreach (var item in args.semanticMeanings) {
+			Debug.LogFormat("Semantic meaning: \nkey: {0}", item.key);
+			foreach (var value in item.values) {
+				Debug.LogFormat("\tvalue: {0}", value);
+
+			}
+		}
 	}
 }

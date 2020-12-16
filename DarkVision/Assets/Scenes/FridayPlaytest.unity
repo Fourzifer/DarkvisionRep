@@ -13582,7 +13582,7 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase:
-    - Pineapple pizza
+    - pineapple pizza
     MultiplePhrases: 0
     PopupTime: 32
     Enabled: 1

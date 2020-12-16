@@ -2549,7 +2549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 73.2}
+  m_AnchoredPosition: {x: 0, y: 73.20001}
   m_SizeDelta: {x: -188.53864, y: -1408.4543}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120533637
@@ -2940,7 +2940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: []
+  - Phrase:
+    - microwave
     MultiplePhrases: 0
     PopupTime: 19
     Enabled: 0
@@ -4887,16 +4888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c667fe853a0c746a90a6c73ba375b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keywords:
-  - pineapple
-  - pizza
-  - john
-  - carpet
-  - adam
-  - kevin
-  - david
-  - microwave
-  - pineapple pizza
+  SRGSFilePath: srgs
   confidence: 1
 --- !u!20 &751799082 stripped
 Camera:
@@ -6446,7 +6438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.5, y: -37.300003}
+  m_AnchoredPosition: {x: 11.5, y: -37.30005}
   m_SizeDelta: {x: -187.67151, y: -209.4281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &890442524
@@ -9657,7 +9649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345125263
@@ -9866,7 +9858,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: []
+  - Phrase:
+    - microwave
     MultiplePhrases: 0
     PopupTime: 10
     Enabled: 0
@@ -10690,7 +10683,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase: []
+  - Phrase:
+    - microwave
     MultiplePhrases: 0
     PopupTime: 15
     Enabled: 0
