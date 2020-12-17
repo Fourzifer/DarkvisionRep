@@ -65,7 +65,7 @@ public class NPCListenerScriptEditor : Editor {
 					item.Phrase.Add("");
 				}
 				item.Phrase[0] = EditorGUILayout.TextField(item.Phrase[0]);
-				
+
 				if (GUILayout.Button("Remove")) {
 					listenerScript.Phrases.Remove(item);
 				}
@@ -86,11 +86,11 @@ public class NPCListenerScriptEditor : Editor {
 					}
 					EditorGUILayout.EndHorizontal();
 				}
-				
+
 				EditorGUI.indentLevel -= 1;
 			}
 
-				
+
 
 			if (!item.Hidden) {
 				EditorGUI.indentLevel += 1;
@@ -101,12 +101,12 @@ public class NPCListenerScriptEditor : Editor {
 				}
 				EditorGUILayout.EndHorizontal();
 
-				EditorGUILayout.PrefixLabel("Response:");
-				item.Response = EditorGUILayout.TextArea(item.Response, GUILayout.Height(40));
-				item.PopupTime = EditorGUILayout.FloatField("Popup time", item.PopupTime);
-				item.Clip = (AudioClip)EditorGUILayout.ObjectField("Clip", item.Clip, typeof(AudioClip), false);
+				item.ResponseKey = EditorGUILayout.TextField("Response Key",item.ResponseKey);
 				if (phrases != null) {
-					EditorGUILayout.PropertyField(phrases.GetArrayElementAtIndex(id).FindPropertyRelative("Event"));
+					item.EventsHidden = !EditorGUILayout.Foldout(!item.EventsHidden, "Events");
+					if (!item.EventsHidden) {
+						EditorGUILayout.PropertyField(phrases.GetArrayElementAtIndex(id).FindPropertyRelative("Event"));
+					}
 				} else {
 					EditorGUILayout.LabelField("Warning: phrases ref is null");
 				}

@@ -14,11 +14,11 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 	public class ListenPhraseEntry {
 		public List<string> Phrase;
 		public bool MultiplePhrases = false;
-		public float PopupTime = 10;
+		// public float PopupTime = 10;
 		public bool Enabled = true;
 		public bool Hidden = false;
-		public string Response;
-		public AudioClip Clip;
+		public string ResponseKey = "";
+		public bool EventsHidden = true;
 		public UnityEvent Event;
 
 		public bool ContainsPhrase(string phrase) {
@@ -94,16 +94,30 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.ContainsPhrase(word));
 
 		if (entry != null) {
-			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
-			PopupHandlerScript.ShowCustomPopup(entry.Response.Replace("\\n", "\n"), entry.PopupTime);
-			if (entry.Clip) {
-				PlayerCharacterScript.StopNarratorNow();
-				narrator?.Stop();
-				narrator?.PlayOneShot(entry.Clip);
+			var dialogueEntry = DialogueRegistryScript.GetEntry(entry.ResponseKey);
+			if (dialogueEntry != null) {
+
+				// Debug.Log("[In response to \"" + word + "\"]: " + dialogueEntry.Dialogue);
+				float popupTime = 10;
+
+				if (dialogueEntry.Clip) {
+					popupTime = dialogueEntry.Clip.length;
+					PlayerCharacterScript.StopNarratorNow();
+					narrator?.Stop();
+					narrator?.PlayOneShot(dialogueEntry.Clip);
+				}
+
+				PopupHandlerScript.ShowCustomPopup(
+					dialogueEntry.Dialogue.Replace("\\n", "\n"),
+					popupTime
+					//entry.PopupTime
+				);
+
+				entry.Event.Invoke();
+			} else {
+				Debug.LogFormat("Key not found in registry" + entry.ResponseKey);
 			}
-
-			entry.Event.Invoke();
 		} else {
 			Debug.Log("[Default response, \"" + word + "\" is either not recognised or enabled]: " + DefaultResponse);
 			if (DefaultResponseClip)

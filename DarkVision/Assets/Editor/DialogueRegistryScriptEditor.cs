@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -23,6 +25,10 @@ public class DialogueRegistryScriptEditor : Editor {
 
 		dialogueRegistry = (DialogueRegistryScript)target;
 
+		// if (dialogueRegistry.Entries == null) {
+		// 	dialogueRegistry.Entries = new List<DialogueRegistryScript.DialogueEntry>();
+		// }
+
 		EditorGUILayout.LabelField("Phrases");
 
 		if (entriesFoldStates == null) {
@@ -37,6 +43,8 @@ public class DialogueRegistryScriptEditor : Editor {
 			entriesFoldStates.RemoveAt(entriesFoldStates.Count - 1);
 		}
 
+		GUIStyle style = new GUIStyle(EditorStyles.foldout);
+		style.fixedWidth = 15;
 
 		EditorGUI.BeginChangeCheck();
 
@@ -45,19 +53,21 @@ public class DialogueRegistryScriptEditor : Editor {
 			var item = dialogueRegistry.Entries[id];
 
 			EditorGUILayout.BeginHorizontal();
-			entriesFoldStates[id] = EditorGUILayout.Foldout(entriesFoldStates[id], "");
-			item.Key = EditorGUILayout.TextField("Key", item.Key);
+			entriesFoldStates[id] = EditorGUILayout.Foldout(entriesFoldStates[id], "Key:", style);
+			item.Key = EditorGUILayout.TextField(item.Key);
 			EditorGUILayout.EndHorizontal();
 			if (entriesFoldStates[id]) {
 				EditorGUI.indentLevel += 1;
-				item.Dialogue = EditorGUILayout.TextField("Dialogue", item.Dialogue);
-				item.Clip = (AudioClip)EditorGUILayout.ObjectField("", item.Clip, typeof(AudioClip), false);
+				EditorGUILayout.LabelField("Dialogue:");
+				// item.Dialogue = EditorGUILayout.TextField("Dialogue:",item.Dialogue);
+				item.Dialogue = EditorGUILayout.TextArea(item.Dialogue);
+				item.Clip = (AudioClip)EditorGUILayout.ObjectField("Clip:", item.Clip, typeof(AudioClip), false);
 				EditorGUI.indentLevel -= 1;
 			}
 		}
 		EditorGUI.indentLevel -= 1;
 
-		if (GUILayout.Button("Add entry", GUILayout.Width(100))) {
+		if (GUILayout.Button("Add entry", GUILayout.Width(100), GUILayout.Height(30))) {
 			dialogueRegistry.Entries.Add(new DialogueRegistryScript.DialogueEntry());
 		}
 
@@ -68,7 +78,10 @@ public class DialogueRegistryScriptEditor : Editor {
 		}
 
 		serializedObject.ApplyModifiedProperties();
-
+		// if (serializedObject.ApplyModifiedProperties()) {
+		// 	Undo.RecordObject(dialogueRegistry, "Change Dialogue Registry");
+		// 	EditorUtility.SetDirty(dialogueRegistry);
+		// }
 
 	}
 }
