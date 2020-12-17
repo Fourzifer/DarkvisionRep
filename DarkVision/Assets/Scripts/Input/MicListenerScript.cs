@@ -10,7 +10,7 @@ public class MicListenerScript : MonoBehaviour {
 
 	public string SRGSFilePath = "srgs";
 
-	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
+	public ConfidenceLevel confidence = ConfidenceLevel.Low;
 
 	protected PhraseRecognizer recognizer;
 	protected string word = "asdf";
@@ -49,8 +49,9 @@ public class MicListenerScript : MonoBehaviour {
 		Utility.NotifyObservers(SpeakEvent, (transform.position, word));
 		// Debug.Log("You said: " + word);
 		Debug.Log("You said: \"" + word + "\". Confidence: " + args.confidence);
-		if(args.semanticMeanings != null){
 
+		/*
+		if(args.semanticMeanings != null){
 		foreach (var item in args.semanticMeanings) {
 			Debug.LogFormat("Semantic meaning: \nkey: {0}", item.key);
 			foreach (var value in item.values) {
@@ -61,6 +62,7 @@ public class MicListenerScript : MonoBehaviour {
 		} else {
 			Debug.Log("Semantic meanings is null");
 		}
+		*/
 
 	}
 	

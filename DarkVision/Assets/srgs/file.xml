@@ -1,0 +1,14 @@
+<grammar version="1.0" xml:lang="en-US" root="rootRule" xmlns="http://www.w3.org/2001/06/grammar"><rule id="rootRule">
+	<ruleref special="GARBAGE" />
+	<one-of>
+		<item>adam</item>
+		<item>david</item>
+		<item>kevin</item>
+		<item>pizza</item>
+		<item>pineapple pizza</item>
+		<item>pineapple</item>
+		<item>microwave</item>
+	</one-of>
+	<ruleref special="GARBAGE" />
+</rule>
+</grammar>
