@@ -10,6 +10,9 @@ using Microsoft.CognitiveServices.Speech;
 using System;
 using Microsoft.CognitiveServices.Speech.Audio;
 using System.IO;
+using System.Xml;
+using System.Xml.Linq;
+using System.Linq;
 
 public class SRGSFileGenerator : EditorWindow {
 
@@ -46,12 +49,15 @@ public class SRGSFileGenerator : EditorWindow {
 		// EditorGUILayout.Separator();
 		EditorGUILayout.Space();
 
+		string path = Application.dataPath + "/srgs/" + outputFile + ".xml";
+
 		// IDEA: option to read xml file to populate fields
+		if (GUILayout.Button("Load file")) {
+			LoadXML(path);
+		}
 
 		outputFile = EditorGUILayout.TextField("Output file:", outputFile);
-		if (GUILayout.Button("Generate File", GUILayout.Height(40))) {
-			// TODO: get xml and write it to file
-			string path = Application.dataPath + "/srgs/" + outputFile + ".xml";
+		if (GUILayout.Button("Generate/Write File", GUILayout.Height(40))) {
 			string xml = GenerateXML();
 
 			Debug.Log("Started writing srgs xml");
@@ -108,5 +114,20 @@ public class SRGSFileGenerator : EditorWindow {
 		Debug.Log("generated ssml xml for text-to-speech: " + outString);
 
 		return outString;
+	}
+
+	private void LoadXML(string path) {
+		XDocument xml = XDocument.Load(path);
+		XNamespace ns = xml.Root.Name.Namespace;
+		IEnumerable<string> query = from c in xml.Root.Element(ns+"rule").Element(ns+"one-of").Elements(ns+"item")
+										// where (int)c.Attribute("item") < 4
+									select c.Value;
+
+		entries.Clear();
+		emptyField = "";
+		foreach (var item in query) {
+			entries.Add(item);
+		}
+
 	}
 }

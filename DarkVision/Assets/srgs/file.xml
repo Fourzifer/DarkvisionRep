@@ -5,8 +5,8 @@
 		<item>david</item>
 		<item>kevin</item>
 		<item>pizza</item>
-		<item>pineapple pizza</item>
 		<item>pineapple</item>
+		<item>pineapple pizza</item>
 		<item>microwave</item>
 	</one-of>
 	<ruleref special="GARBAGE" />
