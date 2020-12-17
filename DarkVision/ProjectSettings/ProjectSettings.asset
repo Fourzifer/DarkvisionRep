@@ -748,6 +748,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Analytics: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -761,10 +762,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: d462296f-fa95-46fb-aa35-c2b2075f4f21
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: StartGame
+  organizationId: dark-vision-8fb1c021-743c-49cd-b63a-a893cb856e42
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

@@ -2943,15 +2943,10 @@ MonoBehaviour:
   - Phrase:
     - microwave
     MultiplePhrases: 0
-    PopupTime: 19
     Enabled: 0
     Hidden: 0
-    Response: Sounds like you're one of us. Glad to have you on board, but you've
-      got the wrong cell. The man with the info you're looking for is in a different
-      corridor. Jenny in the cell next door isn't the kind of gal to tell people
-      stuff like that, so it's a good thing that you found me. Anyway, I'm sure you'll
-      find who you're looking for.
-    Clip: {fileID: 8300000, guid: 59305611b6f34324ba874ad755719348, type: 3}
+    ResponseKey: microwaveToC5
+    EventsHidden: 1
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -4709,6 +4704,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Container
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085257897583344, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085257897583347, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4894,8 +4894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c667fe853a0c746a90a6c73ba375b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SRGSFilePath: srgs
-  confidence: 1
+  SRGSFilePath: file
+  confidence: 2
 --- !u!20 &751799082 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1210085256722659129, guid: 2684650351dea1a4cb9ed41ed1c360dd,
@@ -4926,6 +4926,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21504fc04ef50b4ea39475e67257dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Entries:
+  - Key: adamToAdam
+    Dialogue: "Who\u2019s there? Oh,  it must be you! I\u2019m glad that you made
+      it through the vent. Listen, you have to get me out of this cell. I was making
+      an escape plan together with my friend, but we were separated. I don\u2019t
+      know where he is now, but I know someone who might be able to help. His name
+      is David, and he only talks to people who share his interest in pizza, especially
+      when there\u2019s pineapple on the pizza. You can find his cell further ahead.
+      Just go straight, then follow his snoring and you should be able to find him.
+      You may need to walk past some other cells first."
+    Clip: {fileID: 8300000, guid: e5b95100ff4fd9e4f9d495d5a028cdd8, type: 3}
+  - Key: kevinToAdam
+    Dialogue: "Impressive, it seems you have talked to everyone who\u2019s in on
+      the plan. \nAs you may have figured out, I wasn\u2019t actually looking for
+      anyone. In fact, our escape plan is already finished. All we needed was to
+      wait for someone to find a way up through the ventilation, and you were able
+      to! The challenge begins now, are you ready?\n\nThat was the end of the prototype!
+      \nThank you very much for trying it, we hope you enjoyed it! \nWe would love
+      it if you were to answer the survey that was linked in the post you found this
+      game through, or the survey on our itch.io page of you found the prototype
+      through the Itch.io website."
+    Clip: {fileID: 8300000, guid: b4f62a4b4d1e4f044a0852cf183b9b23, type: 3}
+  - Key: davidToDavid
+    Dialogue: "David, yeah that\u2019s me. But you see, I don\u2019t talk to anyone
+      who doesn't share my passions. Say, stranger, what\u2019s your favourite food?"
+    Clip: {fileID: 8300000, guid: 0a7e5a4796f7c0e4aa1dee1c53d78f34, type: 3}
+  - Key: pizzaToDavid
+    Dialogue: "Pineapple pizza! You have excellent taste, stranger. If you\u2019re
+      crawling around up there, it must mean that you\u2019re looking for a way to
+      escape as well. We\u2019re a close bunch here, so calling people\u2019s names
+      will only get you so far, you see? I will teach you a codeword that only us
+      prisoners know. The item is created out of two words, and is usually in the
+      kitchen. It starts with micro. I don\u2019t want to say the entire word in
+      case someone is listening, but I\u2019m sure you will figure it out. Use the
+      full word and someone will definitely give you more information."
+    Clip: {fileID: 8300000, guid: 6938699420a9c4a418d90653e9a4a86f, type: 3}
+  - Key: microwaveToKevin
+    Dialogue: "Microwave? I haven\u2019t heard someone say that in a while now. That
+      means you\u2019ve gotten quite far in your initiation, haven\u2019t you. Woops,
+      did I let that slip? I think it\u2019s high time you go back to Adam. Tell
+      him you managed to find Kevin."
+    Clip: {fileID: 8300000, guid: 6e7358e8e612f5349b500bbb9a6f63b1, type: 3}
+  - Key: microwaveToC3
+    Dialogue: "What did you just say?! Honestly, David seems to tell anyone our secret
+      codeword. I won\u2019t be part of whatever you\u2019re planning, so find someone
+      else to bug."
+    Clip: {fileID: 8300000, guid: a747bcf138c1a714aa7a305de4f6f572, type: 3}
+  - Key: microwaveToC5
+    Dialogue: Sounds like you're one of us. Glad to have you on board, but you've
+      got the wrong cell. The man with the info you're looking for is in a different
+      corridor. Jenny in the cell next door isn't the kind of gal to tell people
+      stuff like that, so it's a good thing that you found me. Anyway, I'm sure you'll
+      find who you're looking for.
+    Clip: {fileID: 8300000, guid: 59305611b6f34324ba874ad755719348, type: 3}
 --- !u!1 &756926520
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,7 +6616,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15688
+  m_Name: pb_Mesh36388
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6726,7 +6780,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15744
+  m_Name: pb_Mesh36452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9385,7 +9439,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15436
+  m_Name: pb_Mesh36086
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9879,13 +9933,10 @@ MonoBehaviour:
   - Phrase:
     - microwave
     MultiplePhrases: 0
-    PopupTime: 10
     Enabled: 0
     Hidden: 0
-    Response: "What did you just say?! Honestly, David seems to tell anyone our secret
-      codeword. I won\u2019t be part of whatever you\u2019re planning, so find someone
-      else to bug."
-    Clip: {fileID: 8300000, guid: a747bcf138c1a714aa7a305de4f6f572, type: 3}
+    ResponseKey: microwaveToC3
+    EventsHidden: 1
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -10704,14 +10755,10 @@ MonoBehaviour:
   - Phrase:
     - microwave
     MultiplePhrases: 0
-    PopupTime: 15
     Enabled: 0
     Hidden: 0
-    Response: "Microwave? I haven\u2019t heard someone say that in a while now. That
-      means you\u2019ve gotten quite far in your initiation, haven\u2019t you. Woops,
-      did I let that slip? I think it\u2019s high time you go back to Adam. Tell
-      him you managed to find Kevin."
-    Clip: {fileID: 8300000, guid: 6e7358e8e612f5349b500bbb9a6f63b1, type: 3}
+    ResponseKey: microwaveToKevin
+    EventsHidden: 1
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -12480,7 +12527,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15630
+  m_Name: pb_Mesh36314
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13374,7 +13421,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15772
+  m_Name: pb_Mesh36480
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13538,7 +13585,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15414
+  m_Name: pb_Mesh36062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14277,19 +14324,13 @@ MonoBehaviour:
   Phrases:
   - Phrase:
     - pizza
-    MultiplePhrases: 0
-    PopupTime: 32
+    - pineapple
+    - pineapple pizza
+    MultiplePhrases: 1
     Enabled: 1
     Hidden: 0
-    Response: "Pineapple pizza! You have excellent taste, stranger. If you\u2019re
-      crawling around up there, it must mean that you\u2019re looking for a way to
-      escape as well. We\u2019re a close bunch here, so calling people\u2019s names
-      will only get you so far, you see? I will teach you a codeword that only us
-      prisoners know. The item is created out of two words, and is usually in the
-      kitchen. It starts with micro. I don\u2019t want to say the entire word in
-      case someone is listening, but I\u2019m sure you will figure it out. Use the
-      full word and someone will definitely give you more information."
-    Clip: {fileID: 8300000, guid: 6938699420a9c4a418d90653e9a4a86f, type: 3}
+    ResponseKey: pizzaToDavid
+    EventsHidden: 1
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -14382,12 +14423,10 @@ MonoBehaviour:
   - Phrase:
     - david
     MultiplePhrases: 0
-    PopupTime: 10
     Enabled: 1
     Hidden: 0
-    Response: "David, yeah that\u2019s me. But you see, I don\u2019t talk to anyone
-      who doesn't share my passions. Say, stranger, what\u2019s your favourite food?"
-    Clip: {fileID: 8300000, guid: 0a7e5a4796f7c0e4aa1dee1c53d78f34, type: 3}
+    ResponseKey: davidToDavid
+    EventsHidden: 1
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -14436,110 +14475,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 6391936257389358192}
             m_ObjectArgumentAssemblyTypeName: Occlusion, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Phrase:
-    - pineapple pizza
-    MultiplePhrases: 0
-    PopupTime: 32
-    Enabled: 1
-    Hidden: 0
-    Response: "Pineapple pizza! You have excellent taste, stranger. If you\u2019re
-      crawling around up there, it must mean that you\u2019re looking for a way to
-      escape as well. We\u2019re a close bunch here, so calling people\u2019s names
-      will only get you so far, you see? I will teach you a codeword that only us
-      prisoners know. The item is created out of two words, and is usually in the
-      kitchen. It starts with micro. I don\u2019t want to say the entire word in
-      case someone is listening, but I\u2019m sure you will figure it out. Use the
-      full word and someone will definitely give you more information."
-    Clip: {fileID: 8300000, guid: 6938699420a9c4a418d90653e9a4a86f, type: 3}
-    Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 173933512}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1458004564}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 'The word microwave seems to be a keyword around here,
-              maybe I should ask around? '
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookClip
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 88ae66bef5c89184c84507f9570dd362,
-              type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 6391936257389358192}
-          m_TargetAssemblyTypeName: Occlusion, Assembly-CSharp
-          m_MethodName: StopPlayBack
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 6391936257389358191}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: QueueFModEventRestart
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 6391936257389358192}
-            m_ObjectArgumentAssemblyTypeName: Occlusion, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1490669652}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -14651,18 +14586,10 @@ MonoBehaviour:
   - Phrase:
     - adam
     MultiplePhrases: 0
-    PopupTime: 32
     Enabled: 1
     Hidden: 0
-    Response: "Who\u2019s there? Oh, it must be you! I\u2019m glad that you made
-      it through the vent. Listen, you have to get me out of this cell. I was making
-      an escape plan together with my friend, but we were separated. I don\u2019t
-      know where he is now, but I know someone who might be able to help. His name
-      is David, and he only talks to people who share his interest in pizza, especially
-      when there\u2019s pineapple on the pizza. You can find his cell further ahead.
-      Just go straight, then follow his snoring and you should be able to find him.
-      You may need to walk past some other cells first."
-    Clip: {fileID: 8300000, guid: e5b95100ff4fd9e4f9d495d5a028cdd8, type: 3}
+    ResponseKey: adamToAdam
+    EventsHidden: 1
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -14695,19 +14622,10 @@ MonoBehaviour:
   - Phrase:
     - kevin
     MultiplePhrases: 0
-    PopupTime: 36
     Enabled: 0
     Hidden: 0
-    Response: "Impressive, it seems you have talked to everyone who\u2019s in on
-      the plan. As you may have figured out, I wasn\u2019t actually looking for anyone.
-      In fact, our escape plan is already finished. All we needed was to wait for
-      someone to find a way up through the ventilation, and you were able to! The
-      challenge begins now, are you ready? \\n\\nThat was the end of the prototype!
-      Thank you very much for trying it, we hope you enjoyed it! We would love it
-      if you were to answer the survey that was linked in the post you found this
-      game through, or the survey on our itch.io page of you found the prototype
-      through the Itch.io website."
-    Clip: {fileID: 8300000, guid: b4f62a4b4d1e4f044a0852cf183b9b23, type: 3}
+    ResponseKey: kevinToAdam
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
