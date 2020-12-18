@@ -116,7 +116,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 				entry.Event.Invoke();
 			} else {
-				Debug.LogFormat("Key not found in registry" + entry.ResponseKey);
+				Debug.LogFormat("Key \"{0}\" not found in registry ", entry.ResponseKey);
 			}
 		} else {
 			Debug.Log("[Default response, \"" + word + "\" is either not recognised or enabled]: " + DefaultResponse);
@@ -149,5 +149,9 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 	public void QueueFModEventRestart(Occlusion clip) {
 		EndOfClipEvents.Add(delegate { clip.StartPlayBack(); });
+	}
+
+	public void AddNotebookEntry(string dialogueKey){
+		NotebookScript.AddEntry(dialogueKey);
 	}
 }
