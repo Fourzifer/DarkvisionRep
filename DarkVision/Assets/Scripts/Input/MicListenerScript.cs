@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
@@ -7,24 +8,25 @@ public class MicListenerScript : MonoBehaviour {
 
 	public static List<Utility.IObserver<(Vector3, string)>> SpeakEvent = new List<Utility.IObserver<(Vector3, string)>>();
 
-	// IDEA: Additional phrase registry system with bool layer for keywords which will stop recognised words from being broadcasted if not enabled yet
-	public string[] keywords = new string[] { "pineapple", "pizza", "carpet", "adam", "kevin" };
+	public string SRGSFilePath = "srgs";
 
-	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
-	// public float speed = 1;
-
-	// public Text results;
-	// public Image target;
+	public ConfidenceLevel confidence = ConfidenceLevel.Low;
 
 	protected PhraseRecognizer recognizer;
 	protected string word = "asdf";
 
 	private void Start() {
-		if (keywords != null) {
-			recognizer = new KeywordRecognizer(keywords, confidence);
+		string path = Application.dataPath + "/srgs/" + SRGSFilePath + ".xml";
+
+		if (File.Exists(path)) {
+			recognizer = new GrammarRecognizer(path, confidence);
 			recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
+
 			recognizer.Start();
-			Debug.Log(recognizer.IsRunning);
+			Debug.Log("Grammar recognizer started: " + recognizer.IsRunning);
+		} else {
+			recognizer = null;
+			Debug.LogError("Specified SRGS file does not exist: " + path);
 		}
 
 		foreach (var device in Microphone.devices) {
@@ -38,39 +40,30 @@ public class MicListenerScript : MonoBehaviour {
 			recognizer.OnPhraseRecognized -= Recognizer_OnPhraseRecognized;
 			recognizer.Stop();
 			recognizer.Dispose();
+			Debug.Log("Grammar recognizer disposed.");
 		}
 	}
 
 	private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args) {
 		word = args.text;
-		// results.text = "You said: <b>" + word + "</b>";
 		Utility.NotifyObservers(SpeakEvent, (transform.position, word));
-		Debug.Log("You said: " + word);
-	}
+		// Debug.Log("You said: " + word);
+		Debug.Log("You said: \"" + word + "\". Confidence: " + args.confidence);
 
-	private void Update() {
-		// var x = target.transform.position.x;
-		// var y = target.transform.position.y;
+		/*
+		if(args.semanticMeanings != null){
+		foreach (var item in args.semanticMeanings) {
+			Debug.LogFormat("Semantic meaning: \nkey: {0}", item.key);
+			foreach (var value in item.values) {
+				Debug.LogFormat("\tvalue: {0}", value);
 
-        /*
-		switch (word) {
-			case "up":
-				y += speed;
-				break;
-			case "down":
-				y -= speed;
-				break;
-			case "left":
-				x -= speed;
-				break;
-			case "right":
-				x += speed;
-				break;
+			}
 		}
+		} else {
+			Debug.Log("Semantic meanings is null");
+		}
+		*/
 
-		target.transform.position = new Vector3(x, y, 0);
-        */
 	}
-
 	
 }

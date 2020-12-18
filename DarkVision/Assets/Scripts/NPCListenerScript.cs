@@ -12,13 +12,27 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 	[Serializable]
 	public class ListenPhraseEntry {
-		public string Phrase;
-		public float PopupTime = 10;
+		public List<string> Phrase;
+		public bool MultiplePhrases = false;
+		// public float PopupTime = 10;
 		public bool Enabled = true;
 		public bool Hidden = false;
-		public string Response;
-		public AudioClip Clip;
+		public string ResponseKey = "";
+		public bool EventsHidden = true;
 		public UnityEvent Event;
+
+		public bool ContainsPhrase(string phrase) {
+			if (!Enabled || Phrase == null || Phrase.Count < 1)
+				return false;
+
+			char[] charsToTrim = { ' ', '.' };
+			string trimmedPhrase = phrase.Trim(charsToTrim);
+
+			if (MultiplePhrases)
+				return Phrase.Contains(trimmedPhrase);
+
+			return Phrase[0] == trimmedPhrase;
+		}
 	}
 
 	public float HearingDistance = 15;
@@ -77,19 +91,33 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		}
 
 		string word = notification.Item2;
-		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.Enabled && firstEntry.Phrase == word);
+		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.ContainsPhrase(word));
 
 		if (entry != null) {
-			Debug.Log("[In response to \"" + word + "\"]: " + entry.Response);
 
-			PopupHandlerScript.ShowCustomPopup(entry.Response.Replace("\\n","\n"), entry.PopupTime);
-			if (entry.Clip) {
-				PlayerCharacterScript.StopNarratorNow();
-				narrator?.Stop();
-				narrator?.PlayOneShot(entry.Clip);
+			var dialogueEntry = DialogueRegistryScript.GetEntry(entry.ResponseKey);
+			if (dialogueEntry != null) {
+
+				// Debug.Log("[In response to \"" + word + "\"]: " + dialogueEntry.Dialogue);
+				float popupTime = 10;
+
+				if (dialogueEntry.Clip) {
+					popupTime = dialogueEntry.Clip.length;
+					PlayerCharacterScript.StopNarratorNow();
+					narrator?.Stop();
+					narrator?.PlayOneShot(dialogueEntry.Clip);
+				}
+
+				PopupHandlerScript.ShowCustomPopup(
+					dialogueEntry.Dialogue.Replace("\\n", "\n"),
+					popupTime
+					//entry.PopupTime
+				);
+
+				entry.Event.Invoke();
+			} else {
+				Debug.LogFormat("Key \"{0}\" not found in registry ", entry.ResponseKey);
 			}
-
-			entry.Event.Invoke();
 		} else {
 			Debug.Log("[Default response, \"" + word + "\" is either not recognised or enabled]: " + DefaultResponse);
 			if (DefaultResponseClip)
@@ -121,5 +149,9 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 	public void QueueFModEventRestart(Occlusion clip) {
 		EndOfClipEvents.Add(delegate { clip.StartPlayBack(); });
+	}
+
+	public void AddNotebookEntry(string dialogueKey){
+		NotebookScript.AddEntry(dialogueKey);
 	}
 }

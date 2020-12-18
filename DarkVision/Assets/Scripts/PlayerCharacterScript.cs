@@ -90,11 +90,12 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private bool touchMovedThisFrame = false;
 	// private bool touchedVentWall = false;
 
-	[Header("Notebook")]
-	[SerializeField]
-	private string currentNotebookHint = "I should go ask around";
-	[SerializeField]
-	private AudioClip notebookHintClip;
+
+	// [Header("Notebook")]
+	// [SerializeField]
+	// private string currentNotebookHint = "I should go ask around";
+	// [SerializeField]
+	// private AudioClip notebookHintClip;
 	private bool notebookKeyPressedLastFrame = false;
 
 	private bool updateInit = true;
@@ -131,9 +132,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		if (updateInit) {
 			updateInit = false;
-			if (Narrator && WelcomeClip) {
+			if (Narrator ) {
 				PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
 				Narrator.PlayOneShot(WelcomeClip);
+				// NotebookScript.PlayLatestAsPopup();
 			} else {
 				Debug.LogError("Narrator wont play welcome clip! Narrator exists: " + (Narrator != null) + ", Welcome clip exists: " + (WelcomeClip != null));
 			}
@@ -332,9 +334,13 @@ public class PlayerCharacterScript : MonoBehaviour {
 			}
 
 			// Notebook
+			// TODO: hold to show notebook
+			// TODO: press other keys while held to navigate notebook, disabling movement
+
 			bool notebookKeyPressed = Input.GetKey(KeyCode.F);
-			if (notebookKeyPressed && !notebookKeyPressedLastFrame)
-				PlayNotebook();
+			if (notebookKeyPressed && !notebookKeyPressedLastFrame){
+				NotebookScript.PlayLatestAsPopup();
+			}
 			notebookKeyPressedLastFrame = notebookKeyPressed;
 		}
 
@@ -528,19 +534,19 @@ public class PlayerCharacterScript : MonoBehaviour {
 	}
 
 	public void SetNotebookText(string newNotebookHint) {
-		currentNotebookHint = newNotebookHint;
+		// currentNotebookHint = newNotebookHint;
 	}
 	public void SetNotebookClip(AudioClip newNotebookHintClip) {
-		notebookHintClip = newNotebookHintClip;
+		// notebookHintClip = newNotebookHintClip;
 	}
 
-	public void PlayNotebook() {
-		PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
-		if (Narrator && notebookHintClip) {
-			Narrator.Stop();
-			Narrator.PlayOneShot(notebookHintClip);
-		}
-	}
+	// public void PlayNotebook() {
+		// PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
+		// if (Narrator && notebookHintClip) {
+		// 	Narrator.Stop();
+		// 	Narrator.PlayOneShot(notebookHintClip);
+		// }
+	// }
 
 	public static void PlayClip(AudioClip clip) {
 		Narrator?.Stop();
