@@ -892,27 +892,16 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase:
-    - microwave
-    MultiplePhrases: 0
-    Enabled: 0
-    Hidden: 0
-    ResponseKey: microwaveToKevin
+    - quiet
+    - radio
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: quietToTerry
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 241105871}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
           m_MethodName: AddNotebookEntry
@@ -922,9 +911,66 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: adamKevinNotebook
+            m_StringArgument: quietToTerryNotebook
             m_BoolArgument: 0
           m_CallState: 2
+  - Phrase:
+    - child
+    - kid
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: childToTerry
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 241105871}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: childToTerryNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - sorry
+    - jonas
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: sorryToTerry
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 241105871}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: questCompleteNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - hello
+    - terry
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: helloToTerry
+    EventsHidden: 1
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
@@ -11369,39 +11415,16 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase:
-    - david
-    MultiplePhrases: 0
+    - hello
+    - richard
+    MultiplePhrases: 1
     Enabled: 1
-    Hidden: 0
-    ResponseKey: davidToDavid
+    Hidden: 1
+    ResponseKey: helloToRichard
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 693053234}
-          m_TargetAssemblyTypeName: Occlusion, Assembly-CSharp
-          m_MethodName: StopPlayBack
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 693053235}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: QueueFModEventRestart
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 693053234}
-            m_ObjectArgumentAssemblyTypeName: Occlusion, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 693053235}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
           m_MethodName: AddNotebookEntry
@@ -11411,81 +11434,22 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: davidPizzaNotebook
+            m_StringArgument: helloToRichardNotebook
             m_BoolArgument: 0
           m_CallState: 2
   - Phrase:
-    - pizza
-    - pineapple
-    - pineapple pizza
+    - husband
+    - cold
+    - aching
+    - feet
     MultiplePhrases: 1
     Enabled: 1
-    Hidden: 0
-    ResponseKey: pizzaToDavid
+    Hidden: 1
+    ResponseKey: husbandToRichard
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 693053234}
-          m_TargetAssemblyTypeName: Occlusion, Assembly-CSharp
-          m_MethodName: StopPlayBack
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 693053235}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: QueueFModEventRestart
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 693053234}
-            m_ObjectArgumentAssemblyTypeName: Occlusion, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 693053235}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
           m_MethodName: AddNotebookEntry
@@ -11495,7 +11459,30 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: davidMicrowaveNotebook
+            m_StringArgument: husbandToRichard
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - terry
+    - radio
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: radioToRichard
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 693053235}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: radioToRichardNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
@@ -11567,27 +11554,16 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase:
-    - microwave
-    MultiplePhrases: 0
-    Enabled: 0
-    Hidden: 0
-    ResponseKey: microwaveToKevin
+    - hello
+    - jonas
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: helloToJonas
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 742316368}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
           m_MethodName: AddNotebookEntry
@@ -11597,7 +11573,77 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: adamKevinNotebook
+            m_StringArgument: helloToJonasNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - quiet
+    - stop whistling
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: quietToJonas
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 742316368}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: quietToJonasNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - sorry
+    - terry
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: sorryToJonas
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 742316368}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: questCompleNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - child
+    - kid
+    - lullaby
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: childToJonas
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 742316368}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: childToJonasNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
@@ -21509,27 +21555,16 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase:
-    - microwave
-    MultiplePhrases: 0
-    Enabled: 0
-    Hidden: 0
-    ResponseKey: microwaveToKevin
+    - hello
+    - hannah
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: helloToHannah
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 1743749414}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
           m_MethodName: AddNotebookEntry
@@ -21539,7 +21574,120 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: adamKevinNotebook
+            m_StringArgument: helloToHannahNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - carpet
+    - bathroom
+    - floor
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: carpetToHannah
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1743749414}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: carpetToHannahNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - yes
+    MultiplePhrases: 0
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: yesToHannah
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1743749414}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: yesToHannahNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - no
+    MultiplePhrases: 0
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: noToHannah
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1743749414}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: noToHannahNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - file
+    MultiplePhrases: 0
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: fileToHannah
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1743749414}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: questCompleteNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - why does jonas whistle?
+    - whistle
+    MultiplePhrases: 1
+    Enabled: 1
+    Hidden: 1
+    ResponseKey: whistleToHannah
+    EventsHidden: 1
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1743749414}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: whistleToHannahNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
@@ -24771,7 +24919,7 @@ MonoBehaviour:
     - hello
     MultiplePhrases: 0
     Enabled: 1
-    Hidden: 0
+    Hidden: 1
     ResponseKey: helloToElla
     EventsHidden: 0
     Event:
@@ -24792,8 +24940,8 @@ MonoBehaviour:
   - Phrase:
     - yes
     MultiplePhrases: 0
-    Enabled: 0
-    Hidden: 0
+    Enabled: 1
+    Hidden: 1
     ResponseKey: yesToElla
     EventsHidden: 0
     Event:
@@ -24814,8 +24962,8 @@ MonoBehaviour:
   - Phrase:
     - ready
     MultiplePhrases: 0
-    Enabled: 0
-    Hidden: 0
+    Enabled: 1
+    Hidden: 1
     ResponseKey: readyToElla
     EventsHidden: 0
     Event:
@@ -24836,8 +24984,8 @@ MonoBehaviour:
   - Phrase:
     - escape
     MultiplePhrases: 0
-    Enabled: 0
-    Hidden: 0
+    Enabled: 1
+    Hidden: 1
     ResponseKey: escapeToElla
     EventsHidden: 0
     Event:
