@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuPlaytest3.unity
     guid: 2768e5ba03d8ff34ab35edf145bb4f18
   - enabled: 1
-    path: Assets/Scenes/FridayPlaytest.unity
+    path: Assets/Scenes/Playtests/Version 3.unity
     guid: 96ef1c40800ad6d4d8ba377a141e4576
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bc73ed7e5561342478a5777872ed1794,
