@@ -12179,7 +12179,7 @@ MonoBehaviour:
   - Key: helloToElla
     Dialogue: Oh, hello there. Nice to meet you, I'm Ella. Quick question, are you
       the one who fell through the ceiling just now?
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: c744b60bf9ffb85429d988065487cf0a, type: 3}
   - Key: yesToElla
     Dialogue: "I figured as much! That means you have met Adam already, which is
       good. Truth to be told, unlike him, I\u2019m struggling with my escape plan.
@@ -24768,11 +24768,11 @@ MonoBehaviour:
   HearingDistance: 5
   Phrases:
   - Phrase:
-    - adam
+    - hello
     MultiplePhrases: 0
     Enabled: 1
     Hidden: 0
-    ResponseKey: adamToAdam
+    ResponseKey: helloToElla
     EventsHidden: 0
     Event:
       m_PersistentCalls:
@@ -24786,15 +24786,15 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: lookingForDavidNotebook
+            m_StringArgument: helloToEllaNotebook
             m_BoolArgument: 0
           m_CallState: 2
   - Phrase:
-    - kevin
+    - yes
     MultiplePhrases: 0
     Enabled: 0
     Hidden: 0
-    ResponseKey: kevinToAdam
+    ResponseKey: yesToElla
     EventsHidden: 0
     Event:
       m_PersistentCalls:
@@ -24808,7 +24808,51 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: playtestDoneNotebook
+            m_StringArgument: yesToEllaNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - ready
+    MultiplePhrases: 0
+    Enabled: 0
+    Hidden: 0
+    ResponseKey: readyToElla
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2119122208}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: readyToEllaNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - escape
+    MultiplePhrases: 0
+    Enabled: 0
+    Hidden: 0
+    ResponseKey: escapeToElla
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2119122208}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: levelCompleteNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
