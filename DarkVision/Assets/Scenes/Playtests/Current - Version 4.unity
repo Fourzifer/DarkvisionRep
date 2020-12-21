@@ -2748,7 +2748,7 @@ MonoBehaviour:
     Enabled: 0
     Hidden: 0
     ResponseKey: microwaveToC5
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -4646,6 +4646,29 @@ MonoBehaviour:
       stuff like that, so it's a good thing that you found me. Anyway, I'm sure you'll
       find who you're looking for.
     Clip: {fileID: 8300000, guid: 59305611b6f34324ba874ad755719348, type: 3}
+  - Key: lookingForDavidNotebook
+    Dialogue: I'm looking for someone named David. He snores and apparently likes
+      pineapple on pizza a lot.
+    Clip: {fileID: 8300000, guid: a6be2a5d70276ed4e866d0ec48568222, type: 3}
+  - Key: playtestDoneNotebook
+    Dialogue: 'I''m done for now, the playtest is over. '
+    Clip: {fileID: 8300000, guid: 260e157f59dbba7499a07861ce1b8fb1, type: 3}
+  - Key: davidPizzaNotebook
+    Dialogue: "David will only talk to me if I tell him my favourite food. I remember
+      him liking pineapple on pizza\u2026"
+    Clip: {fileID: 8300000, guid: 972d989defdf76947b9ebe4f3b43614f, type: 3}
+  - Key: davidMicrowaveNotebook
+    Dialogue: 'The word microwave seems to be a keyword around here, maybe I should
+      ask around? '
+    Clip: {fileID: 8300000, guid: 88ae66bef5c89184c84507f9570dd362, type: 3}
+  - Key: c3MicrowaveNotebook
+    Dialogue: 'There could be other people who respond to the word microwave, I should
+      say it to someone else. '
+    Clip: {fileID: 8300000, guid: 88c30b38f244f464d85f61451d3331e4, type: 3}
+  - Key: adamKevinNotebook
+    Dialogue: 'It seems that I should tell Adam that I talked to Kevin. I wonder
+      what he has to say? '
+    Clip: {fileID: 8300000, guid: b1c6989710f7ab246a8b5592d263090b, type: 3}
 --- !u!1 &756926520
 GameObject:
   m_ObjectHideFlags: 0
@@ -6014,7 +6037,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15688
+  m_Name: pb_Mesh25192
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6178,7 +6201,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15744
+  m_Name: pb_Mesh25248
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8837,7 +8860,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15436
+  m_Name: pb_Mesh24930
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9255,7 +9278,7 @@ MonoBehaviour:
     Enabled: 0
     Hidden: 0
     ResponseKey: microwaveToC3
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -9271,30 +9294,16 @@ MonoBehaviour:
             m_StringArgument: pizza
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookText
+        - m_Target: {fileID: 1458004564}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 'There could be other people who respond to the word
-              microwave, I should say it to someone else. '
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookClip
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 88c30b38f244f464d85f61451d3331e4,
-              type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: c3MicrowaveNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
@@ -10077,7 +10086,7 @@ MonoBehaviour:
     Enabled: 0
     Hidden: 0
     ResponseKey: microwaveToKevin
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -10093,30 +10102,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookText
+        - m_Target: {fileID: 1490669652}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 'It seems that I should tell Adam that I talked to
-              Kevin. I wonder what he has to say? '
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookClip
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: b1c6989710f7ab246a8b5592d263090b,
-              type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: adamKevinNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
@@ -11846,7 +11841,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15630
+  m_Name: pb_Mesh25134
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12740,7 +12735,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15772
+  m_Name: pb_Mesh25276
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12904,7 +12899,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15414
+  m_Name: pb_Mesh24908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13647,36 +13642,10 @@ MonoBehaviour:
     Enabled: 1
     Hidden: 0
     ResponseKey: davidToDavid
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: "David will only talk to me if I tell him my favourite
-              food. I remember him liking pineapple on pizza\u2026"
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookClip
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 972d989defdf76947b9ebe4f3b43614f,
-              type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 6391936257389358192}
           m_TargetAssemblyTypeName: Occlusion, Assembly-CSharp
           m_MethodName: StopPlayBack
@@ -13701,6 +13670,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 6391936257389358191}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: davidPizzaNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
   - Phrase:
     - pizza
     - pineapple
@@ -13709,7 +13690,7 @@ MonoBehaviour:
     Enabled: 1
     Hidden: 0
     ResponseKey: pizzaToDavid
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -13732,32 +13713,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 'The word microwave seems to be a keyword around here,
-              maybe I should ask around? '
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookClip
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 88ae66bef5c89184c84507f9570dd362,
-              type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -13797,6 +13752,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6391936257389358191}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: davidMicrowaveNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
@@ -13908,34 +13875,20 @@ MonoBehaviour:
     Enabled: 1
     Hidden: 0
     ResponseKey: adamToAdam
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookText
+        - m_Target: {fileID: 6391936259117553079}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: I'm looking for someone named David. He snores and
-              apparently likes pineapple on pizza a lot.
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookClip
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: a6be2a5d70276ed4e866d0ec48568222,
-              type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: lookingForDavidNotebook
             m_BoolArgument: 0
           m_CallState: 2
   - Phrase:
@@ -13944,33 +13897,20 @@ MonoBehaviour:
     Enabled: 0
     Hidden: 0
     ResponseKey: kevinToAdam
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookText
+        - m_Target: {fileID: 6391936259117553079}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: AddNotebookEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 'I''m done for now, the playtest is over. '
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 751799083}
-          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
-          m_MethodName: SetNotebookClip
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 260e157f59dbba7499a07861ce1b8fb1,
-              type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: playtestDoneNotebook
             m_BoolArgument: 0
           m_CallState: 2
   DefaultResponse: I don't understand
