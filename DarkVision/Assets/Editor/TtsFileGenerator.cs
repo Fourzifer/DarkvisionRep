@@ -9,6 +9,7 @@ using System.Text;
 using Microsoft.CognitiveServices.Speech;
 using System;
 using Microsoft.CognitiveServices.Speech.Audio;
+using System.Globalization;
 
 public class TtsFileGenerator : EditorWindow {
 
@@ -16,6 +17,7 @@ public class TtsFileGenerator : EditorWindow {
 	public class VoiceEntry {
 		public enum Voice {
 			USAriaNeural,
+			USJennyNeural,
 			USGuyNeural,
 			// UKLibbyNeural,
 			// UKMiaNeural,
@@ -172,6 +174,9 @@ public class TtsFileGenerator : EditorWindow {
 				default:
 					output.Append("<voice name=\"en-US-AriaNeural\">");
 					break;
+				case VoiceEntry.Voice.USJennyNeural:
+					output.Append("<voice name=\"en-US-JennyNeural\">");
+					break;
 				case VoiceEntry.Voice.USGuyNeural:
 					output.Append("<voice name=\"en-US-GuyNeural\">");
 					break;
@@ -186,8 +191,11 @@ public class TtsFileGenerator : EditorWindow {
 
 			output.Append("<mstts:express-as style=\"" + item.VoiceStyle + "\">");
 
+			output.AppendFormat("<prosody rate=\"{0}%\" pitch=\"{1}%\">",
+				item.Rate.ToString("0.0", CultureInfo.InvariantCulture),
+				item.Pitch.ToString("0.0", CultureInfo.InvariantCulture)
+			);
 
-			output.AppendFormat("<prosody rate=\"{0}%\" pitch=\"{1}%\">", item.Rate, item.Pitch);
 			output.Append(item.Text);
 			output.Append("</prosody></mstts:express-as></voice>");
 		}
