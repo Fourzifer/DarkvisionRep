@@ -16,6 +16,7 @@ public class TtsFileGenerator : EditorWindow {
 	public class VoiceEntry {
 		public enum Voice {
 			USAriaNeural,
+			USJennyNeural,
 			USGuyNeural,
 			// UKLibbyNeural,
 			// UKMiaNeural,
@@ -171,6 +172,9 @@ public class TtsFileGenerator : EditorWindow {
 				case VoiceEntry.Voice.USAriaNeural:
 				default:
 					output.Append("<voice name=\"en-US-AriaNeural\">");
+					break;
+				case VoiceEntry.Voice.USJennyNeural:
+					output.Append("<voice name=\"en-US-JennyNeural\">");
 					break;
 				case VoiceEntry.Voice.USGuyNeural:
 					output.Append("<voice name=\"en-US-GuyNeural\">");
