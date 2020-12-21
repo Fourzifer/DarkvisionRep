@@ -29,7 +29,19 @@ public class DialogueRegistryScriptEditor : Editor {
 		// 	dialogueRegistry.Entries = new List<DialogueRegistryScript.DialogueEntry>();
 		// }
 
+		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Phrases");
+		if (GUILayout.Button("Expand All")) {
+			for (int i = 0; i < entriesFoldStates.Count; i++) {
+				entriesFoldStates[i] = true;
+			}
+		}
+		if (GUILayout.Button("Collapse All")) { 
+			for (int i = 0; i < entriesFoldStates.Count; i++) {
+				entriesFoldStates[i] = false;
+			}
+		}
+		EditorGUILayout.EndHorizontal();
 
 		if (entriesFoldStates == null) {
 			entriesFoldStates = new List<bool>();
@@ -55,6 +67,9 @@ public class DialogueRegistryScriptEditor : Editor {
 			EditorGUILayout.BeginHorizontal();
 			entriesFoldStates[id] = EditorGUILayout.Foldout(entriesFoldStates[id], "Key:", style);
 			item.Key = EditorGUILayout.TextField(item.Key);
+			if (GUILayout.Button("Delete")) {
+				dialogueRegistry.Entries.RemoveAt(id);
+			}
 			EditorGUILayout.EndHorizontal();
 			if (entriesFoldStates[id]) {
 				EditorGUI.indentLevel += 1;
