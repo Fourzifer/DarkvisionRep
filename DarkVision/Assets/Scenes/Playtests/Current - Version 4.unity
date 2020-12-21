@@ -12146,82 +12146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entries:
-  - Key: adamToAdam
-    Dialogue: "Who\u2019s there? Oh,  it must be you! I\u2019m glad that you made
-      it through the vent. Listen, you have to get me out of this cell. I was making
-      an escape plan together with my friend, but we were separated. I don\u2019t
-      know where he is now, but I know someone who might be able to help. His name
-      is David, and he only talks to people who share his interest in pizza, especially
-      when there\u2019s pineapple on the pizza. You can find his cell further ahead.
-      Just go straight, then follow his snoring and you should be able to find him.
-      You may need to walk past some other cells first."
-    Clip: {fileID: 8300000, guid: e5b95100ff4fd9e4f9d495d5a028cdd8, type: 3}
-  - Key: kevinToAdam
-    Dialogue: "Impressive, it seems you have talked to everyone who\u2019s in on
-      the plan. \nAs you may have figured out, I wasn\u2019t actually looking for
-      anyone. In fact, our escape plan is already finished. All we needed was to
-      wait for someone to find a way up through the ventilation, and you were able
-      to! The challenge begins now, are you ready?\n\nThat was the end of the prototype!
-      \nThank you very much for trying it, we hope you enjoyed it! \nWe would love
-      it if you were to answer the survey that was linked in the post you found this
-      game through, or the survey on our itch.io page of you found the prototype
-      through the Itch.io website."
-    Clip: {fileID: 8300000, guid: b4f62a4b4d1e4f044a0852cf183b9b23, type: 3}
-  - Key: davidToDavid
-    Dialogue: "David, yeah that\u2019s me. But you see, I don\u2019t talk to anyone
-      who doesn't share my passions. Say, stranger, what\u2019s your favourite food?"
-    Clip: {fileID: 8300000, guid: 0a7e5a4796f7c0e4aa1dee1c53d78f34, type: 3}
-  - Key: pizzaToDavid
-    Dialogue: "Pineapple pizza! You have excellent taste, stranger. If you\u2019re
-      crawling around up there, it must mean that you\u2019re looking for a way to
-      escape as well. We\u2019re a close bunch here, so calling people\u2019s names
-      will only get you so far, you see? I will teach you a codeword that only us
-      prisoners know. The item is created out of two words, and is usually in the
-      kitchen. It starts with micro. I don\u2019t want to say the entire word in
-      case someone is listening, but I\u2019m sure you will figure it out. Use the
-      full word and someone will definitely give you more information."
-    Clip: {fileID: 8300000, guid: 6938699420a9c4a418d90653e9a4a86f, type: 3}
-  - Key: microwaveToKevin
-    Dialogue: "Microwave? I haven\u2019t heard someone say that in a while now. That
-      means you\u2019ve gotten quite far in your initiation, haven\u2019t you. Woops,
-      did I let that slip? I think it\u2019s high time you go back to Adam. Tell
-      him you managed to find Kevin."
-    Clip: {fileID: 8300000, guid: 6e7358e8e612f5349b500bbb9a6f63b1, type: 3}
-  - Key: microwaveToC3
-    Dialogue: "What did you just say?! Honestly, David seems to tell anyone our secret
-      codeword. I won\u2019t be part of whatever you\u2019re planning, so find someone
-      else to bug."
-    Clip: {fileID: 8300000, guid: a747bcf138c1a714aa7a305de4f6f572, type: 3}
-  - Key: microwaveToC5
-    Dialogue: Sounds like you're one of us. Glad to have you on board, but you've
-      got the wrong cell. The man with the info you're looking for is in a different
-      corridor. Jenny in the cell next door isn't the kind of gal to tell people
-      stuff like that, so it's a good thing that you found me. Anyway, I'm sure you'll
-      find who you're looking for.
-    Clip: {fileID: 8300000, guid: 59305611b6f34324ba874ad755719348, type: 3}
-  - Key: lookingForDavidNotebook
-    Dialogue: I'm looking for someone named David. He snores and apparently likes
-      pineapple on pizza a lot.
-    Clip: {fileID: 8300000, guid: a6be2a5d70276ed4e866d0ec48568222, type: 3}
-  - Key: playtestDoneNotebook
-    Dialogue: 'I''m done for now, the playtest is over. '
-    Clip: {fileID: 8300000, guid: 260e157f59dbba7499a07861ce1b8fb1, type: 3}
-  - Key: davidPizzaNotebook
-    Dialogue: "David will only talk to me if I tell him my favourite food. I remember
-      him liking pineapple on pizza\u2026"
-    Clip: {fileID: 8300000, guid: 972d989defdf76947b9ebe4f3b43614f, type: 3}
-  - Key: davidMicrowaveNotebook
-    Dialogue: 'The word microwave seems to be a keyword around here, maybe I should
-      ask around? '
-    Clip: {fileID: 8300000, guid: 88ae66bef5c89184c84507f9570dd362, type: 3}
-  - Key: c3MicrowaveNotebook
-    Dialogue: 'There could be other people who respond to the word microwave, I should
-      say it to someone else. '
-    Clip: {fileID: 8300000, guid: 88c30b38f244f464d85f61451d3331e4, type: 3}
-  - Key: adamKevinNotebook
-    Dialogue: 'It seems that I should tell Adam that I talked to Kevin. I wonder
-      what he has to say? '
-    Clip: {fileID: 8300000, guid: b1c6989710f7ab246a8b5592d263090b, type: 3}
   - Key: helloToElla
     Dialogue: Oh, hello there. Nice to meet you, I'm Ella. Quick question, are you
       the one who fell through the ceiling just now?
@@ -12233,65 +12157,61 @@ MonoBehaviour:
       into unnecessary squabbles. It\u2019d be great if you could help them out before
       you keep going. When you want to keep going, just come back to me and say that
       you\u2019re ready.\_\r"
-    Clip: {fileID: 0}
-  - Key: readyToElla (needs revising, no list of rescued npcs))
-    Dialogue: "[rescued prisoners] out of 5 people are ready to escape. Say escape
-      and we\u2019ll get going.\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 7fceceebc8606e7489dd3d2c22e1ffac, type: 3}
   - Key: escapeToElla
     Dialogue: "That was the end of the prototype! Thank you very much for trying
       it, we hope you enjoyed it! We would love it if you were to answer the survey
       that was linked in the post you found this game through, or the survey on our
       itch.io page of you found the prototype through the Itch.io website.\r"
     Clip: {fileID: 0}
-  - Key: helloToRichard (needs revising, sound undecided
+  - Key: helloToRichard
     Dialogue: "Are you talking to me? Then let me give you some information. Can
       you hear the person with the *sound* in the room? Her name is Hannah. I shudder
       even thinking about it, but the reason why she\u2019s here in the first place
       is because she carpeted her entire bathroom floor. Ask her about the carpeted
       bathroom and she\u2019ll tell you it\u2019s true. I'm Richard by the way, nice
       to meet you.\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: c4fb41da3df604a42916bf632e9574e4, type: 3}
   - Key: carpetToHannah
     Dialogue: Are you here to laugh at me because of my carpeted bathroom?
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 5ed9efadf9cf6f84aa23521c8dd63e5a, type: 3}
   - Key: yesToHannah
     Dialogue: Then I have nothing to say to you. Return if you ever change your mind.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: bd24181185e83324584b7191823350b5, type: 3}
   - Key: noToHannah
     Dialogue: "Then maybe I can explain why. My husband\u2019s feet hurt when he\u2019s
       cold, and our bathroom gets very chilly during the night. Even slippers don\u2019t
       help, but a warm carpet does. I don\u2019t want anyone else to be mad about
       what I did, so it\u2019d be nice you could tell him about my husband.\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: c10accf0d4a11f54bb644e1372307c40, type: 3}
   - Key: husbandToRichard
     Dialogue: "I never knew the reason why she carpeted her floors\u2026 Maybe I
       shouldn\u2019t have judged her so harshly. Tell you what, I have a file that
       I just finished using to chip away at my bars. I will hand it to you, so could
       you please go back and tell her about the file? She can keep it as an apology.\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 83126fae9b2b3214c98150d9f7ff574d, type: 3}
   - Key: fileToHannah
     Dialogue: "Thank you so much for talking to him. I don\u2019t think the file
       will survive much more, but I should be able to use it one final time.\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 83b19b58482c3be4998fda440a69fe9a, type: 3}
   - Key: helloToJonas
     Dialogue: "It\u2019s good that you showed up! I\u2019m sure you must\u2019ve
       heard the radio on your way to me. Truth to be told, I\u2019m getting fed up
       listening to it. Would you mind telling Terry to be quiet? I won't mind if
       you tell him Jonas sent you."
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: dc5a8a61e71294f44aad64e2fb53c6e0, type: 3}
   - Key: quietToTerry
     Dialogue: "Did Jonas make you come over and tell me that? I\u2019m sure he didn\u2019t
       talk about how loud he whistles at night. Why don\u2019t you go back to him
       and tell him to stop whistling instead? And could you then ask Hannah why Jonas
       whistles? I think she mentioned why at some point, but I wasn\u2019t paying
       attention.\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 5eeb25bcf441e99498bae1a887391d0c, type: 3}
   - Key: quietToJonas
     Dialogue: "I\u2019m supposed to stop whistling? That\u2019s not going to happen.
       But I am interested in hearing why Terry plays the same songs on the radio.
       Could you ask Richard about Terry\u2019s radio?\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: ece32484c7538834893a6b8c4d42a9eb, type: 3}
   - Key: whistleToHannah
     Dialogue: "So you\u2019re wondering why Jonas whistles at night? The melody is
       from a lullaby he always used to sing to his children when they were little,
@@ -12305,11 +12225,11 @@ MonoBehaviour:
       I whistle my melody to be reminded of mine. I've decided to help him escape.
       He's in the cell next door, so I'm sure I'll find a way to help him. But first,
       could you tell him I'm sorry?\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 3cdc5ebbe39c7714a9cced41ea77cc79, type: 3}
   - Key: sorryToJonas
     Dialogue: That's really not deserved after how I treated him, so I'm grateful
       everything is alright now. Thanks for your help!
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: d0b19f42e2a473440a1c943f3510f1aa, type: 3}
   - Key: radioToRichard
     Dialogue: "That old thing? It plays a CD that his son\u2019s band released. He
       used to play it all the time, and people quickly got tired of hearing it. That's
@@ -12321,7 +12241,7 @@ MonoBehaviour:
     Dialogue: So the melody he whistles is the lullaby he used to sing to his children?
       I'm starting to think I judged him too harshly. Tell you what, could you say
       I'm sorry? I'll find a way to help him out, it's the least I could do.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 50c7c0055ef05b640a24ae54df954e87, type: 3}
   - Key: sorryToJonas
     Dialogue: Jonas heard about my lullaby and wants to help me escape? That great
       news, thank you so much for setting things right.
@@ -12382,16 +12302,39 @@ MonoBehaviour:
     Dialogue: Hannah told me, the reason Jonas whistles is because it remind him
       of his child. I think this is what Terry wanted to know.
     Clip: {fileID: 0}
-  - Key: childToTerry
+  - Key: childToTerryNotebook
     Dialogue: Terry wants me to tell Jonas that he's sorry.
     Clip: {fileID: 0}
-  - Key: radioToRichard
+  - Key: radioToRichardNotebook
     Dialogue: Richard told me that Terry's radio plays a song made by his child.
       I think Jonas was curious about this.
     Clip: {fileID: 0}
-  - Key: childToJonas
+  - Key: childToJonasNotebook
     Dialogue: Jonas wants me to tell Terry that he's sorry.
     Clip: {fileID: 0}
+  - Key: ready0
+    Dialogue: "None of the 5 people are ready to escape. Say escape and we\u2019ll
+      get going.\r"
+    Clip: {fileID: 8300000, guid: d8c0d020fdc943e40a6f12cd4950c07d, type: 3}
+  - Key: ready1
+    Dialogue: "1 out of 5 people are ready to escape. Say escape and we\u2019ll get
+      going.\r"
+    Clip: {fileID: 8300000, guid: 74a9c785c4a1aa6409cb43103d0b6ed0, type: 3}
+  - Key: ready2
+    Dialogue: "2 out of 5 people are ready to escape. Say escape and we\u2019ll get
+      going.\r"
+    Clip: {fileID: 8300000, guid: 6e92d727e3dc44f4698cc7f2a4be277c, type: 3}
+  - Key: ready3
+    Dialogue: "3 out of 5 people are ready to escape. Say escape and we\u2019ll get
+      going.\r"
+    Clip: {fileID: 8300000, guid: 4e46ab10689e0624e8414a4804dca319, type: 3}
+  - Key: ready4
+    Dialogue: "4 out of 5 people are ready to escape. Say escape and we\u2019ll get
+      going.\r"
+    Clip: {fileID: 8300000, guid: ff754656c38fdd44885796b71d289dcf, type: 3}
+  - Key: readyAll5
+    Dialogue: "Everyone are ready to escape. Say escape and we\u2019ll get going.\r"
+    Clip: {fileID: 8300000, guid: a97c29ba6b7712e46bcd06d0b44a90e8, type: 3}
 --- !u!43 &859281254
 Mesh:
   m_ObjectHideFlags: 0
