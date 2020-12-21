@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{cb26da68-4d89-4cb7-921c-cd1936d5bb6f}">
+		<property name="assetPath">
+			<value>Page Turning Snappy.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.272</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e3e2bd1-33aa-4b04-b82f-8b7635aa309a}</destination>
+		</relationship>
+	</object>
+</objects>
