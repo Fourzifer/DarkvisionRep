@@ -4,15 +4,16 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
-public class MicListenerScript : MonoBehaviour {
-
+public class GrammarMicListenerScript : MonoBehaviour {
 	public static List<Utility.IObserver<(Vector3, string)>> SpeakEvent = new List<Utility.IObserver<(Vector3, string)>>();
+
+	// public string[] keywords = new string[] { "pineapple", "pizza", "carpet", "adam", "kevin" };
 
 	public string SRGSFilePath = "srgs";
 
-	public ConfidenceLevel confidence = ConfidenceLevel.Low;
+	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
 
-	protected PhraseRecognizer recognizer;
+	protected GrammarRecognizer recognizer;
 	protected string word = "asdf";
 
 	private void Start() {
@@ -46,12 +47,10 @@ public class MicListenerScript : MonoBehaviour {
 
 	private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args) {
 		word = args.text;
-		Utility.NotifyObservers(SpeakEvent, (transform.position, word));
-		// Debug.Log("You said: " + word);
-		Debug.Log("You said: \"" + word + "\". Confidence: " + args.confidence);
 
-		/*
-		if(args.semanticMeanings != null){
+
+		// Utility.NotifyObservers(SpeakEvent, (transform.position, word));
+		Debug.Log("You said: \"" + word + "\". Confidence: " + args.confidence);
 		foreach (var item in args.semanticMeanings) {
 			Debug.LogFormat("Semantic meaning: \nkey: {0}", item.key);
 			foreach (var value in item.values) {
@@ -59,11 +58,5 @@ public class MicListenerScript : MonoBehaviour {
 
 			}
 		}
-		} else {
-			Debug.Log("Semantic meanings is null");
-		}
-		*/
-
 	}
-	
 }

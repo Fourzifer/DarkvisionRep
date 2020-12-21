@@ -48,10 +48,13 @@ public class TtsFileGenerator : EditorWindow {
 	public int samplerate = 44100;
 	public float frequency = 440;
 
-	[MenuItem("DarkVision/TtsFileGenerator")]
+	Task synthTask;
+	// string statusText = "";
+
+	[MenuItem("DarkVision/TTS File Generator")]
 	private static void ShowWindow() {
 		var window = GetWindow<TtsFileGenerator>();
-		window.titleContent = new GUIContent("TtsFileGenerator");
+		window.titleContent = new GUIContent("TTS File Generator");
 		window.Show();
 	}
 
@@ -91,13 +94,24 @@ public class TtsFileGenerator : EditorWindow {
 
 		OutputFile = EditorGUILayout.TextField("Output file", OutputFile);
 
+		// bool synthTaskIsRunning = synthTask != null && synthTask.Status != TaskStatus.Running;
+
+		// if (synthTaskIsRunning) {
+		// 	synthTask = null;
+		// }
+
+		// using (new EditorGUI.DisabledGroupScope(synthTaskIsRunning)) {
 		if (GUILayout.Button("Generate File")) {
 			// TODO: disable button while sound generation is in progress
 			// Task.Run(() => SynthesizeAudioAsync(ApiKey, Location, GenerateXML(), OutputFile));
-			SynthesizeAudioAsync(ApiKey, Location, GenerateXML(), OutputFile);
+			// statusText = "Generating File...";
+			synthTask = SynthesizeAudioAsync(ApiKey, Location, GenerateXML(), OutputFile);
 			// var sound = AudioClip.Create("asdf", samplerate * 2, 1, samplerate, true, OnAudioRead, OnAudioSetPosition);
 			// AssetDatabase.CreateAsset(sound, "Assets/SFX/asdf.asset");
 		}
+		// }
+
+		// EditorGUILayout.LabelField(statusText);
 
 	}
 
@@ -132,6 +146,7 @@ public class TtsFileGenerator : EditorWindow {
 
 		// }
 		Debug.Log("Wrote sound file to path: " + path);
+		AssetDatabase.Refresh();
 
 	}
 
@@ -160,12 +175,12 @@ public class TtsFileGenerator : EditorWindow {
 				case VoiceEntry.Voice.USGuyNeural:
 					output.Append("<voice name=\"en-US-GuyNeural\">");
 					break;
-				// case VoiceEntry.Voice.UKLibbyNeural:
-				// 	output.Append("<voice name=\"en-UK-LibbyNeural\">");
-				// 	break;
-				// case VoiceEntry.Voice.UKMiaNeural:
-				// 	output.Append("<voice name=\"en-UK-MiaNeural\">");
-				// 	break;
+					// case VoiceEntry.Voice.UKLibbyNeural:
+					// 	output.Append("<voice name=\"en-UK-LibbyNeural\">");
+					// 	break;
+					// case VoiceEntry.Voice.UKMiaNeural:
+					// 	output.Append("<voice name=\"en-UK-MiaNeural\">");
+					// 	break;
 			}
 
 
