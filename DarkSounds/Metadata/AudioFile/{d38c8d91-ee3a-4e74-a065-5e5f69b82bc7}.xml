@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{d38c8d91-ee3a-4e74-a065-5e5f69b82bc7}">
+		<property name="assetPath">
+			<value>looperman-l-2625105-0233030-hybrid-trap-and-dubstep-drop-part-2-emin-140bpm.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>27.428571428571427</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e3e2bd1-33aa-4b04-b82f-8b7635aa309a}</destination>
+		</relationship>
+	</object>
+</objects>
