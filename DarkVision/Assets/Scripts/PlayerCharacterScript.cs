@@ -78,6 +78,9 @@ public class PlayerCharacterScript : MonoBehaviour {
 		}
 
 		public void Send() {
+			if(data.Count < 1){
+				return;
+			}
 			AnalyticsEvent.Custom(
 				"vent_crawler",
 				data
