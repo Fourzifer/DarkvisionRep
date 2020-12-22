@@ -95,6 +95,8 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 		if (entry != null) {
 			Analytics.DialogueNr++;
+			Analytics.LastNPC = this.gameObject.name;
+			
 			var dialogueEntry = DialogueRegistryScript.GetEntry(entry.ResponseKey);
 			if (dialogueEntry != null) {
 
