@@ -11,12 +11,16 @@ public class Analytics : MonoBehaviour
     public static int LevelNr;
     public static bool TestState = false;
     public static int MicrophoneNr;
-    public static int LastNPC;
+    public static string LastNPC;
 
+    void Awake()
+    {
+        Timer += Time.deltaTime;
+    }
     // Start is called before the first frame update
     void Start()
-    {
-        // Timer += Time.deltaTime;   
+    {  
+
     }
 
     // Update is called once per frame
@@ -24,13 +28,19 @@ public class Analytics : MonoBehaviour
     {
         
     }
+    private void OnApplicationQuit() {
+		
+        SendAnalytics();
+        Debug.Log("Analytics Sent");
+		
+	}
 
     void SendAnalytics(){
         AnalyticsEvent.Custom("In-Game Data", 
             new Dictionary<string, object>
             {
-                // {"Time", Mathf.RoundToInt(Timer)},
-                // {"Last NPC", LastNPC},
+                {"Minutes played", Mathf.RoundToInt(Timer/60f)},
+                {"Last NPC", LastNPC},
                 {"Dialogues", DialogueNr},
                 {"Levels Finished", LevelNr},
                 {"Microphone Test", TestState},
