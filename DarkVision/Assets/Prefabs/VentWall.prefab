@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 6964324932041590559}
   - component: {fileID: 6964324932041590558}
   - component: {fileID: 6964324932041590553}
+  - component: {fileID: 1160856436376042518}
   m_Layer: 9
   m_Name: Vent
   m_TagString: Interact
@@ -208,10 +209,22 @@ BoxCollider:
   m_GameObject: {fileID: 6964324932041590555}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.071703, z: 0.9999999}
+  m_Center: {x: -4.5957035e-15, y: 0.53585166, z: 0}
+--- !u!114 &1160856436376042518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964324932041590555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6993d13407baed4f8d947d3b1266fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6964324932650796748
 GameObject:
   m_ObjectHideFlags: 0
