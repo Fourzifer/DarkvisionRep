@@ -94,7 +94,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		ListenPhraseEntry entry = Phrases.FirstOrDefault(firstEntry => firstEntry.ContainsPhrase(word));
 
 		if (entry != null) {
-
+			Analytics.DialogueNr++;
 			var dialogueEntry = DialogueRegistryScript.GetEntry(entry.ResponseKey);
 			if (dialogueEntry != null) {
 
