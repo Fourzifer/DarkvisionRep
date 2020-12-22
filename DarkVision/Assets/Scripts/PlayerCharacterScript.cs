@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerCharacterScript : MonoBehaviour {
 
@@ -34,6 +35,58 @@ public class PlayerCharacterScript : MonoBehaviour {
 		West,
 		NorthWest
 	}
+
+	private class AnalyticsContainer {
+		private Dictionary<string, object> data = new Dictionary<string, object>();
+
+		// ~AnalyticsContainer(){
+		// 	Debug.Log("Analytics destructor start");
+		// 	Send();
+		// 	Debug.Log("Analytics destructor end");
+		// }
+
+		public void Add(string key, object value) {
+			data.Add(key, value);
+		}
+
+		public object GetObject(string key) {
+			if (data.TryGetValue(key, out object result)) {
+				return result;
+
+			} else {
+				Debug.LogErrorFormat("Analytics entry \"{0}\" does not exist yet", key);
+				return null;
+			}
+		}
+
+		public T Get<T>(string key) {
+			if (data.TryGetValue(key, out object result)) {
+				if (result is T) {
+					return (T)result;
+				} else {
+					Debug.LogErrorFormat("Value/parameter of analytics entry \"{0}\" is not of type {1}", key, nameof(T));
+					return default(T);
+				}
+			} else {
+				Debug.LogErrorFormat("Analytics entry \"{0}\" does not exist yet", key);
+				return default(T);
+			}
+		}
+
+		public void Send() {
+			AnalyticsEvent.Custom(
+				"vent_crawler",
+				data
+			// new Dictionary<string, object> 
+			// { 
+			//     // {"Time", Mathf.RoundToInt(Timer)} 
+			// } 
+			);
+			Debug.LogFormat("Sent {0} data entries", data.Count);
+		}
+	}
+
+	private static AnalyticsContainer Analytics;
 
 	private Rigidbody rb;
 
@@ -108,19 +161,13 @@ public class PlayerCharacterScript : MonoBehaviour {
 		soundEvent = FMODUnity.RuntimeManager.CreateInstance(walking);
 		soundEvent.start();
 
-		// Debug.Log("Listing all joysticks: ");
-		// foreach (var item in Input.GetJoystickNames()) {
-		// 	Debug.Log(item);
-		// }
-		// Debug.Log("All joysticks listed");
-
 		Narrator = GetComponent<AudioSource>();
-		// if (Narrator && WelcomeClip) {
-		// 	PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
-		// 	Narrator.PlayOneShot(WelcomeClip);
-		// } else {
-		// 	Debug.LogError("Narrator wont play welcome clip! Narrator exists: " + (Narrator != null) + ", Welcome clip exists: " + (WelcomeClip != null));
-		// }
+
+		if (Analytics == null) {
+			Analytics = new AnalyticsContainer();
+			// Analytics.Add("testtest", 42);
+			Debug.Log("Analytics container created");
+		}
 
 	}
 
@@ -128,11 +175,17 @@ public class PlayerCharacterScript : MonoBehaviour {
 		Narrator = null;
 	}
 
+	private void OnApplicationQuit() {
+		Analytics.Send();
+		Debug.Log("Analytics Sent");
+		Analytics = null;
+	}
+
 	private void Update() {
 
 		if (updateInit) {
 			updateInit = false;
-			if (Narrator ) {
+			if (Narrator) {
 				PopupHandlerScript.ShowCustomPopup(WelcomeText, 20);
 				Narrator.PlayOneShot(WelcomeClip);
 				// NotebookScript.PlayLatestAsPopup();
@@ -338,7 +391,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 			// TODO: press other keys while held to navigate notebook, disabling movement
 
 			bool notebookKeyPressed = Input.GetKey(KeyCode.F);
-			if (notebookKeyPressed && !notebookKeyPressedLastFrame){
+			if (notebookKeyPressed && !notebookKeyPressedLastFrame) {
 				NotebookScript.PlayLatestAsPopup();
 			}
 			notebookKeyPressedLastFrame = notebookKeyPressed;
@@ -541,11 +594,11 @@ public class PlayerCharacterScript : MonoBehaviour {
 	}
 
 	// public void PlayNotebook() {
-		// PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
-		// if (Narrator && notebookHintClip) {
-		// 	Narrator.Stop();
-		// 	Narrator.PlayOneShot(notebookHintClip);
-		// }
+	// PopupHandlerScript.ShowCustomPopup(currentNotebookHint);
+	// if (Narrator && notebookHintClip) {
+	// 	Narrator.Stop();
+	// 	Narrator.PlayOneShot(notebookHintClip);
+	// }
 	// }
 
 	public static void PlayClip(AudioClip clip) {
