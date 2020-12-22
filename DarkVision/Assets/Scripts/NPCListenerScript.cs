@@ -111,7 +111,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 				PopupHandlerScript.ShowCustomPopup(
 					dialogueEntry.Dialogue.Replace("\\n", "\n"),
 					popupTime
-					//entry.PopupTime
+				//entry.PopupTime
 				);
 
 				entry.Event.Invoke();
@@ -151,7 +151,21 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		EndOfClipEvents.Add(delegate { clip.StartPlayBack(); });
 	}
 
-	public void AddNotebookEntry(string dialogueKey){
+	public void QueueFModAudioClip(AudioClip clip) {
+		EndOfClipEvents.Add(delegate { 
+			narrator.PlayOneShot(clip);
+		 });
+	}
+
+	public void QueueColliderDisable(Collider collider) {
+		EndOfClipEvents.Add(delegate { collider.enabled = false; });
+	}
+	public void QueueColliderEnable(Collider collider) {
+		EndOfClipEvents.Add(delegate { collider.enabled = true; });
+	}
+
+
+	public void AddNotebookEntry(string dialogueKey) {
 		NotebookScript.AddEntry(dialogueKey);
 	}
 }
