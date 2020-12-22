@@ -45,8 +45,12 @@ public class PlayerCharacterScript : MonoBehaviour {
 		// 	Debug.Log("Analytics destructor end");
 		// }
 
-		public void Add(string key, object value) {
-			data.Add(key, value);
+		public void AddOrUpdate(string key, object value) {
+			if(data.ContainsKey(key)){
+				data[key] = value;
+			} else {
+				data.Add(key, value);
+			}
 		}
 
 		public object GetObject(string key) {
@@ -165,7 +169,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		if (Analytics == null) {
 			Analytics = new AnalyticsContainer();
-			// Analytics.Add("testtest", 42);
+			// Analytics.AddOrUpdate("testtest", 42);
 			Debug.Log("Analytics container created");
 		}
 
