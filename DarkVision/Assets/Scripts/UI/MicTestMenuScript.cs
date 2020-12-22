@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
 using UnityEngine.Events;
-using UnityEngine.Analytics;
 
 public class MicTestMenuScript : MonoBehaviour {
 
@@ -59,12 +58,7 @@ public class MicTestMenuScript : MonoBehaviour {
 			mics += "\t" + device + "\n";
 		}
 
-		AnalyticsEvent.Custom("Microphone Amount", 
-                new Dictionary<string, object>
-                {
-                    {"Amount", micsFound}
-                }
-            );
+		Analytics.MicrophoneNr = micsFound;
 
 		microphones.text = mics;
 
@@ -115,7 +109,7 @@ public class MicTestMenuScript : MonoBehaviour {
 		audioPlayer.Stop();
 		audioPlayer.PlayOneShot(LoadingClip);
 
-		AnalyticsEvent.Custom("Microphone Test Passed");
+		Analytics.LevelNr++;
 	}
 
 	public void StartEntry(int index) {
