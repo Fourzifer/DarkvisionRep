@@ -17,6 +17,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-9160370577964013380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Coffee/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-9154613299890019307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +153,7 @@ MonoBehaviour:
   Path: event:/Vent Wind
   guid: d2f2d9218dc24a48a225539e21e03717
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -400,7 +417,7 @@ MonoBehaviour:
   Path: event:/NotebookPage
   guid: 62457e98d4ebc342921a9e8b2bfe77c1
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -423,12 +440,12 @@ MonoBehaviour:
   Path: event:/Knife Sharpening
   guid: 3162d10bd850674c9efe52b825270ab7
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 8501649211722467752}
+  - {fileID: 855706502712904093}
   MinDistance: 0
   MaxDistance: 10
   Length: 16935
@@ -640,6 +657,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-7634445430820814092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Keyboard/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-7512220269194783883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,6 +863,23 @@ MonoBehaviour:
   Max: 4
   Default: 0
   Exists: 0
+--- !u!114 &-6486124988554470404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Vent/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-6456625764433816645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,6 +1358,23 @@ MonoBehaviour:
   Max: 4
   Default: 0
   Exists: 0
+--- !u!114 &-5015636660379009443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Stove/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-5011116013660641840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,12 +1441,12 @@ MonoBehaviour:
   Path: event:/Rooms/2/Sleep
   guid: 12ca4f44cd86214cb973fe8a1a819967
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 4372973122562646020}
+  - {fileID: 2790907151504972727}
   MinDistance: 1
   MaxDistance: 10
   Length: 49770
@@ -1399,6 +1467,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-4815556622903164495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TestDialogueStates/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 1
 --- !u!114 &-4811817717186750349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1448,12 +1533,12 @@ MonoBehaviour:
   Path: event:/Rooms/1/Keyboard
   guid: 2b5dfeb7b74eaf4aa3032486e1162bd0
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -6311918926205351831}
+  - {fileID: -7634445430820814092}
   MinDistance: 1
   MaxDistance: 10
   Length: 29054
@@ -1574,7 +1659,7 @@ MonoBehaviour:
   Path: event:/Radio
   guid: aaef747b4837744b83ed6e92b50563fe
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1649,6 +1734,23 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+  Exists: 1
+--- !u!114 &-4169314343613793555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: CafeParameter
+  m_EditorClassIdentifier: 
+  Name: CafeParameter
+  Min: 18
+  Max: 23
+  Default: 23
   Exists: 1
 --- !u!114 &-4113831825712347954
 MonoBehaviour:
@@ -1906,7 +2008,7 @@ MonoBehaviour:
   Path: event:/Rooms/4/FirePlace
   guid: e1906fdebb8cb84f82f9fa031ee8d491
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -2306,12 +2408,12 @@ MonoBehaviour:
   Path: event:/Vent
   guid: 930ffe5c461df0449875b8ba69f98e2c
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -4714421575197444063}
+  - {fileID: -6486124988554470404}
   MinDistance: 0
   MaxDistance: 80
   Length: 147692
@@ -2332,6 +2434,23 @@ MonoBehaviour:
   Max: 4
   Default: 0
   Exists: 0
+--- !u!114 &-2506586555492495214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Walking/WalkingParameter
+  m_EditorClassIdentifier: 
+  Name: WalkingParameter
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 1
 --- !u!114 &-2491031963064320342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,7 +2620,7 @@ MonoBehaviour:
   Path: event:/Rooms/3/Playing games
   guid: 03981be0665c724ba595eafa7cdbc8a4
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -2747,7 +2866,7 @@ MonoBehaviour:
   Path: event:/Notebook Close
   guid: 8eee8ff8a8e5bc41a02f02bad232df8c
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -3043,7 +3162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1801399224492938583}
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   EditorEvents:
   - {fileID: 2856588098373292779}
   - {fileID: -2027820687822564138}
@@ -3063,12 +3182,12 @@ MonoBehaviour:
   - {fileID: -980278417517879575}
   - {fileID: -4395186412961409589}
   EditorParameters:
-  - {fileID: 6838298847023097397}
+  - {fileID: -4169314343613793555}
   MasterBanks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   StringsBanks:
   - {fileID: 1801399224492938583}
-  stringsBankWriteTime: 637441565930066611
+  stringsBankWriteTime: 637441566344052488
   cacheVersion: 3
 --- !u!114 &57829382808166706
 MonoBehaviour:
@@ -3257,6 +3376,23 @@ MonoBehaviour:
   Max: 4
   Default: 0
   Exists: 0
+--- !u!114 &855706502712904093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Knife Sharpening/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &914037250689035736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3323,7 +3459,7 @@ MonoBehaviour:
   Path: event:/Rooms/3/Kitched sounds
   guid: 7af369851b8b9241b759695b6ed6232b
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -3397,6 +3533,24 @@ MonoBehaviour:
   Path: ../DarkSounds/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637441565929956816
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1436672569491617190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../DarkSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637441566344802325
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -3483,12 +3637,12 @@ MonoBehaviour:
   Path: event:/Rooms/3/Stove
   guid: ddaba97368c46a44a14236ad0dfbd297
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -8342425640642267412}
+  - {fileID: -5015636660379009443}
   MinDistance: 1
   MaxDistance: 10
   Length: 9994
@@ -3615,7 +3769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../DarkSounds/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637441565930066611
+  lastModified: 637441566344052488
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -3939,6 +4093,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &2790907151504972727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sleep/Occlusion
+  m_EditorClassIdentifier: 
+  Name: Occlusion
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &2796629941055212770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4024,12 +4195,12 @@ MonoBehaviour:
   Path: event:/Walking
   guid: 0153f276678d934cac01a2b45769a5bb
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5454031754093810565}
+  - {fileID: -2506586555492495214}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -4627,7 +4798,7 @@ MonoBehaviour:
   Path: event:/Rooms/4/Reading
   guid: 59787e3e52377842aca644552b9908d8
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -5298,12 +5469,12 @@ MonoBehaviour:
   Path: event:/TestDialogueStates
   guid: a5afadbeb84fd64da2d0094cf752ff56
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 7134745633368334706}
+  - {fileID: -4815556622903164495}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -5356,12 +5527,12 @@ MonoBehaviour:
   Path: event:/Rooms/3/Coffee
   guid: 57a7a732dea5f54f98452ff971342981
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -7448897009238839070}
+  - {fileID: -9160370577964013380}
   MinDistance: 1
   MaxDistance: 10
   Length: 101538
@@ -5619,7 +5790,7 @@ MonoBehaviour:
   Path: event:/Notebook Scribble
   guid: 5677066ef5c8ea40b0e82afbdf19e8e9
   Banks:
-  - {fileID: 1380119767900474250}
+  - {fileID: 1436672569491617190}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
