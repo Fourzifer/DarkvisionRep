@@ -109,7 +109,7 @@ public class MicTestMenuScript : MonoBehaviour {
 		audioPlayer.Stop();
 		audioPlayer.PlayOneShot(LoadingClip);
 
-		Analytics.LevelNr++;
+		Analytics.TestState = true;
 	}
 
 	public void StartEntry(int index) {
