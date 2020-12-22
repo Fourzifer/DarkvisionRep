@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{5aa5f2d8-0bbb-4b19-871c-a3881f02e9b6}">
+		<property name="assetPath">
+			<value>looperman-l-0944391-0074514-decessus-smokey-bass.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>22.588253968253969</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e3e2bd1-33aa-4b04-b82f-8b7635aa309a}</destination>
+		</relationship>
+	</object>
+</objects>
