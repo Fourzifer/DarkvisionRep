@@ -5970,18 +5970,14 @@ MonoBehaviour:
       when there\u2019s pineapple on the pizza. You can find his cell further ahead.
       Just go straight, then follow his snoring and you should be able to find him.
       You may need to walk past some other cells first."
-    Clip: {fileID: 8300000, guid: e5b95100ff4fd9e4f9d495d5a028cdd8, type: 3}
+    Clip: {fileID: 8300000, guid: b1cd94956e148d04782a04b6aa57a4af, type: 3}
   - Key: kevinToAdam
     Dialogue: "Impressive, it seems you have talked to everyone who\u2019s in on
-      the plan. \nAs you may have figured out, I wasn\u2019t actually looking for
-      anyone. In fact, our escape plan is already finished. All we needed was to
-      wait for someone to find a way up through the ventilation, and you were able
-      to! The challenge begins now, are you ready?\n\nThat was the end of the prototype!
-      \nThank you very much for trying it, we hope you enjoyed it! \nWe would love
-      it if you were to answer the survey that was linked in the post you found this
-      game through, or the survey on our itch.io page of you found the prototype
-      through the Itch.io website."
-    Clip: {fileID: 8300000, guid: b4f62a4b4d1e4f044a0852cf183b9b23, type: 3}
+      the plan. As you may have figured out, I wasn\u2019t actually looking for anyone.
+      In fact, our escape plan is already finished. All we needed was to wait for
+      someone to find a way up through the ventilation, and you were able to! The
+      challenge begins now, are you ready?"
+    Clip: {fileID: 8300000, guid: 116c08cc22d831b488c2ef655c245414, type: 3}
   - Key: davidToDavid
     Dialogue: "David, yeah that\u2019s me. But you see, I don\u2019t talk to anyone
       who doesn't share my passions. Say, stranger, what\u2019s your favourite food?"
@@ -6014,6 +6010,10 @@ MonoBehaviour:
       stuff like that, so it's a good thing that you found me. Anyway, I'm sure you'll
       find who you're looking for.
     Clip: {fileID: 8300000, guid: 59305611b6f34324ba874ad755719348, type: 3}
+  - Key: readyToAdam
+    Dialogue: Great! We are pretty crafty here, so we managed to make a conveniant
+      system to travel between floors. Good luck!
+    Clip: {fileID: 8300000, guid: 810e8814d801df94f8eb0ad7534bf8df, type: 3}
 --- !u!1 &756926520
 GameObject:
   m_ObjectHideFlags: 0
@@ -16799,9 +16799,9 @@ MonoBehaviour:
     - adam
     MultiplePhrases: 0
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: adamToAdam
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -16837,6 +16837,53 @@ MonoBehaviour:
     Enabled: 0
     Hidden: 0
     ResponseKey: kevinToAdam
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6391936259117553079}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookText
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Adam is wondering if I'm ready.
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 751799083}
+          m_TargetAssemblyTypeName: PlayerCharacterScript, Assembly-CSharp
+          m_MethodName: SetNotebookClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Phrase:
+    - ready
+    - yes
+    MultiplePhrases: 1
+    Enabled: 0
+    Hidden: 0
+    ResponseKey: readyToAdam
     EventsHidden: 0
     Event:
       m_PersistentCalls:

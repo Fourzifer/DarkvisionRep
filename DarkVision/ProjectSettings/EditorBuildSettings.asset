@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Playtests/Version 3.unity
     guid: 96ef1c40800ad6d4d8ba377a141e4576
+  - enabled: 1
+    path: Assets/Scenes/Playtests/Version 4 - Level 1.unity
+    guid: 4d0d292fa27630349bd7b47ed1f51ccb
+  - enabled: 1
+    path: Assets/Scenes/Playtests/Current - Version 4 + Trapdoor.unity
+    guid: d223be6f889876242b26036a914fa19d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bc73ed7e5561342478a5777872ed1794,
       type: 2}
