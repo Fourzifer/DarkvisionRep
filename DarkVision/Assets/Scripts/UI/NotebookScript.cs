@@ -126,6 +126,8 @@ public class NotebookScript : MonoBehaviour {
 			return;
 		}
 
+		PlayCurrent();
+
 	}
 
 	public static void PlayPrev() {

@@ -30,9 +30,10 @@ public class MicTestMenuScript : MonoBehaviour {
 
 	public string nextSceneName = "VentCrawlerScene";
 
-	public string[] keywords = new string[] { "pizza", "begin" };
-	public ConfidenceLevel confidence = ConfidenceLevel.Medium;
-	protected PhraseRecognizer recognizer;
+	// public string[] keywords = new string[] { "pizza", "begin" };
+	public string srgsPath = "menu";
+	public ConfidenceLevel confidence = ConfidenceLevel.Low;
+	protected GrammarRecognizer recognizer;
 	protected string word = "asdf";
 
 	private bool waitForKey = true;
@@ -44,12 +45,14 @@ public class MicTestMenuScript : MonoBehaviour {
 		FMODUnity.RuntimeManager.WaitForAllLoads();
 		// audioPlayer.PlayOneShot(WelcomeClip);
 
-		if (keywords != null) {
-			recognizer = new KeywordRecognizer(keywords, confidence);
-			recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
-			recognizer.Start();
-			Debug.Log("Is speech to text running?: " + recognizer.IsRunning);
-		}
+		// if (keywords != null) {
+		string path = Application.dataPath + "/srgs/" + srgsPath + ".xml";
+
+		recognizer = new GrammarRecognizer(path, confidence);
+		recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
+		recognizer.Start();
+		Debug.Log("Is speech to text running?: " + recognizer.IsRunning);
+		// }
 
 		string mics = "Microphones found:\n\n";
 		foreach (var device in Microphone.devices) {
