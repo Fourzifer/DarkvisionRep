@@ -5928,8 +5928,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c667fe853a0c746a90a6c73ba375b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SRGSFilePath: srgs
-  confidence: 1
+  SRGSFilePath: file_level1
+  confidence: 2
 --- !u!20 &751799082 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1210085256722659129, guid: 2684650351dea1a4cb9ed41ed1c360dd,

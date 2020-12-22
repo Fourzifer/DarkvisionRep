@@ -275,6 +275,8 @@ MonoBehaviour:
     Text: There's a man named Adam by the coffee machine, he can apparently help
       me.
     Clip: {fileID: 8300000, guid: 2cd363d8ba3683144a99d71beae5fc17, type: 3}
+    CurrentPriority: 0
+    Enabled: 1
   NoteText: {fileID: 6975856832414545357}
 --- !u!1 &2008474559820597377
 GameObject:
