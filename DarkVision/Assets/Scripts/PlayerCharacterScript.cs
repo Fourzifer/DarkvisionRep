@@ -139,6 +139,9 @@ public class PlayerCharacterScript : MonoBehaviour {
 	// [SerializeField]
 	// private AudioClip notebookHintClip;
 	private bool notebookKeyPressedLastFrame = false;
+	private float notebookKeyTimer = 0;
+
+	public float NotebookKeyTapTime = .3f;
 
 	private bool updateInit = true;
 
@@ -187,92 +190,128 @@ public class PlayerCharacterScript : MonoBehaviour {
 			// Movement
 			moveDir = Direction.None;
 
-			switch (Mode) {
-				case MoveMode.Pacman:
+			// Notebook
+			// TODO: hold to show notebook
+			// TODO: press other keys while held to navigate notebook, disabling movement
 
-					foreach (KeyCode key in allowedMovementKeys) {
-						if (Input.GetKeyDown(key))
-							lastMovementKeyPressed = key;
-					}
+			bool notebookKeyPressed = Input.GetKey(KeyCode.F);
+			if (notebookKeyPressed && !notebookKeyPressedLastFrame) {
+				// NotebookScript.PlayLatestAsPopup();
+				moveDir = Direction.None;
+			}
 
-					if (!Input.GetKey(lastMovementKeyPressed))
-						lastMovementKeyPressed = KeyCode.None;
+			if (notebookKeyPressed) {
+				notebookKeyTimer += Time.deltaTime;
+				if (notebookKeyTimer > NotebookKeyTapTime) {
+					NotebookScript.ShowIfHidden();
+					if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+						Debug.Log("Playing next notebook entry");
+						NotebookScript.PlayNext();
+					} else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+						Debug.Log("Playing previous notebook entry");
+						NotebookScript.PlayPrev();
+					}
+				}
+			} else {
 
-					switch (lastMovementKeyPressed) {
-						case KeyCode.W:
-						case KeyCode.UpArrow:
-							moveDir = Direction.North;
-							break;
-						case KeyCode.A:
-						case KeyCode.LeftArrow:
-							moveDir = Direction.West;
-							break;
-						case KeyCode.S:
-						case KeyCode.DownArrow:
-							moveDir = Direction.South;
-							break;
-						case KeyCode.D:
-						case KeyCode.RightArrow:
-							moveDir = Direction.East;
-							break;
-						default:
-							break;
+				if (notebookKeyPressedLastFrame) {
+
+					NotebookScript.Hide();
+					if (notebookKeyTimer < NotebookKeyTapTime) {
+						NotebookScript.PlayLatestAsPopup();
 					}
-					break;
-				case MoveMode.Normal:
-					if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-						moveDir = Direction.North;
-					} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-						moveDir = Direction.South;
-					}
-					if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-						if (moveDir == Direction.North) {
-							moveDir = Direction.NorthEast;
-						} else if (moveDir == Direction.South) {
-							moveDir = Direction.SouthEast;
-						} else {
-							moveDir = Direction.East;
+					notebookKeyTimer = 0;
+				}
+
+				switch (Mode) {
+					case MoveMode.Pacman:
+
+						foreach (KeyCode key in allowedMovementKeys) {
+							if (Input.GetKeyDown(key))
+								lastMovementKeyPressed = key;
 						}
-					} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-						if (moveDir == Direction.North) {
-							moveDir = Direction.NorthWest;
-						} else if (moveDir == Direction.South) {
-							moveDir = Direction.SouthWest;
-						} else {
-							moveDir = Direction.West;
-						}
-					}
-					break;
-				case MoveMode.OnlyForwards:
-					if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-						moveDir = Direction.North;
-					} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-						moveDir = Direction.South;
-					}
-					break;
-				case MoveMode.CorridorRelativeForwardsOnly:
 
-					switch (facing) {
-						case Direction.North:
-						case Direction.South:
-							if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+						if (!Input.GetKey(lastMovementKeyPressed))
+							lastMovementKeyPressed = KeyCode.None;
+
+						switch (lastMovementKeyPressed) {
+							case KeyCode.W:
+							case KeyCode.UpArrow:
 								moveDir = Direction.North;
-							} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+								break;
+							case KeyCode.A:
+							case KeyCode.LeftArrow:
+								moveDir = Direction.West;
+								break;
+							case KeyCode.S:
+							case KeyCode.DownArrow:
 								moveDir = Direction.South;
-							}
-							break;
-						case Direction.West:
-						case Direction.East:
-							if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+								break;
+							case KeyCode.D:
+							case KeyCode.RightArrow:
 								moveDir = Direction.East;
-							} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+								break;
+							default:
+								break;
+						}
+						break;
+					case MoveMode.Normal:
+						if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+							moveDir = Direction.North;
+						} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+							moveDir = Direction.South;
+						}
+						if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+							if (moveDir == Direction.North) {
+								moveDir = Direction.NorthEast;
+							} else if (moveDir == Direction.South) {
+								moveDir = Direction.SouthEast;
+							} else {
+								moveDir = Direction.East;
+							}
+						} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+							if (moveDir == Direction.North) {
+								moveDir = Direction.NorthWest;
+							} else if (moveDir == Direction.South) {
+								moveDir = Direction.SouthWest;
+							} else {
 								moveDir = Direction.West;
 							}
-							break;
-					}
+						}
+						break;
+					case MoveMode.OnlyForwards:
+						if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+							moveDir = Direction.North;
+						} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+							moveDir = Direction.South;
+						}
+						break;
+					case MoveMode.CorridorRelativeForwardsOnly:
 
-					break;
+						switch (facing) {
+							case Direction.North:
+							case Direction.South:
+								if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+									moveDir = Direction.North;
+								} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+									moveDir = Direction.South;
+								}
+								break;
+							case Direction.West:
+							case Direction.East:
+								if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+									moveDir = Direction.East;
+								} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+									moveDir = Direction.West;
+								}
+								break;
+						}
+
+						break;
+				}
 			}
+
+			notebookKeyPressedLastFrame = notebookKeyPressed;
 
 			if (Input.GetKeyDown(KeyCode.P)) {
 				Screen.fullScreen = !Screen.fullScreen;
@@ -304,15 +343,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 			}
 
 
-			// Notebook
-			// TODO: hold to show notebook
-			// TODO: press other keys while held to navigate notebook, disabling movement
 
-			bool notebookKeyPressed = Input.GetKey(KeyCode.F);
-			if (notebookKeyPressed && !notebookKeyPressedLastFrame) {
-				NotebookScript.PlayLatestAsPopup();
-			}
-			notebookKeyPressedLastFrame = notebookKeyPressed;
 
 
 		}
@@ -381,10 +412,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 		}
 
-		
+
 		if (Mathf.Abs(x) > 0 || Mathf.Abs(z) > 0) {
 			MoveRelative(x, z);
-		} 
+		}
 
 		float deltaSquared = (posBuffer - transform.localPosition).sqrMagnitude;
 

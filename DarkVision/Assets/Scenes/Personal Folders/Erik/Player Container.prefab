@@ -173,17 +173,10 @@ MonoBehaviour:
   MoveSpeed: 10
   UseVelocityMovement: 1
   VelocityLimit: 10
-  InteractionEnabled: 0
+  FootstepThreshold: 0.1
   RotationAnimationSpeed: 250
   RotationIncrementAmount: 90
-  RaycastPosition: {fileID: 1581623137840014427}
-  RaycastLayerMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  RaycastDistance: 100
-  RaycastBufferSize: 4
-  currentNotebookHint: I should go ask around
-  notebookHintClip: {fileID: 0}
+  NotebookKeyTapTime: 0.3
 --- !u!114 &5483914667681035779
 MonoBehaviour:
   m_ObjectHideFlags: 0
