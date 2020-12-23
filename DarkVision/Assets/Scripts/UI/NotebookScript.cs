@@ -30,6 +30,7 @@ public class NotebookScript : MonoBehaviour {
 
 	public TMP_Text NoteText;
 
+	public bool EnableScribbleSound = false;
 	[EventRef]
 	public string ScribbleEvent = "";
 	[EventRef]
@@ -70,6 +71,15 @@ public class NotebookScript : MonoBehaviour {
 		PlayerCharacterScript.StopNarratorNow();
 		PlayerCharacterScript.PlayClip(entry.Clip);
 	}
+
+	public void DisableQuestline(int index){
+		if(index >= entries.Count){
+			return;
+		}
+
+		entries[index].Enabled = false;
+	}
+
 
 	public static void Show() {
 		if (!mainInstance)
@@ -184,7 +194,9 @@ public class NotebookScript : MonoBehaviour {
 
 		// PlayerCharacterScript.PlayFMOD(mainInstance.ScribbleEvent);
 		// RuntimeManager.PlayOneShot(mainInstance.ScribbleEvent);
-		PlayFmod(mainInstance.ScribbleEvent);
+
+		if (mainInstance.EnableScribbleSound)
+			PlayFmod(mainInstance.ScribbleEvent);
 
 		mainInstance.entries.Add(new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip));
 	}
@@ -211,7 +223,8 @@ public class NotebookScript : MonoBehaviour {
 		mainInstance.currentIndex = questLine;
 		// PlayerCharacterScript.PlayFMOD(mainInstance.ScribbleEvent);
 		// RuntimeManager.PlayOneShot(mainInstance.ScribbleEvent);
-		PlayFmod(mainInstance.ScribbleEvent);
+		if (mainInstance.EnableScribbleSound)
+			PlayFmod(mainInstance.ScribbleEvent);
 		mainInstance.entries[questLine] = new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip, true, priority);
 
 	}

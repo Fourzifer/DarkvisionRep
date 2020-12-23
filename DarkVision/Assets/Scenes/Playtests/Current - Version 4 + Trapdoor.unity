@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 241105869}
   - component: {fileID: 241105871}
   - component: {fileID: 241105870}
+  - component: {fileID: 241105872}
   m_Layer: 0
   m_Name: L2_C4 (Terry)
   m_TagString: Untagged
@@ -1073,15 +1074,15 @@ MonoBehaviour:
     - radio
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: quietToTerry
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 241105871}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 241105872}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1110,15 +1111,15 @@ MonoBehaviour:
     - kid
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: childToTerry
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 241105871}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 241105872}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1153,9 +1154,9 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 241105871}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 241105872}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1193,6 +1194,27 @@ MonoBehaviour:
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
+--- !u!114 &241105872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241105868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13bf5e88583ff478c567d292956455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - Key: quietToTerryNotebook
+    DialogueKey: quietToTerryNotebook
+    Priority: 0
+    QuestLine: 4
+  - Key: questCompleteNotebook
+    DialogueKey: questCompleteNotebook
+    Priority: 0
+    QuestLine: 4
 --- !u!1 &241903440
 GameObject:
   m_ObjectHideFlags: 0
@@ -13311,6 +13333,7 @@ GameObject:
   - component: {fileID: 693053233}
   - component: {fileID: 693053235}
   - component: {fileID: 693053234}
+  - component: {fileID: 693053236}
   m_Layer: 0
   m_Name: L2_C2 (Richard)
   m_TagString: Untagged
@@ -13372,15 +13395,15 @@ MonoBehaviour:
     - richard
     MultiplePhrases: 1
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: helloToRichard
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 693053235}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 693053236}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13411,22 +13434,22 @@ MonoBehaviour:
     - feet
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: husbandToRichard
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 693053235}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 693053236}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: husbandToRichard
+            m_StringArgument: husbandToRichardNotebook
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1743749414}
@@ -13448,15 +13471,15 @@ MonoBehaviour:
     - radio
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: radioToRichard
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 693053235}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 693053236}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13481,6 +13504,31 @@ MonoBehaviour:
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
+--- !u!114 &693053236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693053232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13bf5e88583ff478c567d292956455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - Key: helloToRichardNotebook
+    DialogueKey: helloToRichardNotebook
+    Priority: 0
+    QuestLine: 2
+  - Key: husbandToRichardNotebook
+    DialogueKey: husbandToRichardNotebook
+    Priority: 1
+    QuestLine: 2
+  - Key: radioToRichardNotebook
+    DialogueKey: radioToRichardNotebook
+    Priority: 2
+    QuestLine: 2
 --- !u!1 &742316365
 GameObject:
   m_ObjectHideFlags: 0
@@ -13492,6 +13540,7 @@ GameObject:
   - component: {fileID: 742316366}
   - component: {fileID: 742316368}
   - component: {fileID: 742316367}
+  - component: {fileID: 742316369}
   m_Layer: 0
   m_Name: L2_C3 (Jonas)
   m_TagString: Untagged
@@ -13553,15 +13602,15 @@ MonoBehaviour:
     - jonas
     MultiplePhrases: 1
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: helloToJonas
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 742316368}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 742316369}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13590,15 +13639,15 @@ MonoBehaviour:
     - stop whistling
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: quietToJonas
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 742316368}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 742316369}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13639,15 +13688,15 @@ MonoBehaviour:
     - terry
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: sorryToJonas
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 742316368}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 742316369}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13677,15 +13726,15 @@ MonoBehaviour:
     - lullaby
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: childToJonas
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 742316368}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 742316369}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13710,6 +13759,35 @@ MonoBehaviour:
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
+--- !u!114 &742316369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742316365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13bf5e88583ff478c567d292956455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - Key: helloToJonasNotebook
+    DialogueKey: 
+    Priority: 0
+    QuestLine: 5
+  - Key: quietToJonasNotebook
+    DialogueKey: 
+    Priority: 0
+    QuestLine: 5
+  - Key: questCompleNotebook
+    DialogueKey: questCompleNotebook
+    Priority: 0
+    QuestLine: 5
+  - Key: childToJonasNotebook
+    DialogueKey: childToJonasNotebook
+    Priority: 0
+    QuestLine: 5
 --- !u!43 &751449288
 Mesh:
   m_ObjectHideFlags: 0
@@ -25641,6 +25719,7 @@ GameObject:
   - component: {fileID: 1743749412}
   - component: {fileID: 1743749414}
   - component: {fileID: 1743749413}
+  - component: {fileID: 1743749415}
   m_Layer: 0
   m_Name: L2_C5 (Hannah)
   m_TagString: Untagged
@@ -25730,7 +25809,7 @@ MonoBehaviour:
     Enabled: 0
     Hidden: 1
     ResponseKey: carpetToHannah
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -25776,15 +25855,15 @@ MonoBehaviour:
     - yes
     MultiplePhrases: 0
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: yesToHannah
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1743749414}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 1743749415}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25812,15 +25891,15 @@ MonoBehaviour:
     - no
     MultiplePhrases: 0
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: noToHannah
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1743749414}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 1743749415}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25848,15 +25927,15 @@ MonoBehaviour:
     - file
     MultiplePhrases: 0
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: fileToHannah
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1743749414}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 1743749415}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25885,15 +25964,15 @@ MonoBehaviour:
     - whistle
     MultiplePhrases: 1
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: whistleToHannah
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1743749414}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 1743749415}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25918,6 +25997,43 @@ MonoBehaviour:
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
+--- !u!114 &1743749415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743749411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13bf5e88583ff478c567d292956455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - Key: helloToHannahNotebook
+    DialogueKey: helloToHannahNotebook
+    Priority: 0
+    QuestLine: 3
+  - Key: carpetToHannahNotebook
+    DialogueKey: carpetToHannahNotebook
+    Priority: 0
+    QuestLine: 3
+  - Key: yesToHannahNotebook
+    DialogueKey: yesToHannahNotebook
+    Priority: 0
+    QuestLine: 3
+  - Key: noToHannahNotebook
+    DialogueKey: noToHannahNotebook
+    Priority: 0
+    QuestLine: 3
+  - Key: questCompleteNotebook
+    DialogueKey: questCompleteNotebook
+    Priority: 0
+    QuestLine: 3
+  - Key: whistleToHannahNotebook
+    DialogueKey: whistleToHannahNotebook
+    Priority: 0
+    QuestLine: 3
 --- !u!43 &1785738774
 Mesh:
   m_ObjectHideFlags: 0
@@ -29481,9 +29597,9 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2119122208}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 2119122210}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -29517,9 +29633,9 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2119122208}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 2119122210}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -29583,7 +29699,7 @@ MonoBehaviour:
     - ready
     MultiplePhrases: 0
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: readyToElla
     EventsHidden: 0
     Event:
@@ -29619,7 +29735,7 @@ MonoBehaviour:
     - escape
     MultiplePhrases: 0
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: escapeToElla
     EventsHidden: 0
     Event:
@@ -29694,7 +29810,7 @@ MonoBehaviour:
     - yes
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: helloOrYesAfterYesToElla
     EventsHidden: 0
     Event:
@@ -29769,11 +29885,23 @@ MonoBehaviour:
   - Key: readyToEllaNotebook
     DialogueKey: readyToEllaNotebook
     Priority: 6
-    QuestLine: 0
+    QuestLine: 1
   - Key: levelCompleteNotebook
     DialogueKey: levelCompleteNotebook
-    Priority: 0
-    QuestLine: 0
+    Priority: 7
+    QuestLine: 1
+  - Key: helloToEllaNotebook
+    DialogueKey: helloToEllaNotebook
+    Priority: 1
+    QuestLine: 1
+  - Key: yesToEllaNotebook
+    DialogueKey: yesToEllaNotebook
+    Priority: 2
+    QuestLine: 1
+  - Key: helloOrYesAfterYesToElla
+    DialogueKey: helloOrYesAfterYesToElla
+    Priority: 3
+    QuestLine: 1
 --- !u!1 &2138480745
 GameObject:
   m_ObjectHideFlags: 0
