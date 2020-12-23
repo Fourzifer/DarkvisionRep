@@ -13361,7 +13361,7 @@ MonoBehaviour:
     - richard
     MultiplePhrases: 1
     Enabled: 1
-    Hidden: 0
+    Hidden: 1
     ResponseKey: helloToRichard
     EventsHidden: 0
     Event:
@@ -14387,6 +14387,11 @@ MonoBehaviour:
   - Key: escapeToElla
     Dialogue: Great, I'll let you down into the next vent!
     Clip: {fileID: 8300000, guid: da8dad0d28674fd4bb4c05655b315b5a, type: 3}
+  - Key: helloOrYesAfterYesToElla
+    Dialogue: "Hello again. It\u2019d be great if you could help out the other people
+      here before you keep going, if you want. When you want to keep going, just
+      come back to me and say that you\u2019re ready.\_\r"
+    Clip: {fileID: 8300000, guid: df51c8100de40bd4796f5b87ac5397f0, type: 3}
 --- !u!43 &859281254
 Mesh:
   m_ObjectHideFlags: 0
@@ -29482,7 +29487,7 @@ MonoBehaviour:
     - yes
     MultiplePhrases: 0
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: yesToElla
     EventsHidden: 0
     Event:
@@ -29508,6 +29513,42 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2119122208}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: DisablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2119122208}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: DisablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2119122208}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: EnablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -29622,6 +29663,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
+    - hello
+    - yes
+    MultiplePhrases: 1
+    Enabled: 0
+    Hidden: 1
+    ResponseKey: helloOrYesAfterYesToElla
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
