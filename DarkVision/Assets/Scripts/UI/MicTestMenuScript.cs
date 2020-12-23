@@ -36,7 +36,7 @@ public class MicTestMenuScript : MonoBehaviour {
 	protected GrammarRecognizer recognizer;
 	protected string word = "asdf";
 
-	private bool waitForKey = true;
+	public bool WaitForKey = true;
 	private bool loading = false;
 
 	private int micsFound = 0;
@@ -65,7 +65,7 @@ public class MicTestMenuScript : MonoBehaviour {
 
 		microphones.text = mics;
 
-		text.text = PressKeyToBeginText;
+		text.text = PressKeyToBeginText.Replace("\\n", "\n");
 		audioPlayer.PlayOneShot(PressKeyToBeginClip);
 
 
@@ -83,8 +83,8 @@ public class MicTestMenuScript : MonoBehaviour {
 
 	void Update() {
 
-		if (waitForKey && Input.GetKey(KeyCode.Space)) {
-			waitForKey = false;
+		if (WaitForKey && Input.GetKey(KeyCode.Space)) {
+			WaitForKey = false;
 
 			audioPlayer.Stop();
 			if (micsFound < 1) {
@@ -150,5 +150,8 @@ public class MicTestMenuScript : MonoBehaviour {
 		}
 	}
 
+	public void Quit(){
+		Application.Quit();
+	}
 
 }

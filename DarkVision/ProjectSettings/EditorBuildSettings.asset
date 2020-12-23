@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MenuPlaytest3.unity
-    guid: 2768e5ba03d8ff34ab35edf145bb4f18
-  - enabled: 1
-    path: Assets/Scenes/Playtests/Version 3.unity
-    guid: 96ef1c40800ad6d4d8ba377a141e4576
+    path: Assets/Scenes/MenuPlaytest4.unity
+    guid: 4c367d4c2af335048b5581dba38656ea
   - enabled: 1
     path: Assets/Scenes/Playtests/Version 4 - Level 1.unity
     guid: 4d0d292fa27630349bd7b47ed1f51ccb
   - enabled: 1
     path: Assets/Scenes/Playtests/Current - Version 4 + Trapdoor.unity
     guid: d223be6f889876242b26036a914fa19d
+  - enabled: 1
+    path: Assets/Scenes/EndMenuPlaytest4.unity
+    guid: 3f0d6705ec7779c49b2b42766af1ecad
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bc73ed7e5561342478a5777872ed1794,
       type: 2}

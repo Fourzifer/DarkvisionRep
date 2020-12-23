@@ -1,0 +1,8 @@
+<grammar version="1.0" xml:lang="en-US" root="rootRule" xmlns="http://www.w3.org/2001/06/grammar"><rule id="rootRule">
+	<ruleref special="GARBAGE" />
+	<one-of>
+		<item>bye</item>
+	</one-of>
+	<ruleref special="GARBAGE" />
+</rule>
+</grammar>
