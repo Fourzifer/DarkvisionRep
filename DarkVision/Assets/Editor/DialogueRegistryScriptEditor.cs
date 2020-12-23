@@ -13,6 +13,10 @@ public class DialogueRegistryScriptEditor : Editor {
 
 	List<bool> entriesFoldStates;
 
+	bool firstSelectedLast = false;
+	int firstSelected = -1;
+	int secondSelected = -1;
+
 	private void Start() {
 		phrases = serializedObject.FindProperty("Phrases");
 		dialogueRegistry = (DialogueRegistryScript)target;
@@ -29,7 +33,19 @@ public class DialogueRegistryScriptEditor : Editor {
 		// 	dialogueRegistry.Entries = new List<DialogueRegistryScript.DialogueEntry>();
 		// }
 
+		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Phrases");
+		if (GUILayout.Button("Expand All")) {
+			for (int i = 0; i < entriesFoldStates.Count; i++) {
+				entriesFoldStates[i] = true;
+			}
+		}
+		if (GUILayout.Button("Collapse All")) {
+			for (int i = 0; i < entriesFoldStates.Count; i++) {
+				entriesFoldStates[i] = false;
+			}
+		}
+		EditorGUILayout.EndHorizontal();
 
 		if (entriesFoldStates == null) {
 			entriesFoldStates = new List<bool>();
@@ -54,7 +70,36 @@ public class DialogueRegistryScriptEditor : Editor {
 
 			EditorGUILayout.BeginHorizontal();
 			entriesFoldStates[id] = EditorGUILayout.Foldout(entriesFoldStates[id], "Key:", style);
+			bool selected = id == firstSelected || id == secondSelected;
+			bool toggleState = EditorGUILayout.Toggle(selected, GUILayout.Width(35), GUILayout.ExpandWidth(false));
+			bool selectionChanged = selected != toggleState;
+			if (selectionChanged) {
+				if (selected) {
+					if (!firstSelectedLast) {
+						secondSelected = -1;
+					} else {
+						firstSelected = -1;
+					}
+				} else {
+					if (firstSelectedLast) {
+						secondSelected = id;
+					} else {
+						firstSelected = id;
+					}
+					firstSelectedLast = !firstSelectedLast;
+				}
+			}
+
 			item.Key = EditorGUILayout.TextField(item.Key);
+			if (GUILayout.Button("Delete")) {
+				dialogueRegistry.Entries.RemoveAt(id);
+				if (firstSelected >= dialogueRegistry.Entries.Count) {
+					firstSelected = -1;
+				}
+				if (secondSelected >= dialogueRegistry.Entries.Count) {
+					secondSelected = -1;
+				}
+			}
 			EditorGUILayout.EndHorizontal();
 			if (entriesFoldStates[id]) {
 				EditorGUI.indentLevel += 1;
@@ -67,10 +112,30 @@ public class DialogueRegistryScriptEditor : Editor {
 		}
 		EditorGUI.indentLevel -= 1;
 
+		EditorGUILayout.BeginHorizontal();
 		if (GUILayout.Button("Add entry", GUILayout.Width(100), GUILayout.Height(30))) {
 			dialogueRegistry.Entries.Add(new DialogueRegistryScript.DialogueEntry());
 		}
+		GUILayout.FlexibleSpace();
+		if (GUILayout.Button("Swap selected")) {
+			if (firstSelected >= 0 && secondSelected >= 0) {
+				{
+					var temp = dialogueRegistry.Entries[firstSelected];
+					dialogueRegistry.Entries[firstSelected] = dialogueRegistry.Entries[secondSelected];
+					dialogueRegistry.Entries[secondSelected] = temp;
+				}
 
+				{
+					var temp = entriesFoldStates[firstSelected];
+					entriesFoldStates[firstSelected] = entriesFoldStates[secondSelected];
+					entriesFoldStates[secondSelected] = temp;
+				}
+			}
+		}
+		GUILayout.FlexibleSpace();
+		// EditorGUILayout.LabelField(firstSelectedLast.ToString());
+
+		EditorGUILayout.EndHorizontal();
 
 		if (EditorGUI.EndChangeCheck()) {
 			Undo.RecordObject(dialogueRegistry, "Change Dialogue Registry");

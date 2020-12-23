@@ -14,10 +14,14 @@ public class NotebookScript : MonoBehaviour {
 		// IDEA: use dictionary
 		public string Text = "";
 		public AudioClip Clip;
+		public int CurrentPriority = 0;
+		public bool Enabled = true;
 
-		public NotebookEntry(string text, AudioClip clip) {
+		public NotebookEntry(string text, AudioClip clip, bool enabled = true, int priority = 0) {
 			Text = text;
 			Clip = clip;
+			CurrentPriority = priority;
+			Enabled = enabled;
 		}
 	}
 
@@ -75,6 +79,7 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 
+		PlayerCharacterScript.StopNarratorNow();
 		mainInstance.gameObject.SetActive(false);
 	}
 
@@ -90,6 +95,12 @@ public class NotebookScript : MonoBehaviour {
 			return;
 
 		var entry = mainInstance.entries[mainInstance.entries.Count - 1];
+
+		if (entry.Clip == null)
+		{
+			Debug.LogWarningFormat("Sound clip for \"{0}\" has not been assigned", entry.Text);
+			return;
+		}
 
 		PopupHandlerScript.ShowCustomPopup(entry.Text, entry.Clip.length);
 		PlayerCharacterScript.StopNarratorNow();
@@ -115,6 +126,8 @@ public class NotebookScript : MonoBehaviour {
 			return;
 		}
 
+		PlayCurrent();
+
 	}
 
 	public static void PlayPrev() {
@@ -132,6 +145,30 @@ public class NotebookScript : MonoBehaviour {
 		}
 
 		mainInstance.entries.Add(new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip));
+	}
+
+	public static void AddEntryIfHigherPriority(string dialogueKey, int priority, int questLine) {
+		var dialogueEntry = DialogueRegistryScript.GetEntry(dialogueKey);
+		if (dialogueEntry == null) {
+			Debug.LogWarningFormat("Key \"{0}\" does not exist in registry", dialogueKey);
+			return;
+		}
+
+		while (mainInstance.entries.Count <= questLine) {
+			mainInstance.entries.Add(new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip, enabled: false));
+		}
+		if (mainInstance.entries[mainInstance.currentIndex].CurrentPriority > priority) {
+			Debug.LogFormat("Discarded new notebook entry with lower priority: {0}", dialogueKey);
+
+			// NOTE: this line decides if the notebook still changes current questline when revisiting old dialogue
+			mainInstance.currentIndex = questLine;
+			
+			return;
+		}
+
+		mainInstance.currentIndex = questLine;
+		mainInstance.entries[questLine] = new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip, true, priority);
+
 	}
 
 }
