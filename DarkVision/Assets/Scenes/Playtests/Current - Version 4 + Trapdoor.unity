@@ -14267,7 +14267,7 @@ MonoBehaviour:
       but once they grew up he found himself whistling at work, on walks, sometimes
       even on public transport. It reminds him of his children, so maybe you should
       mention them to whoever made him refer you to me."
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 9fdcdc5a6baf7e748b12c35e6657ae12, type: 3}
   - Key: childToTerry
     Dialogue: "I never realised the music was made by Jonas' child. In a way, he's
       just like me. He listens to his music to be reminded of his child just like
@@ -14285,27 +14285,27 @@ MonoBehaviour:
       how he ended up here in the first place. There's fewer people to annoy in a
       prison. Maybe they wouldn\u2019t mind as much if they knew the music was made
       by his child?"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 3c9f461613f99c4469e1f002e7d1f1dc, type: 3}
   - Key: childToJonas
     Dialogue: So the melody he whistles is the lullaby he used to sing to his children?
       I'm starting to think I judged him too harshly. Tell you what, could you say
       I'm sorry? I'll find a way to help him out, it's the least I could do.
     Clip: {fileID: 8300000, guid: 50c7c0055ef05b640a24ae54df954e87, type: 3}
   - Key: sorryToJonas
-    Dialogue: Jonas heard about my lullaby and wants to help me escape? That great
-      news, thank you so much for setting things right.
-    Clip: {fileID: 0}
+    Dialogue: "That's really not deserved after how I treated him, so I'm grateful
+      everything is alright now. Thanks for your help!\r"
+    Clip: {fileID: 8300000, guid: d0b19f42e2a473440a1c943f3510f1aa, type: 3}
   - Key: helloToTerry
     Dialogue: Sorry, I'm listening to the best part of the song right now. Go talk
       to Jonas if you need help with something.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 8f9fdd6c601710a479ca138caca88555, type: 3}
   - Key: helloToHannah
     Dialogue: Hi there! I'm a bit busy at the moment, but maybe Richard could help?
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: a23a5150fcdc0ac47bed47f5c46418dd, type: 3}
   - Key: levelStartNotebook
     Dialogue: This appears to be the floor below the one I was just at. Maybe I can
       find someone to say hello to?
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 8590a0e02a65e7c4fa012c1a5eaac8ba, type: 3}
   - Key: helloToEllaNotebook
     Dialogue: "Ella asked me if I fell through the ceiling.\r"
     Clip: {fileID: 0}
@@ -14315,22 +14315,22 @@ MonoBehaviour:
     Clip: {fileID: 0}
   - Key: readyToEllaNotebook
     Dialogue: Ella told me to tell her when I want to escape.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: aeb30fd01fa606d4b95159c5b06e6436, type: 3}
   - Key: levelEndNotebook
     Dialogue: I'm done for now, the playtest is over.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 0626dc34753266f4e8d19e4f0d089548, type: 3}
   - Key: helloToRichardNotebook
     Dialogue: Richard told me to ask Hannah about her carpeted bathroom floor. There's
       a *item that makes a sound* in her room.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 36e04c570cbd93c41990f06f43775ea9, type: 3}
   - Key: yesToHannahNotebook
     Dialogue: Hannah didn't like my response. I should probably ask her about her
       carpeted bathroom floor again.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 6b8bd0eae9f27cc409678399bd713612, type: 3}
   - Key: noToHannahNotebook
     Dialogue: Hannah talked about her husband's aching feet. I should mention this
       to Richard.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 8895330dfe2e36b4a9eeb5ff3166105f, type: 3}
   - Key: husbandToRichardNotebook
     Dialogue: Richard wants me to give his file to Hannah as an apology.
     Clip: {fileID: 0}
