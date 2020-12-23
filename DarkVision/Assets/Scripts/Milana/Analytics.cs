@@ -9,7 +9,6 @@ public class Analytics : MonoBehaviour
     bool AllowCountingTime;
     public static float Timer = 0;
     public static int DialogueNr = 0;
-    public static int LevelNr = 0;
     public static bool TestState = false;
     public static int MicrophoneNr = 0;
     public static string LastNPC = "Unknown";
@@ -47,11 +46,11 @@ public class Analytics : MonoBehaviour
                 {"Minutes played", Mathf.RoundToInt(Timer/60f)},
                 {"Last NPC", LastNPC},
                 {"Dialogues", DialogueNr},
-                {"Levels Finished", LevelNr},
                 {"Microphone Test", TestState},
                 {"Microphones Found", MicrophoneNr}
                 
             }
         );
     }
+
 }
