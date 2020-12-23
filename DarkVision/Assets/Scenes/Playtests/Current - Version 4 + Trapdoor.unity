@@ -13333,7 +13333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Knife Sharpening
+  SelectAudio: event:/Rooms/Knife Sharpening
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -13514,7 +13514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/3/Stove
+  SelectAudio: event:/Rooms/Stove
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -17369,7 +17369,7 @@ Transform:
   - {fileID: 1890682969}
   - {fileID: 241903441}
   m_Father: {fileID: 1234775389}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1048145017
 MeshCollider:
@@ -20523,13 +20523,13 @@ Transform:
   m_Children:
   - {fileID: 614326586}
   - {fileID: 1063498967}
+  - {fileID: 1048145016}
   - {fileID: 1462250665}
   - {fileID: 1897597529}
   - {fileID: 937406711}
   - {fileID: 603391975}
   - {fileID: 331955997}
   - {fileID: 261593841}
-  - {fileID: 1048145016}
   - {fileID: 265425630}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -25645,7 +25645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/1/Keyboard
+  SelectAudio: event:/Rooms/Keyboard
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -29419,7 +29419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/3/Coffee
+  SelectAudio: event:/Rooms/Coffee
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:

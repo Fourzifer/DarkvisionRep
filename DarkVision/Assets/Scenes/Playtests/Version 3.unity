@@ -2742,7 +2742,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - microwave
     MultiplePhrases: 0
     Enabled: 0
@@ -2792,7 +2794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Knife Sharpening
+  SelectAudio: event:/Rooms/Knife Sharpening
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -9254,7 +9256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - microwave
     MultiplePhrases: 0
     Enabled: 0
@@ -9317,7 +9321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/1/Keyboard
+  SelectAudio: event:/Rooms/Keyboard
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -10055,7 +10059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/3/Stove
+  SelectAudio: event:/Rooms/Stove
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -10076,7 +10080,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - microwave
     MultiplePhrases: 0
     Enabled: 0
@@ -13646,7 +13652,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - david
     MultiplePhrases: 0
     Enabled: 1
@@ -13706,7 +13714,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - pizza
     - pineapple
     - pineapple pizza
@@ -13819,7 +13829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/2/Sleep
+  SelectAudio: event:/Rooms/Sleep
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
@@ -13907,7 +13917,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - adam
     MultiplePhrases: 0
     Enabled: 1
@@ -13943,7 +13955,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - kevin
     MultiplePhrases: 0
     Enabled: 0
@@ -13993,7 +14007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4903ca1ea1b9b7a4fa5c44b7ba49c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectAudio: event:/Rooms/3/Coffee
+  SelectAudio: event:/Rooms/Coffee
   SoundOcclusionWidening: 1
   PlayerOcclusionWidening: 1
   OcclusionLayer:
