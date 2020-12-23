@@ -135,6 +135,7 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 
+		PopupHandlerScript.HideTimedPopups();
 		mainInstance.PlayEntry(mainInstance.currentIndex);
 	}
 

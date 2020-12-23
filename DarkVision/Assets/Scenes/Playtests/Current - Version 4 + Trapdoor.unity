@@ -130,6 +130,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3905681039311486928, guid: c7b54f0e6adfb7143a456c0e2f33e4b9,
+        type: 3}
+      propertyPath: StartEntry.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9af10bdad45b73e48a8648c2c186b86c, type: 3}
+    - target: {fileID: 3905681039311486928, guid: c7b54f0e6adfb7143a456c0e2f33e4b9,
+        type: 3}
+      propertyPath: StartEntry.Text
+      value: 'This appears to be the floor below the one I was just at. Maybe I can
+        find someone to say hello to? '
+      objectReference: {fileID: 0}
     - target: {fileID: 4635282852822387896, guid: c7b54f0e6adfb7143a456c0e2f33e4b9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -13914,15 +13925,16 @@ PrefabInstance:
         type: 3}
       propertyPath: WelcomeClip
       value: 
-      objectReference: {fileID: 8300000, guid: 76551643889dc0c46a5aa7253a03a52d, type: 3}
+      objectReference: {fileID: 8300000, guid: 4a010c3d3a82a1b45b6ff79ef2f32978, type: 3}
     - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: WelcomeText
-      value: Here are some initial instructions. When you can hear a sound clearly
-        to your left or to your right, that means there is someone there you can
-        talk to. If you're unsure of what to do, you can press the F key at any time.
-        Try walking up to the coffee machine and say the name Adam. Press F after
-        talking to Adam and see what happens.
+      value: Here are some more instructions. In this level, there will be multiple
+        missions to keep track of. To aid you with that, you can hold down the F
+        key instead of tapping it in order to open the notebook. Pressing the A or
+        D keys, or the left and right arrow keys while the notebook is open will
+        let you flip between notes relevant to each mission, if there are any. We
+        hope you try it out later when you get the chance!
       objectReference: {fileID: 0}
     - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
@@ -14392,6 +14404,18 @@ MonoBehaviour:
       here before you keep going, if you want. When you want to keep going, just
       come back to me and say that you\u2019re ready.\_\r"
     Clip: {fileID: 8300000, guid: df51c8100de40bd4796f5b87ac5397f0, type: 3}
+  - Key: tutorial
+    Dialogue: Here are some more instructions. In this level, there will be multiple
+      missions to keep track of. To aid you with that, you can hold down the F key
+      instead of tapping it in order to open the notebook. Pressing the A or D keys,
+      or the left and right arrow keys while the notebook is open will let you flip
+      between notes relevant to each mission, if there are any. We hope you try it
+      out later when you get the chance!
+    Clip: {fileID: 8300000, guid: 4a010c3d3a82a1b45b6ff79ef2f32978, type: 3}
+  - Key: startNotebook
+    Dialogue: "This appears to be the floor below the one I was just at. Maybe I
+      can find someone to say hello to?\r"
+    Clip: {fileID: 8300000, guid: 9af10bdad45b73e48a8648c2c186b86c, type: 3}
 --- !u!43 &859281254
 Mesh:
   m_ObjectHideFlags: 0
