@@ -169,7 +169,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	private void OnApplicationQuit() {
 		Analytics.Send();
-		Debug.Log("Analytics Sent");
+		// Debug.Log("Analytics Sent");
 		Analytics = null;
 	}
 
