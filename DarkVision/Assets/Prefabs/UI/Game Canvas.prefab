@@ -279,9 +279,9 @@ MonoBehaviour:
     CurrentPriority: 0
     Enabled: 1
   NoteText: {fileID: 6975856832414545357}
-  ScribbleEvent: event:/Notebook Scribble
-  TurnPageEvent: event:/NotebookPage
-  CloseEvent: event:/Notebook Close
+  ScribbleEvent: event:/Notebook/Notebook Scribble
+  TurnPageEvent: event:/Notebook/NotebookPage
+  CloseEvent: event:/Notebook/Notebook Close
 --- !u!1 &2008474559820597377
 GameObject:
   m_ObjectHideFlags: 0
