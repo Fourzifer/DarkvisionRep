@@ -39,7 +39,7 @@ public class SRGSFileGenerator : EditorWindow {
 		// if (entries.Count > 1)
 		entries.RemoveAll(entry => entry == "");
 
-		emptyField = EditorGUILayout.TextField(emptyField);
+		emptyField = EditorGUILayout.TextField("New:", emptyField);
 		if (emptyField != "") {
 			entries.Add(emptyField);
 			emptyField = "";

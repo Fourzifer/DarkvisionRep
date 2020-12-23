@@ -91,11 +91,11 @@ public class TouchScript : MonoBehaviour {
 				}
 				break;
 			case TouchPhase.Ended:
-				if (InteractionEnabled
-					&& (touch.position - lastMainTouchLocation).sqrMagnitude < TouchTapMaxDistance * TouchTapMaxDistance
-					&& clickTimer > 0) {
-					Player.Interact();
-				}
+				// if (InteractionEnabled
+				// 	&& (touch.position - lastMainTouchLocation).sqrMagnitude < TouchTapMaxDistance * TouchTapMaxDistance
+				// 	&& clickTimer > 0) {
+				// 	Player.Interact();
+				// }
 				break;
 		}
 
@@ -170,16 +170,16 @@ public class TouchScript : MonoBehaviour {
 
 		if (mouseUpThisFrame) {
 
-			float releaseDelta = (lastClickLocation - currentMousePosition).sqrMagnitude;
-			float maxDistanceSquared = MouseInteractMaxDistance * MouseInteractMaxDistance;
+			// float releaseDelta = (lastClickLocation - currentMousePosition).sqrMagnitude;
+			// float maxDistanceSquared = MouseInteractMaxDistance * MouseInteractMaxDistance;
 
 			// Debug.Log("delta on release: " + releaseDelta + " (max: " + maxDistanceSquared + "), click timer: " + clickTimer);
 
-			if (InteractionEnabled
-				&& releaseDelta < maxDistanceSquared
-				&& clickTimer > 0) {
-				Player.Interact();
-			}
+			// if (InteractionEnabled
+			// 	&& releaseDelta < maxDistanceSquared
+			// 	&& clickTimer > 0) {
+			// 	Player.Interact();
+			// }
 		} else if (Input.GetMouseButton(0)) {
 			Vector2 delta = currentMousePosition - mouseBuffer;
 			MovePlayer(delta * MouseSpeedMod);

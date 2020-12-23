@@ -27706,6 +27706,7 @@ GameObject:
   - component: {fileID: 2119122208}
   - component: {fileID: 2119122207}
   - component: {fileID: 2119122209}
+  - component: {fileID: 2119122210}
   m_Layer: 0
   m_Name: L2_C1 (Ella)
   m_TagString: Untagged
@@ -27905,6 +27906,26 @@ MonoBehaviour:
     DialogueKey: readyToEllaNotebook
     Priority: 6
     QuestLine: 0
+--- !u!114 &2119122210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119122205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4bc50e07a58d1349b900fbf4d7e7191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - DialogueKey: asd
+    condition: 0
+    CompareValue: 0
+  - DialogueKey: dsa
+    condition: 0
+    CompareValue: 0
+  StartingValue: 0
 --- !u!1 &2138480745
 GameObject:
   m_ObjectHideFlags: 0

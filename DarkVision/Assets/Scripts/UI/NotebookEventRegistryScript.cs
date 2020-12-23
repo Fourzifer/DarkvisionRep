@@ -16,9 +16,6 @@ public class NotebookEventRegistryScript : MonoBehaviour {
 
 	public List<NotebookEventEntry> Entries = new List<NotebookEventEntry>();
 
-	void Start() {
-
-	}
 
 	public void ApplyEntry(string key){
 		
