@@ -103,9 +103,9 @@ public class NotebookEventRegistryEditor : Editor {
 			EditorGUILayout.EndHorizontal();
 			if (entriesFoldStates[id]) {
 				EditorGUI.indentLevel += 1;
-				EditorGUILayout.LabelField("Dialogue:");
-				item.Key = EditorGUILayout.TextArea("Key", item.Key);
-				item.DialogueKey = EditorGUILayout.TextArea("Dialogue Key", item.DialogueKey);
+				// EditorGUILayout.LabelField("Dialogue:");
+				// item.Key = EditorGUILayout.TextField("Key", item.Key);
+				item.DialogueKey = EditorGUILayout.TextField("Dialogue Key", item.DialogueKey);
 				EditorGUILayout.BeginHorizontal();
 				item.Priority = EditorGUILayout.IntField("Priority", item.Priority);
 				item.QuestLine = EditorGUILayout.IntField("Questline", item.QuestLine);

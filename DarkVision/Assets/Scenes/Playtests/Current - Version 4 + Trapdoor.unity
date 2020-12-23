@@ -1055,7 +1055,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - quiet
     - radio
     MultiplePhrases: 1
@@ -1090,7 +1092,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - child
     - kid
     MultiplePhrases: 1
@@ -1125,7 +1129,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - sorry
     - jonas
     MultiplePhrases: 1
@@ -1160,7 +1166,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - hello
     - terry
     MultiplePhrases: 1
@@ -12647,7 +12655,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - hello
     - richard
     MultiplePhrases: 1
@@ -12682,7 +12692,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - husband
     - cold
     - aching
@@ -12719,7 +12731,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - terry
     - radio
     MultiplePhrases: 1
@@ -12822,7 +12836,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - hello
     - jonas
     MultiplePhrases: 1
@@ -12857,7 +12873,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - quiet
     - stop whistling
     MultiplePhrases: 1
@@ -12904,7 +12922,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - sorry
     - terry
     MultiplePhrases: 1
@@ -12939,7 +12959,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - child
     - kid
     - lullaby
@@ -13497,12 +13519,6 @@ MonoBehaviour:
       you keep going. When you want to keep going, just come back to me and say that
       you\u2019re ready.\_\r"
     Clip: {fileID: 8300000, guid: 7fceceebc8606e7489dd3d2c22e1ffac, type: 3}
-  - Key: escapeToElla
-    Dialogue: "That was the end of the prototype! Thank you very much for trying
-      it, we hope you enjoyed it! We would love it if you were to answer the survey
-      that was linked in the post you found this game through, or the survey on our
-      itch.io page of you found the prototype through the Itch.io website.\r"
-    Clip: {fileID: 0}
   - Key: helloToRichard
     Dialogue: "Are you talking to me? Then let me give you some information. Can
       you hear the person with the *sound* in the room? Her name is Hannah. I shudder
@@ -13674,7 +13690,7 @@ MonoBehaviour:
   - Key: readyAll5
     Dialogue: "Everyone are ready to escape. Say escape and we\u2019ll get going.\r"
     Clip: {fileID: 8300000, guid: a97c29ba6b7712e46bcd06d0b44a90e8, type: 3}
-  - Key: readyToElla
+  - Key: escapeToElla
     Dialogue: Great, I'll let you down into the next vent!
     Clip: {fileID: 8300000, guid: da8dad0d28674fd4bb4c05655b315b5a, type: 3}
 --- !u!43 &859281254
@@ -24203,7 +24219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - hello
     - hannah
     MultiplePhrases: 1
@@ -24226,7 +24244,9 @@ MonoBehaviour:
             m_StringArgument: helloToHannahNotebook
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - carpet
     - bathroom
     - floor
@@ -24274,7 +24294,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - yes
     MultiplePhrases: 0
     Enabled: 0
@@ -24308,7 +24330,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - no
     MultiplePhrases: 0
     Enabled: 0
@@ -24342,7 +24366,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - file
     MultiplePhrases: 0
     Enabled: 0
@@ -24376,7 +24402,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - why does jonas whistle?
     - whistle
     MultiplePhrases: 1
@@ -27909,6 +27937,8 @@ GameObject:
   - component: {fileID: 2119122206}
   - component: {fileID: 2119122208}
   - component: {fileID: 2119122207}
+  - component: {fileID: 2119122209}
+  - component: {fileID: 2119122210}
   m_Layer: 0
   m_Name: L2_C1 (Ella)
   m_TagString: Untagged
@@ -27963,11 +27993,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HearingDistance: 5
   Phrases:
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - hello
     MultiplePhrases: 0
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: helloToElla
     EventsHidden: 0
     Event:
@@ -27997,7 +28029,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
     - yes
     MultiplePhrases: 0
     Enabled: 1
@@ -28031,11 +28065,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Phrase:
+  - UseSelector: 1
+    Selector: {fileID: 2119122209}
+    Phrase:
     - ready
     MultiplePhrases: 0
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: readyToElla
     EventsHidden: 0
     Event:
@@ -28043,7 +28079,19 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2119122208}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+          m_MethodName: EnablePhrase
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2119122210}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28053,16 +28101,28 @@ MonoBehaviour:
             m_StringArgument: readyToEllaNotebook
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2119122208}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: QueueColliderDisable
-          m_Mode: 2
+  - UseSelector: 0
+    Selector: {fileID: 0}
+    Phrase:
+    - escape
+    MultiplePhrases: 0
+    Enabled: 0
+    Hidden: 0
+    ResponseKey: escapeToElla
+    EventsHidden: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2119122210}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
+          m_Mode: 5
           m_Arguments:
-            m_ObjectArgument: {fileID: 1476381497}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: levelCompleteNotebook
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 241903442}
@@ -28079,7 +28139,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 2119122208}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: QueueFModAudioClip
+          m_MethodName: QueueAudioClip
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 8300000, guid: ceea2003209b9d1448917cbc1195e8d3,
@@ -28088,45 +28148,107 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 2119122208}
           m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: EnablePhrase
-          m_Mode: 3
+          m_MethodName: QueueColliderDisable
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Phrase:
-    - escape
-    MultiplePhrases: 0
-    Enabled: 1
-    Hidden: 1
-    ResponseKey: escapeToElla
-    EventsHidden: 0
-    Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2119122208}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1476381497}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: levelCompleteNotebook
-            m_BoolArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 2119122208}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: QueueAudioClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: ddb3a3e48bb00384f82b7ec5c81e1559,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
+--- !u!114 &2119122209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119122205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4bc50e07a58d1349b900fbf4d7e7191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - DialogueKey: ready0
+    Condition: 2
+    CompareValue: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - DialogueKey: ready1
+    Condition: 0
+    CompareValue: 1
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - DialogueKey: ready2
+    Condition: 0
+    CompareValue: 2
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - DialogueKey: ready3
+    Condition: 0
+    CompareValue: 3
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - DialogueKey: ready4
+    Condition: 0
+    CompareValue: 4
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - DialogueKey: ready5
+    Condition: 4
+    CompareValue: 5
+    Event:
+      m_PersistentCalls:
+        m_Calls: []
+  StartingValue: 0
+--- !u!114 &2119122210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119122205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13bf5e88583ff478c567d292956455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - Key: readyToEllaNotebook
+    DialogueKey: readyToEllaNotebook
+    Priority: 6
+    QuestLine: 0
+  - Key: levelCompleteNotebook
+    DialogueKey: levelCompleteNotebook
+    Priority: 0
+    QuestLine: 0
 --- !u!1 &2138480745
 GameObject:
   m_ObjectHideFlags: 0
