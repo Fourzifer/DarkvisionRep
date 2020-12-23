@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 
@@ -10,8 +11,6 @@ public class NotebookScript : MonoBehaviour {
 
 	[Serializable]
 	public class NotebookEntry {
-		// IDEA: give entries keys or ids for updating existing entries (and moving them to the front) instead of just adding a new entry
-		// IDEA: use dictionary
 		public string Text = "";
 		public AudioClip Clip;
 		public int CurrentPriority = 0;
@@ -31,6 +30,12 @@ public class NotebookScript : MonoBehaviour {
 
 	public TMP_Text NoteText;
 
+	[EventRef]
+	public string ScribbleEvent = "";
+	[EventRef]
+	public string TurnPageEvent = "";
+	[EventRef]
+	public string CloseEvent = "";
 
 	// float timer = -1;
 
@@ -70,6 +75,9 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 
+		// PlayerCharacterScript.PlayFMOD(mainInstance.TurnPageEvent);
+		// RuntimeManager.PlayOneShot(mainInstance.TurnPageEvent);
+		PlayFmod(mainInstance.TurnPageEvent);
 		mainInstance.gameObject.SetActive(true);
 		// PlayerCharacterScript.PlayClip(mainInstance.entries[0].Clip);
 		PlayLatest();
@@ -79,6 +87,10 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 		if (!mainInstance.gameObject.activeSelf) {
+			// PlayerCharacterScript.PlayFMOD(mainInstance.TurnPageEvent);
+			// RuntimeManager.PlayOneShot(mainInstance.TurnPageEvent);
+			PlayFmod(mainInstance.TurnPageEvent);
+
 			mainInstance.gameObject.SetActive(true);
 			PlayLatest();
 		}
@@ -87,6 +99,10 @@ public class NotebookScript : MonoBehaviour {
 	public static void Hide() {
 		if (!mainInstance)
 			return;
+
+		// PlayerCharacterScript.PlayFMOD(mainInstance.CloseEvent);
+		// RuntimeManager.PlayOneShot(mainInstance.CloseEvent);
+		PlayFmod(mainInstance.CloseEvent);
 
 		PlayerCharacterScript.StopNarratorNow();
 		mainInstance.gameObject.SetActive(false);
@@ -129,10 +145,12 @@ public class NotebookScript : MonoBehaviour {
 		mainInstance.currentIndex--;
 		if (mainInstance.currentIndex < 0) {
 			mainInstance.currentIndex = mainInstance.entries.Count - 1;
-			// TODO: play indication that end has been reached
-			// IDEA: loop instead
-			return;
+			// return;
 		}
+
+		// PlayerCharacterScript.PlayFMOD(mainInstance.TurnPageEvent);
+		// RuntimeManager.PlayOneShot(mainInstance.TurnPageEvent);
+		PlayFmod(mainInstance.TurnPageEvent);
 
 		PlayCurrent();
 
@@ -145,10 +163,12 @@ public class NotebookScript : MonoBehaviour {
 		mainInstance.currentIndex++;
 		if (mainInstance.currentIndex >= mainInstance.entries.Count) {
 			mainInstance.currentIndex = 0;
-			// TODO: play indication that end has been reached
-			// IDEA: loop instead
-			return;
+			// return;
 		}
+
+		// PlayerCharacterScript.PlayFMOD(mainInstance.TurnPageEvent);
+		// RuntimeManager.PlayOneShot(mainInstance.TurnPageEvent);
+		PlayFmod(mainInstance.TurnPageEvent);
 
 		PlayCurrent();
 	}
@@ -160,6 +180,10 @@ public class NotebookScript : MonoBehaviour {
 			Debug.LogWarningFormat("Key \"{0}\" does not exist in registry", dialogueKey);
 			return;
 		}
+
+		// PlayerCharacterScript.PlayFMOD(mainInstance.ScribbleEvent);
+		// RuntimeManager.PlayOneShot(mainInstance.ScribbleEvent);
+		PlayFmod(mainInstance.ScribbleEvent);
 
 		mainInstance.entries.Add(new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip));
 	}
@@ -184,8 +208,18 @@ public class NotebookScript : MonoBehaviour {
 		}
 
 		mainInstance.currentIndex = questLine;
+		// PlayerCharacterScript.PlayFMOD(mainInstance.ScribbleEvent);
+		// RuntimeManager.PlayOneShot(mainInstance.ScribbleEvent);
+		PlayFmod(mainInstance.ScribbleEvent);
 		mainInstance.entries[questLine] = new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip, true, priority);
 
+	}
+
+	public static void PlayFmod(string eventPath) {
+
+		var instance = RuntimeManager.CreateInstance(RuntimeManager.PathToGUID(eventPath));
+		instance.start();
+		instance.release();
 	}
 
 }
