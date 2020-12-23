@@ -101,7 +101,12 @@ public class NPCListenerScriptEditor : Editor {
 				}
 				EditorGUILayout.EndHorizontal();
 
-				item.ResponseKey = EditorGUILayout.TextField("Response Key",item.ResponseKey);
+				item.UseSelector = GUILayout.Toggle(item.UseSelector, "Use Selector");
+				if (item.UseSelector) {
+					item.Selector = (DialogueConditionalSelector)EditorGUILayout.ObjectField("Selector", item.Selector, typeof(DialogueConditionalSelector), true);
+				} else {
+					item.ResponseKey = EditorGUILayout.TextField("Response Key", item.ResponseKey);
+				}
 				if (phrases != null) {
 					item.EventsHidden = !EditorGUILayout.Foldout(!item.EventsHidden, "Events");
 					if (!item.EventsHidden) {

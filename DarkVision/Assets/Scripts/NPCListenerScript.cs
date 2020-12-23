@@ -12,6 +12,8 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 	[Serializable]
 	public class ListenPhraseEntry {
+		public bool UseSelector;
+		public DialogueConditionalSelector Selector;
 		public List<string> Phrase;
 		public bool MultiplePhrases = false;
 		// public float PopupTime = 10;
@@ -77,6 +79,22 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		}
 	}
 
+	public void PlayClip(AudioClip clip) {
+		PlayerCharacterScript.StopNarratorNow();
+		narrator?.Stop();
+		narrator?.PlayOneShot(clip);
+	}
+
+	public void PlayDialogue(AudioClip clip) {
+		PlayerCharacterScript.StopNarratorNow();
+		narrator?.Stop();
+		narrator?.PlayOneShot(clip);
+	}
+
+	public void StopNarrator() {
+		narrator?.Stop();
+	}
+
 	public void Notify((Vector3, string) notification) {
 		Vector3 pos = notification.Item1;
 
@@ -96,8 +114,10 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		if (entry != null) {
 			Analytics.DialogueNr++;
 			Analytics.LastNPC = this.gameObject.name;
-			
-			var dialogueEntry = DialogueRegistryScript.GetEntry(entry.ResponseKey);
+
+			string phrase = entry.UseSelector ? entry.Selector.GetPhrase() : entry.ResponseKey;
+			var dialogueEntry = DialogueRegistryScript.GetEntry(phrase);
+
 			if (dialogueEntry != null) {
 
 				// Debug.Log("[In response to \"" + word + "\"]: " + dialogueEntry.Dialogue);
@@ -105,9 +125,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 				if (dialogueEntry.Clip) {
 					popupTime = dialogueEntry.Clip.length;
-					PlayerCharacterScript.StopNarratorNow();
-					narrator?.Stop();
-					narrator?.PlayOneShot(dialogueEntry.Clip);
+					PlayClip(dialogueEntry.Clip);
 				}
 
 				PopupHandlerScript.ShowCustomPopup(
@@ -153,10 +171,10 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 		EndOfClipEvents.Add(delegate { clip.StartPlayBack(); });
 	}
 
-	public void QueueFModAudioClip(AudioClip clip) {
-		EndOfClipEvents.Add(delegate { 
+	public void QueueAudioClip(AudioClip clip) {
+		EndOfClipEvents.Add(delegate {
 			narrator.PlayOneShot(clip);
-		 });
+		});
 	}
 
 	public void QueueColliderDisable(Collider collider) {

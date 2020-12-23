@@ -75,6 +75,15 @@ public class NotebookScript : MonoBehaviour {
 		PlayLatest();
 	}
 
+	public static void ShowIfHidden() {
+		if (!mainInstance)
+			return;
+		if (!mainInstance.gameObject.activeSelf) {
+			mainInstance.gameObject.SetActive(true);
+			PlayLatest();
+		}
+	}
+
 	public static void Hide() {
 		if (!mainInstance)
 			return;
@@ -96,8 +105,7 @@ public class NotebookScript : MonoBehaviour {
 
 		var entry = mainInstance.entries[mainInstance.entries.Count - 1];
 
-		if (entry.Clip == null)
-		{
+		if (entry.Clip == null) {
 			Debug.LogWarningFormat("Sound clip for \"{0}\" has not been assigned", entry.Text);
 			return;
 		}
@@ -120,11 +128,13 @@ public class NotebookScript : MonoBehaviour {
 
 		mainInstance.currentIndex--;
 		if (mainInstance.currentIndex < 0) {
-			mainInstance.currentIndex = 0;
+			mainInstance.currentIndex = mainInstance.entries.Count - 1;
 			// TODO: play indication that end has been reached
 			// IDEA: loop instead
 			return;
 		}
+
+		PlayCurrent();
 
 	}
 
@@ -132,6 +142,15 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 
+		mainInstance.currentIndex++;
+		if (mainInstance.currentIndex >= mainInstance.entries.Count) {
+			mainInstance.currentIndex = 0;
+			// TODO: play indication that end has been reached
+			// IDEA: loop instead
+			return;
+		}
+
+		PlayCurrent();
 	}
 
 
@@ -160,7 +179,7 @@ public class NotebookScript : MonoBehaviour {
 
 			// NOTE: this line decides if the notebook still changes current questline when revisiting old dialogue
 			mainInstance.currentIndex = questLine;
-			
+
 			return;
 		}
 
