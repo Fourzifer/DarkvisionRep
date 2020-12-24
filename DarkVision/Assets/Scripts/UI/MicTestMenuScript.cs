@@ -46,7 +46,7 @@ public class MicTestMenuScript : MonoBehaviour {
 		// audioPlayer.PlayOneShot(WelcomeClip);
 
 		// if (keywords != null) {
-		string path = Application.dataPath + "/srgs/" + srgsPath + ".xml";
+		string path = Application.streamingAssetsPath + "/srgs/" + srgsPath + ".xml";
 
 		recognizer = new GrammarRecognizer(path, confidence);
 		recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;

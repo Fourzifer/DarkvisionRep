@@ -5,17 +5,18 @@ using UnityEngine.Analytics;
 
 public class Analytics : MonoBehaviour
 {
+    bool RunTimer = false;
     bool AllowCountingTime;
-    public static float Timer;
-    public static int DialogueNr;
-    public static int LevelNr;
+    public static float Timer = 0;
+    public static int DialogueNr = 0;
+    public static int LevelNr = 0;
     public static bool TestState = false;
-    public static int MicrophoneNr;
-    public static string LastNPC;
+    public static int MicrophoneNr = 0;
+    public static string LastNPC = "Unknown";
 
     void Awake()
     {
-        Timer += Time.deltaTime;
+        RunTimer = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,16 @@ public class Analytics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(RunTimer){
+            Timer += Time.deltaTime;
+        }
         
     }
     private void OnApplicationQuit() {
-		
+		RunTimer = false;
         SendAnalytics();
         Debug.Log("Analytics Sent");
+        Debug.Log("Time spent playing : " + Timer);
 		
 	}
 
@@ -49,4 +54,5 @@ public class Analytics : MonoBehaviour
             }
         );
     }
+
 }

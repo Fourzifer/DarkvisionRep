@@ -17,16 +17,20 @@ public class NotebookEventRegistryScript : MonoBehaviour {
 	public List<NotebookEventEntry> Entries = new List<NotebookEventEntry>();
 
 
-	public void ApplyEntry(string key){
-		
+	public void ApplyEntry(string key) {
+
 		var entry = Entries.FirstOrDefault(firstEntry => firstEntry.Key == key);
 
-		if (entry == null){
+		if (entry == null) {
 			Debug.LogWarningFormat("Notebook entry \"{0}\" does not exist", key);
 			return;
 		}
 
 		NotebookScript.AddEntryIfHigherPriority(entry.DialogueKey, entry.Priority, entry.QuestLine);
+	}
+
+	public void DisableQuestline(int index) {
+		NotebookScript.DisableQuestlineStatic(index);
 	}
 
 }

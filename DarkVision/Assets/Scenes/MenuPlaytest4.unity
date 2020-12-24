@@ -1007,5 +1007,5 @@ MonoBehaviour:
     microphone test.
   nextSceneName: Version 4 - Level 1
   srgsPath: menu
-  confidence: 1
+  confidence: 2
   WaitForKey: 1
