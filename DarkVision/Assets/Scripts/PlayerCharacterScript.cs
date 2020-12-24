@@ -216,9 +216,10 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 				if (notebookKeyPressedLastFrame) {
 
-					NotebookScript.Hide();
 					if (notebookKeyTimer < NotebookKeyTapTime) {
 						NotebookScript.PlayLatestAsPopup();
+					} else {
+						NotebookScript.Hide();
 					}
 					notebookKeyTimer = 0;
 				}

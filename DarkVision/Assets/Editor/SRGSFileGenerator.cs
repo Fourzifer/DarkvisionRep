@@ -49,7 +49,7 @@ public class SRGSFileGenerator : EditorWindow {
 		// EditorGUILayout.Separator();
 		EditorGUILayout.Space();
 
-		string path = Application.dataPath + "/srgs/" + outputFile + ".xml";
+		string path = Application.streamingAssetsPath + "/srgs/" + outputFile + ".xml";
 
 		// IDEA: option to read xml file to populate fields
 		if (GUILayout.Button("Load file")) {

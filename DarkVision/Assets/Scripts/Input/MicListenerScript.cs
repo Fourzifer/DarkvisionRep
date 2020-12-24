@@ -16,7 +16,7 @@ public class MicListenerScript : MonoBehaviour {
 	protected string word = "asdf";
 
 	private void Start() {
-		string path = Application.dataPath + "/srgs/" + SRGSFilePath + ".xml";
+		string path = Application.streamingAssetsPath + "/srgs/" + SRGSFilePath + ".xml";
 
 		if (File.Exists(path)) {
 			recognizer = new GrammarRecognizer(path, confidence);

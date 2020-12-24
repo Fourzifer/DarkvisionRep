@@ -80,6 +80,10 @@ public class NotebookScript : MonoBehaviour {
 		entries[index].Enabled = false;
 	}
 
+	public static void DisableQuestlineStatic(int index){
+		mainInstance?.DisableQuestline(index);
+	}
+
 
 	public static void Show() {
 		if (!mainInstance)

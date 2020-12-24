@@ -1,0 +1,33 @@
+<grammar version="1.0" xml:lang="en-US" root="rootRule" xmlns="http://www.w3.org/2001/06/grammar"><rule id="rootRule">
+	<ruleref special="GARBAGE" />
+	<one-of>
+		<item>hello</item>
+		<item>yes</item>
+		<item>ready</item>
+		<item>escape</item>
+		<item>richard</item>
+		<item>husband</item>
+		<item>cold</item>
+		<item>aching</item>
+		<item>feet</item>
+		<item>terry</item>
+		<item>radio</item>
+		<item>hannah</item>
+		<item>carpet</item>
+		<item>bathroom</item>
+		<item>floor</item>
+		<item>no</item>
+		<item>file</item>
+		<item>why does jonas whistle?</item>
+		<item>whistle</item>
+		<item>quiet</item>
+		<item>child</item>
+		<item>kid</item>
+		<item>sorry</item>
+		<item>jonas</item>
+		<item>stop whistling</item>
+		<item>lullaby</item>
+	</one-of>
+	<ruleref special="GARBAGE" />
+</rule>
+</grammar>
