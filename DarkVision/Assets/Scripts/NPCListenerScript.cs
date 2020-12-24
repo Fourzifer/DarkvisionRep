@@ -186,6 +186,7 @@ public class NPCListenerScript : MonoBehaviour, Utility.IObserver<(Vector3, stri
 
 
 	public void AddNotebookEntry(string dialogueKey) {
-		NotebookScript.AddEntry(dialogueKey);
+		// NotebookScript.AddEntry(dialogueKey);
+		NotebookScript.AddEntryIfHigherPriority(dialogueKey, 0, 0);
 	}
 }
