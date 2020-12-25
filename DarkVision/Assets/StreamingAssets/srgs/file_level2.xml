@@ -25,8 +25,9 @@
 		<item>kid</item>
 		<item>sorry</item>
 		<item>jonas</item>
-		<item>stop whistling</item>
 		<item>lullaby</item>
+		<item>whistling</item>
+		<item>children</item>
 	</one-of>
 	<ruleref special="GARBAGE" />
 </rule>

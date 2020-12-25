@@ -934,8 +934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entries:
   - Text: Goodbye!
-    Clip: {fileID: 0}
-    Keyword: goodbye
+    Clip: {fileID: 8300000, guid: bd5b97f3d8d3b4b4da4fcf40e9abf531, type: 3}
+    Keyword: bye
     Events:
       m_PersistentCalls:
         m_Calls:

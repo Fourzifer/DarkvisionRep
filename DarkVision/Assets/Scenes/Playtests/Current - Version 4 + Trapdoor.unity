@@ -1144,6 +1144,7 @@ MonoBehaviour:
     Phrase:
     - child
     - kid
+    - children
     MultiplePhrases: 1
     Enabled: 0
     Hidden: 0
@@ -13707,7 +13708,8 @@ MonoBehaviour:
     Selector: {fileID: 0}
     Phrase:
     - quiet
-    - stop whistling
+    - whistle
+    - whistling
     MultiplePhrases: 1
     Enabled: 0
     Hidden: 0
@@ -13760,7 +13762,7 @@ MonoBehaviour:
     MultiplePhrases: 1
     Enabled: 0
     Hidden: 0
-    ResponseKey: sorryToJonas
+    ResponseKey: whis
     EventsHidden: 0
     Event:
       m_PersistentCalls:
@@ -13831,6 +13833,7 @@ MonoBehaviour:
     - child
     - kid
     - lullaby
+    - children
     MultiplePhrases: 1
     Enabled: 0
     Hidden: 0
@@ -17391,7 +17394,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15788
+  m_Name: pb_Mesh20228
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

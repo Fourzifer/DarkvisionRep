@@ -72,15 +72,15 @@ public class NotebookScript : MonoBehaviour {
 		PlayerCharacterScript.PlayClip(entry.Clip);
 	}
 
-	public void DisableQuestline(int index){
-		if(index >= entries.Count){
+	public void DisableQuestline(int index) {
+		if (index >= entries.Count) {
 			return;
 		}
 
 		entries[index].Enabled = false;
 	}
 
-	public static void DisableQuestlineStatic(int index){
+	public static void DisableQuestlineStatic(int index) {
 		mainInstance?.DisableQuestline(index);
 	}
 
@@ -157,10 +157,16 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 
-		mainInstance.currentIndex--;
-		if (mainInstance.currentIndex < 0) {
-			mainInstance.currentIndex = mainInstance.entries.Count - 1;
-			// return;
+		int oldIndex = mainInstance.currentIndex;
+		bool firstLoop = true;
+
+		while (firstLoop || (mainInstance.entries[mainInstance.currentIndex].Enabled && mainInstance.currentIndex != oldIndex)) {
+			firstLoop = false;
+			mainInstance.currentIndex--;
+			if (mainInstance.currentIndex < 0) {
+				mainInstance.currentIndex = mainInstance.entries.Count - 1;
+				// return;
+			}
 		}
 
 		// PlayerCharacterScript.PlayFMOD(mainInstance.TurnPageEvent);
@@ -175,12 +181,16 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 
-		mainInstance.currentIndex++;
-		if (mainInstance.currentIndex >= mainInstance.entries.Count) {
-			mainInstance.currentIndex = 0;
-			// return;
-		}
+		int oldIndex = mainInstance.currentIndex;
+		bool firstLoop = true;
 
+		while (firstLoop || (mainInstance.entries[mainInstance.currentIndex].Enabled && mainInstance.currentIndex != oldIndex)) {
+			mainInstance.currentIndex++;
+			if (mainInstance.currentIndex >= mainInstance.entries.Count) {
+				mainInstance.currentIndex = 0;
+				// return;
+			}
+		}
 		// PlayerCharacterScript.PlayFMOD(mainInstance.TurnPageEvent);
 		// RuntimeManager.PlayOneShot(mainInstance.TurnPageEvent);
 		PlayFmod(mainInstance.TurnPageEvent);

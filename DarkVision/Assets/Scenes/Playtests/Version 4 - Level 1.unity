@@ -1559,6 +1559,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3905681039311486928, guid: c7b54f0e6adfb7143a456c0e2f33e4b9,
+        type: 3}
+      propertyPath: StartEntry.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fcaafed4a8cf4b149b353dd57ffab7a3, type: 3}
+    - target: {fileID: 3905681039311486928, guid: c7b54f0e6adfb7143a456c0e2f33e4b9,
+        type: 3}
+      propertyPath: StartEntry.Text
+      value: There's a man named Adam by the coffee machine, he can apparently help
+        me. Saying his name should catch his attention.
+      objectReference: {fileID: 0}
     - target: {fileID: 4635282852822387896, guid: c7b54f0e6adfb7143a456c0e2f33e4b9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5632,6 +5643,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 1210085256135519692, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: m_Drag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210085256135519692, guid: 2684650351dea1a4cb9ed41ed1c360dd,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1210085256135519695, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: KbdSpeed
@@ -8582,7 +8603,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15744
+  m_Name: pb_Mesh21032
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11928,7 +11949,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476381496}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 16a1b20e492482945810127de0319efd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

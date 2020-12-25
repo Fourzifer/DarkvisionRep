@@ -2,6 +2,8 @@
 	<ruleref special="GARBAGE" />
 	<one-of>
 		<item>bye</item>
+		<item>quit</item>
+		<item>exit</item>
 	</one-of>
 	<ruleref special="GARBAGE" />
 </rule>
