@@ -3207,6 +3207,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: VentWall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.0183834
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.000000044273953
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.009190113
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.00000004427393
+      objectReference: {fileID: 0}
     - target: {fileID: 6964324933705182185, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
         type: 3}
       propertyPath: m_Mesh
@@ -7541,6 +7566,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: VentWall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9976032
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.000000045512635
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.0012007037
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.00000004551261
+      objectReference: {fileID: 0}
     - target: {fileID: 6964324933705182185, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
         type: 3}
       propertyPath: m_Mesh
@@ -10265,6 +10315,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VentWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9886428
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.00000004604654
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.0056794216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.000000046046516
       objectReference: {fileID: 0}
     - target: {fileID: 6964324933705182185, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
         type: 3}
@@ -13592,11 +13667,11 @@ MonoBehaviour:
   - Key: helloToRichardNotebook
     DialogueKey: helloToRichardNotebook
     Priority: 0
-    QuestLine: 2
+    QuestLine: 3
   - Key: husbandToRichardNotebook
     DialogueKey: husbandToRichardNotebook
-    Priority: 1
-    QuestLine: 2
+    Priority: 0
+    QuestLine: 3
   - Key: radioToRichardNotebook
     DialogueKey: radioToRichardNotebook
     Priority: 2
@@ -13762,7 +13837,7 @@ MonoBehaviour:
     MultiplePhrases: 1
     Enabled: 0
     Hidden: 0
-    ResponseKey: whis
+    ResponseKey: sorryToJonas
     EventsHidden: 0
     Event:
       m_PersistentCalls:
@@ -13776,7 +13851,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: questCompleNotebook
+            m_StringArgument: questCompleteNotebook
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 742316368}
@@ -13890,7 +13965,7 @@ MonoBehaviour:
     DialogueKey: 
     Priority: 0
     QuestLine: 5
-  - Key: questCompleNotebook
+  - Key: questCompleteNotebook
     DialogueKey: questCompleNotebook
     Priority: 0
     QuestLine: 6
@@ -14082,7 +14157,7 @@ PrefabInstance:
     - target: {fileID: 1210085256135519680, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.81
+      value: 8.44
       objectReference: {fileID: 0}
     - target: {fileID: 1210085256135519681, guid: 2684650351dea1a4cb9ed41ed1c360dd,
         type: 3}
@@ -14415,9 +14490,9 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 7fceceebc8606e7489dd3d2c22e1ffac, type: 3}
   - Key: helloToRichard
     Dialogue: "Are you talking to me? Then let me give you some information. Can
-      you hear the person with the *sound* in the room? Her name is Hannah. I shudder
-      even thinking about it, but the reason why she\u2019s here in the first place
-      is because she carpeted her entire bathroom floor. Ask her about the carpeted
+      you hear the person typing near my cell? Her name is Hannah. I shudder even
+      thinking about it, but the reason why she\u2019s here in the first place is
+      because she carpeted her entire bathroom floor. Ask her about the carpeted
       bathroom and she\u2019ll tell you it\u2019s true. I'm Richard by the way, nice
       to meet you.\r"
     Clip: {fileID: 8300000, guid: c4fb41da3df604a42916bf632e9574e4, type: 3}
@@ -14520,8 +14595,8 @@ MonoBehaviour:
     Dialogue: I'm done for now, the playtest is over.
     Clip: {fileID: 8300000, guid: 0626dc34753266f4e8d19e4f0d089548, type: 3}
   - Key: helloToRichardNotebook
-    Dialogue: Richard told me to ask Hannah about her carpeted bathroom floor. There's
-      a *item that makes a sound* in her room.
+    Dialogue: Richard told me to ask Hannah about her carpeted bathroom floor. I
+      should be able to hear her typing on a computer keyboard.
     Clip: {fileID: 8300000, guid: 36e04c570cbd93c41990f06f43775ea9, type: 3}
   - Key: yesToHannahNotebook
     Dialogue: Hannah didn't like my response. I should probably ask her about her
@@ -14604,6 +14679,9 @@ MonoBehaviour:
     Dialogue: "This appears to be the floor below the one I was just at. Maybe I
       can find someone to say hello to?\r"
     Clip: {fileID: 8300000, guid: 9af10bdad45b73e48a8648c2c186b86c, type: 3}
+  - Key: carpetToHannahNotebook
+    Dialogue: "Hannah asked me if I came to make fun of her carpeted bathroom.\r"
+    Clip: {fileID: 8300000, guid: dfed35df29b38ea4d894f7bd21068b78, type: 3}
 --- !u!43 &859281254
 Mesh:
   m_ObjectHideFlags: 0
@@ -14779,6 +14857,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VentWall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9936389
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.000000045748976
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.0031832827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.00000004574895
       objectReference: {fileID: 0}
     - target: {fileID: 6964324933705182185, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
         type: 3}
@@ -18599,6 +18702,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: VentWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9764348
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 5.094629e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.011782367
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.018944e-15
+      objectReference: {fileID: 0}
     - target: {fileID: 6964324933705182185, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
         type: 3}
       propertyPath: m_Mesh
@@ -21960,6 +22093,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VentWall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9880285
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 2.7239112e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.0059857788
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -5.726088e-16
       objectReference: {fileID: 0}
     - target: {fileID: 6964324933705182185, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
         type: 3}
@@ -25728,7 +25886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1714191329
 Transform:
   m_ObjectHideFlags: 0
@@ -25737,7 +25895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714191328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.80000377, y: -18.65, z: 5.8000064}
+  m_LocalPosition: {x: -0.80000377, y: -21.4, z: 5.8000064}
   m_LocalScale: {x: 781.0804, y: 9.361556, z: 1564.866}
   m_Children: []
   m_Father: {fileID: 0}
@@ -26682,6 +26840,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VentWall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.98497444
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 5.574615e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.00751278
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964324932041590553, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.5917908e-15
       objectReference: {fileID: 0}
     - target: {fileID: 6964324933705182185, guid: 8e61a69a3aa8e5f449320b7b58ff9300,
         type: 3}

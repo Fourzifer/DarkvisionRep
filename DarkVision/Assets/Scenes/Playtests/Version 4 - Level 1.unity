@@ -3608,7 +3608,7 @@ BoxCollider:
   m_GameObject: {fileID: 126969680}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5199,7 +5199,7 @@ BoxCollider:
   m_GameObject: {fileID: 565267289}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6009,9 +6009,9 @@ MonoBehaviour:
       find who you're looking for.
     Clip: {fileID: 8300000, guid: 59305611b6f34324ba874ad755719348, type: 3}
   - Key: readyToAdam
-    Dialogue: Great! We are pretty crafty here, so we managed to make a conveniant
+    Dialogue: Great! We are pretty crafty here, so we managed to make a convenient
       system to travel between floors. Good luck!
-    Clip: {fileID: 8300000, guid: 810e8814d801df94f8eb0ad7534bf8df, type: 3}
+    Clip: {fileID: 8300000, guid: bc546aaeb660af14e937cb0fe0f8b52b, type: 3}
   - Key: adamToAdamNotebook
     Dialogue: I'm looking for someone named David. He snores and apparently likes
       pineapple on pizza a lot.
@@ -8807,7 +8807,7 @@ BoxCollider:
   m_GameObject: {fileID: 972055198}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -14890,7 +14890,7 @@ BoxCollider:
   m_GameObject: {fileID: 1670415434}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -14962,7 +14962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1714191329
 Transform:
   m_ObjectHideFlags: 0
@@ -14971,7 +14971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714191328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.80000377, y: -11.830376, z: 5.8000064}
+  m_LocalPosition: {x: -0.80000377, y: -19.35, z: 5.8000064}
   m_LocalScale: {x: 781.0804, y: 9.361556, z: 1564.866}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15098,7 +15098,7 @@ BoxCollider:
   m_GameObject: {fileID: 1716418881}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -15359,7 +15359,7 @@ BoxCollider:
   m_GameObject: {fileID: 1765431237}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -16894,6 +16894,32 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 6391936259117553079}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: QueueAudioClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 2fd32b08d8db33440830ae9c9ecd5150,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 6391936259117553079}
+          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
+          m_MethodName: QueueAudioClip
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: ddb3a3e48bb00384f82b7ec5c81e1559,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
