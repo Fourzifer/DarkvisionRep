@@ -30216,7 +30216,7 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls: []
-  - DialogueKey: ready5
+  - DialogueKey: readyAll5
     Condition: 4
     CompareValue: 5
     Event:
