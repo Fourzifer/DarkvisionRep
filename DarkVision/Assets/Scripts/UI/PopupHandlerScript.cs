@@ -148,6 +148,8 @@ public class PopupHandlerScript : MonoBehaviour {
 			popup.Popup.SetActive(false);
 		}
 
+		mainInstance.CustomPopup.gameObject.SetActive(false);
+
 	}
 
 	public void EnableCustomPopup(string message, float time = 5) {

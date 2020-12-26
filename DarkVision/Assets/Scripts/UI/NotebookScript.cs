@@ -104,6 +104,7 @@ public class NotebookScript : MonoBehaviour {
 			// PlayerCharacterScript.PlayFMOD(mainInstance.TurnPageEvent);
 			// RuntimeManager.PlayOneShot(mainInstance.TurnPageEvent);
 			PlayFmod(mainInstance.TurnPageEvent);
+			PopupHandlerScript.HideTimedPopups();
 
 			mainInstance.gameObject.SetActive(true);
 			PlayLatest();
@@ -160,7 +161,7 @@ public class NotebookScript : MonoBehaviour {
 		int oldIndex = mainInstance.currentIndex;
 		bool firstLoop = true;
 
-		while (firstLoop || (mainInstance.entries[mainInstance.currentIndex].Enabled && mainInstance.currentIndex != oldIndex)) {
+		while (firstLoop || (!mainInstance.entries[mainInstance.currentIndex].Enabled && mainInstance.currentIndex != oldIndex)) {
 			firstLoop = false;
 			mainInstance.currentIndex--;
 			if (mainInstance.currentIndex < 0) {
@@ -184,7 +185,8 @@ public class NotebookScript : MonoBehaviour {
 		int oldIndex = mainInstance.currentIndex;
 		bool firstLoop = true;
 
-		while (firstLoop || (mainInstance.entries[mainInstance.currentIndex].Enabled && mainInstance.currentIndex != oldIndex)) {
+		while (firstLoop || (!mainInstance.entries[mainInstance.currentIndex].Enabled && mainInstance.currentIndex != oldIndex)) {
+			firstLoop = false;
 			mainInstance.currentIndex++;
 			if (mainInstance.currentIndex >= mainInstance.entries.Count) {
 				mainInstance.currentIndex = 0;

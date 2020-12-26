@@ -1233,7 +1233,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -13810,7 +13810,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -14508,14 +14508,14 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 8590a0e02a65e7c4fa012c1a5eaac8ba, type: 3}
   - Key: helloToEllaNotebook
     Dialogue: "Ella asked me if I fell through the ceiling.\r"
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: aeb30fd01fa606d4b95159c5b06e6436, type: 3}
   - Key: yesToEllaNotebook
     Dialogue: Ella told me I should say hello to the other people around here, and
       that I can tell her when I'm ready to leave.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: d3665c567ff867048a357cf5c6bfb0f6, type: 3}
   - Key: readyToEllaNotebook
     Dialogue: Ella told me to tell her when I want to escape.
-    Clip: {fileID: 8300000, guid: aeb30fd01fa606d4b95159c5b06e6436, type: 3}
+    Clip: {fileID: 8300000, guid: dbcb8a8adbef7c8419add3d01cc945d5, type: 3}
   - Key: levelEndNotebook
     Dialogue: I'm done for now, the playtest is over.
     Clip: {fileID: 8300000, guid: 0626dc34753266f4e8d19e4f0d089548, type: 3}
@@ -14533,34 +14533,34 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 8895330dfe2e36b4a9eeb5ff3166105f, type: 3}
   - Key: husbandToRichardNotebook
     Dialogue: Richard wants me to give his file to Hannah as an apology.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 49348d0c02d3bce48ad66d31caa4ef52, type: 3}
   - Key: questCompleteNotebook
     Dialogue: There may be things left undone, otherwise I can tell Ella that I'm
       ready.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: dfbb38532497b9c4fb89c6d80467b7e2, type: 3}
   - Key: helloToJonasNotebook
     Dialogue: Jonas wants me to tell the person in the nearest cell to be quiet.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: e789ce3de9650f54ca67b94c1160a3ac, type: 3}
   - Key: quietToTerryNotebook
     Dialogue: Terry wants me to tell Jonas to be quited, then ask Hannah why he whistles.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: b8db7bf556368c44e987510856fa5848, type: 3}
   - Key: quietToJonasNotebook
     Dialogue: Jonas wants me to ask Richard about Terry's radio.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 1052538f361b375448ce726cc0e1424b, type: 3}
   - Key: whistleToHannahNotebook
     Dialogue: Hannah told me, the reason Jonas whistles is because it remind him
       of his child. I think this is what Terry wanted to know.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 45da5743175cad447888854084969318, type: 3}
   - Key: childToTerryNotebook
     Dialogue: Terry wants me to tell Jonas that he's sorry.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: eba4865149bf58b498d4ef45bb46bd27, type: 3}
   - Key: radioToRichardNotebook
     Dialogue: Richard told me that Terry's radio plays a song made by his child.
       I think Jonas was curious about this.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 6830ed74de22f2e42ad9a57b885eba00, type: 3}
   - Key: childToJonasNotebook
     Dialogue: Jonas wants me to tell Terry that he's sorry.
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 6489c7a42ff320546873bf234fe2c14c, type: 3}
   - Key: ready0
     Dialogue: "None of the 5 people are ready to escape. Say escape and we\u2019ll
       get going.\r"
@@ -29961,7 +29961,19 @@ MonoBehaviour:
     EventsHidden: 0
     Event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2119122210}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: yesToEllaNotebook
+            m_BoolArgument: 0
+          m_CallState: 2
   DefaultResponse: I don't understand
   DefaultResponseClip: {fileID: 0}
   PrintHearingDistance: 0
@@ -30030,7 +30042,7 @@ MonoBehaviour:
   Entries:
   - Key: readyToEllaNotebook
     DialogueKey: readyToEllaNotebook
-    Priority: 6
+    Priority: 2
     QuestLine: 1
   - Key: levelCompleteNotebook
     DialogueKey: levelCompleteNotebook
@@ -30043,10 +30055,6 @@ MonoBehaviour:
   - Key: yesToEllaNotebook
     DialogueKey: yesToEllaNotebook
     Priority: 2
-    QuestLine: 1
-  - Key: helloOrYesAfterYesToElla
-    DialogueKey: helloOrYesAfterYesToElla
-    Priority: 3
     QuestLine: 1
 --- !u!1 &2138480745
 GameObject:
