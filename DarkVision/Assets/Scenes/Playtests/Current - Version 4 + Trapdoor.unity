@@ -822,7 +822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208256381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.46, y: -1, z: -5.33}
+  m_LocalPosition: {x: 38.72, y: -1, z: -5.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1124,7 +1124,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: quietToTerryNotebook
+            m_StringArgument: quietToTerry2Notebook
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 742316368}
@@ -1137,6 +1137,18 @@ MonoBehaviour:
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 241105872}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: quietToTerryNotebook
             m_BoolArgument: 0
           m_CallState: 2
   - UseSelector: 0
@@ -1221,7 +1233,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 4
+            m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1233,7 +1245,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1259,7 +1271,7 @@ MonoBehaviour:
     Enabled: 1
     Hidden: 1
     ResponseKey: helloToTerry
-    EventsHidden: 1
+    EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls: []
@@ -1281,12 +1293,20 @@ MonoBehaviour:
   Entries:
   - Key: quietToTerryNotebook
     DialogueKey: quietToTerryNotebook
+    Priority: 1
+    QuestLine: 3
+  - Key: quietToTerry2Notebook
+    DialogueKey: quietToTerry2Notebook
     Priority: 0
     QuestLine: 4
   - Key: questCompleteNotebook
     DialogueKey: questCompleteNotebook
     Priority: 0
     QuestLine: 6
+  - Key: childToTerryNotebook
+    DialogueKey: childToTerryNotebook
+    Priority: 2
+    QuestLine: 4
 --- !u!1 &241903440
 GameObject:
   m_ObjectHideFlags: 0
@@ -6849,7 +6869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365961242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.46, y: -1, z: 45.9}
+  m_LocalPosition: {x: 38.9, y: -1, z: 45.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13667,15 +13687,15 @@ MonoBehaviour:
   - Key: helloToRichardNotebook
     DialogueKey: helloToRichardNotebook
     Priority: 0
-    QuestLine: 3
+    QuestLine: 2
   - Key: husbandToRichardNotebook
     DialogueKey: husbandToRichardNotebook
     Priority: 0
-    QuestLine: 3
+    QuestLine: 2
   - Key: radioToRichardNotebook
     DialogueKey: radioToRichardNotebook
-    Priority: 2
-    QuestLine: 2
+    Priority: 3
+    QuestLine: 3
 --- !u!1 &742316365
 GameObject:
   m_ObjectHideFlags: 0
@@ -13873,7 +13893,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -13958,21 +13978,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entries:
   - Key: helloToJonasNotebook
-    DialogueKey: 
+    DialogueKey: helloToJonasNotebook
     Priority: 0
-    QuestLine: 5
+    QuestLine: 3
   - Key: quietToJonasNotebook
-    DialogueKey: 
-    Priority: 0
-    QuestLine: 5
+    DialogueKey: quietToJonasNotebook
+    Priority: 2
+    QuestLine: 3
   - Key: questCompleteNotebook
     DialogueKey: questCompleNotebook
     Priority: 0
     QuestLine: 6
   - Key: childToJonasNotebook
     DialogueKey: childToJonasNotebook
-    Priority: 0
-    QuestLine: 5
+    Priority: 4
+    QuestLine: 3
 --- !u!43 &751449288
 Mesh:
   m_ObjectHideFlags: 0
@@ -14566,10 +14586,10 @@ MonoBehaviour:
       I'm starting to think I judged him too harshly. Tell you what, could you say
       I'm sorry? I'll find a way to help him out, it's the least I could do.
     Clip: {fileID: 8300000, guid: 50c7c0055ef05b640a24ae54df954e87, type: 3}
-  - Key: sorryToJonas
-    Dialogue: "That's really not deserved after how I treated him, so I'm grateful
-      everything is alright now. Thanks for your help!\r"
-    Clip: {fileID: 8300000, guid: d0b19f42e2a473440a1c943f3510f1aa, type: 3}
+  - Key: sorryToTerry
+    Dialogue: "Jonas heard about my lullaby, and now he wants to help me escape?
+      That is great news! thank you so much for setting things right.\r"
+    Clip: {fileID: 8300000, guid: 55cb5d4f6496387418194e499b501292, type: 3}
   - Key: helloToTerry
     Dialogue: Sorry, I'm listening to the best part of the song right now. Go talk
       to Jonas if you need help with something.
@@ -14617,7 +14637,7 @@ MonoBehaviour:
     Dialogue: Jonas wants me to tell the person in the nearest cell to be quiet.
     Clip: {fileID: 8300000, guid: e789ce3de9650f54ca67b94c1160a3ac, type: 3}
   - Key: quietToTerryNotebook
-    Dialogue: Terry wants me to tell Jonas to be quited, then ask Hannah why he whistles.
+    Dialogue: Terry wants me to tell Jonas to be quiet, then ask Hannah why he whistles.
     Clip: {fileID: 8300000, guid: b8db7bf556368c44e987510856fa5848, type: 3}
   - Key: quietToJonasNotebook
     Dialogue: Jonas wants me to ask Richard about Terry's radio.
@@ -14682,6 +14702,9 @@ MonoBehaviour:
   - Key: carpetToHannahNotebook
     Dialogue: "Hannah asked me if I came to make fun of her carpeted bathroom.\r"
     Clip: {fileID: 8300000, guid: dfed35df29b38ea4d894f7bd21068b78, type: 3}
+  - Key: quietToTerry2Notebook
+    Dialogue: "Terry wants me to ask Hannah about Jonas's whistling.\r"
+    Clip: {fileID: 8300000, guid: 02c4e8f542da74640ae8c1f4b41eeae4, type: 3}
 --- !u!43 &859281254
 Mesh:
   m_ObjectHideFlags: 0
@@ -26049,24 +26072,12 @@ MonoBehaviour:
     - hannah
     MultiplePhrases: 1
     Enabled: 1
-    Hidden: 1
+    Hidden: 0
     ResponseKey: helloToHannah
     EventsHidden: 0
     Event:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1743749414}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: helloToHannahNotebook
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - UseSelector: 0
     Selector: {fileID: 0}
     Phrase:
@@ -26075,15 +26086,15 @@ MonoBehaviour:
     - floor
     MultiplePhrases: 1
     Enabled: 0
-    Hidden: 1
+    Hidden: 0
     ResponseKey: carpetToHannah
     EventsHidden: 0
     Event:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1743749414}
-          m_TargetAssemblyTypeName: NPCListenerScript, Assembly-CSharp
-          m_MethodName: AddNotebookEntry
+        - m_Target: {fileID: 1743749415}
+          m_TargetAssemblyTypeName: NotebookEventRegistryScript, Assembly-CSharp
+          m_MethodName: ApplyEntry
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26232,7 +26243,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -26244,7 +26255,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -26264,8 +26275,9 @@ MonoBehaviour:
   - UseSelector: 0
     Selector: {fileID: 0}
     Phrase:
-    - why does jonas whistle?
+    - whistling
     - whistle
+    - jonas
     MultiplePhrases: 1
     Enabled: 1
     Hidden: 0
@@ -26314,30 +26326,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entries:
-  - Key: helloToHannahNotebook
-    DialogueKey: helloToHannahNotebook
-    Priority: 0
-    QuestLine: 3
   - Key: carpetToHannahNotebook
     DialogueKey: carpetToHannahNotebook
     Priority: 0
-    QuestLine: 3
+    QuestLine: 2
   - Key: yesToHannahNotebook
     DialogueKey: yesToHannahNotebook
     Priority: 0
-    QuestLine: 3
+    QuestLine: 2
   - Key: noToHannahNotebook
     DialogueKey: noToHannahNotebook
     Priority: 0
-    QuestLine: 3
+    QuestLine: 2
   - Key: questCompleteNotebook
     DialogueKey: questCompleteNotebook
     Priority: 0
     QuestLine: 6
   - Key: whistleToHannahNotebook
     DialogueKey: whistleToHannahNotebook
-    Priority: 0
-    QuestLine: 3
+    Priority: 1
+    QuestLine: 4
 --- !u!43 &1785738774
 Mesh:
   m_ObjectHideFlags: 0

@@ -127,14 +127,14 @@ public class NotebookScript : MonoBehaviour {
 		if (!mainInstance)
 			return;
 
-		mainInstance.PlayEntry(mainInstance.entries.Count - 1);
+		mainInstance.PlayEntry(mainInstance.currentIndex);
 	}
 
 	public static void PlayLatestAsPopup() {
 		if (!mainInstance)
 			return;
 
-		var entry = mainInstance.entries[mainInstance.entries.Count - 1];
+		var entry = mainInstance.entries[mainInstance.currentIndex];
 
 		if (entry.Clip == null) {
 			Debug.LogWarningFormat("Sound clip for \"{0}\" has not been assigned", entry.Text);
@@ -227,7 +227,7 @@ public class NotebookScript : MonoBehaviour {
 		while (mainInstance.entries.Count <= questLine) {
 			mainInstance.entries.Add(new NotebookEntry(dialogueEntry.Dialogue, dialogueEntry.Clip, enabled: false));
 		}
-		if (mainInstance.entries[mainInstance.currentIndex].CurrentPriority > priority) {
+		if (mainInstance.entries[questLine].CurrentPriority > priority) {
 			Debug.LogFormat("Discarded new notebook entry with lower priority: {0}", dialogueKey);
 
 			// NOTE: this line decides if the notebook still changes current questline when revisiting old dialogue

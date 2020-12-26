@@ -32,11 +32,11 @@ public class DialogueConditionalSelector : MonoBehaviour {
 	}
 
 	public void Set(int amount) {
-		value += amount;
+		value = amount;
 	}
 
 	public void Add(int amount) {
-		value = amount;
+		value += amount;
 	}
 
 	public string GetPhrase() {
