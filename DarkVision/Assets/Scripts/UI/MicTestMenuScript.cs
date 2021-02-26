@@ -50,6 +50,14 @@ public class MicTestMenuScript : MonoBehaviour {
 
 		recognizer = new GrammarRecognizer(path, confidence);
 		recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
+		PhraseRecognitionSystem.OnError += (e) => {
+			string errorString = "Speech error: " + e.ToString();
+			Debug.LogError(errorString);
+			text.SetText(errorString);
+		};
+		PhraseRecognitionSystem.OnStatusChanged += (s) => {
+			Debug.Log("Speech status change: " + s.ToString());
+		};
 		recognizer.Start();
 		Debug.Log("Is speech to text running?: " + recognizer.IsRunning);
 		// }
@@ -150,7 +158,7 @@ public class MicTestMenuScript : MonoBehaviour {
 		}
 	}
 
-	public void Quit(){
+	public void Quit() {
 		Application.Quit();
 	}
 
